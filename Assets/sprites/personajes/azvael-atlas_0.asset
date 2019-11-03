@@ -1,0 +1,250 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10c0be6d28fe4d539c4a39822fe301c, type: 3}
+  m_Name: azvael-atlas_0
+  m_EditorClassIdentifier: 
+  m_ApiVersion: 4
+  m_Sprite: {fileID: -6607989442771766880, guid: 672b4d954f4ea6d4fbaa1c161c0bab02,
+    type: 3}
+  m_SharedMesh: {fileID: 1941699281680922285}
+  m_SharedMaterials: []
+--- !u!43 &1941699281680922285
+Mesh:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: azvael-atlas_0
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 42
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 16
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.54, y: 1.69, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 020001000000010003000000030004000000040005000000050006000000000006000a00080007000600070009000600060009000a00080006000f000a0009000b0009000c000b000b000c000d000e000d000c00
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 16
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 1
+      offset: 0
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 2
+      offset: 0
+      format: 0
+      dimension: 4
+    - stream: 2
+      offset: 16
+      format: 10
+      dimension: 4
+    m_DataSize: 1280
+    _typelessdata: 14ae073f1f858bbf000000000000000000000000000080bf0000803f7b16143400000000000080bf713d0a3ff628bcbf000000000000000000000000000080bf0000803ff2d82ab700000000000080bf713d0a3f3d0a97bf000000000000000000000000000080bf0000803f374fbcb600000000000080bf14ae073f52b8bebf000000000000000000000000000080bf0000803f8dde18b500000000000080bf8fc2f53e52b8bebf000000000000000000000000000080bf0000803fab47dc3500000000000080bfae47e13e9a99b9bf000000000000000000000000000080bf0000803f52e1313600000000000080bfcdcccc3e7b14aebf000000000000000000000000000080bf0000803f7fda723400000000000080bf14aec73e14aec7bf000000000000000000000000000080bf0000803f939e0f3600000000000080bfcdcccc3e0000c0bf000000000000000000000000000080bf0000803fd5aa2db700000000000080bf0ad7a33eec51d8bf000000000000000000000000000080bf0000803fcfe12f3200000000000080bfcdcc4c3e3d0a573f000000000000000000000000000080bf0000803f4466bbb400000000000080bf0ad7a3bcec51d83f000000000000000000000000000080bf0000803ffd0d11b200000000000080bfcdcc4cbeec51d8bf000000000000000000000000000080bf0000803ff096943300000000000080bf713d0abfec51d83f000000000000000000000000000080bf0000803ffec6233200000000000080bf713d0abfc3f5c8bf000000000000000000000000000080bf0000803f0852783400000000000080bf85ebd13e3d0ab7bf000000000000000000000000000080bf0000803f0c00c83600000000000080bfa01a2f3ec71ef93ec520303ee499dd3ec520303e419af23ea01a2f3e1b27dc3ee8fb293e1b27dc3e54e3253ead0cdf3ec1ca213e3391e53e9cc4203e5d15d73ec1ca213eb76ddb3e9a99193e45abcd3ee04f0d3eb371423f6991ed3dda38613f3ab4c83d45abcd3e6e12833dda38613f6e12833df95bd63ee6d0223e757fe03e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.54, y: 1.69, z: 0}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    offset: 0
+    size: 0
+    path: 
+--- !u!114 &2186237320867275391
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e715ea371f114f4a8d2584ad476634d, type: 3}
+  m_Name: azvael-atlas_0_Data
+  m_EditorClassIdentifier: 
+  m_PivotPoint: {x: 118, y: 453}
+  m_Vertices:
+  - {x: 171, y: 344}
+  - {x: 172, y: 306}
+  - {x: 172, y: 335}
+  - {x: 171, y: 304}
+  - {x: 166, y: 304}
+  - {x: 162, y: 308}
+  - {x: 158, y: 317}
+  - {x: 157, y: 297}
+  - {x: 158, y: 303}
+  - {x: 150, y: 284}
+  - {x: 138, y: 537}
+  - {x: 116, y: 622}
+  - {x: 98, y: 284}
+  - {x: 63.999996, y: 622}
+  - {x: 63.999996, y: 296}
+  - {x: 159, y: 310}
+  m_BoneWeights: []
+  m_Edges:
+  - index1: 5
+    index2: 6
+  - index1: 6
+    index2: 15
+  - index1: 8
+    index2: 15
+  - index1: 14
+    index2: 13
+  - index1: 11
+    index2: 13
+  - index1: 14
+    index2: 12
+  - index1: 10
+    index2: 11
+  - index1: 9
+    index2: 12
+  - index1: 0
+    index2: 10
+  - index1: 4
+    index2: 5
+  - index1: 2
+    index2: 0
+  - index1: 7
+    index2: 9
+  - index1: 8
+    index2: 7
+  - index1: 3
+    index2: 4
+  - index1: 1
+    index2: 3
+  - index1: 2
+    index2: 1
+  m_Holes: []
+  m_Indices: 08000000060000000f0000000e0000000d0000000c0000000b0000000c0000000d000000090000000c0000000b0000000a000000090000000b00000006000000090000000a00000000000000060000000a000000070000000900000006000000080000000700000006000000050000000600000000000000040000000500000000000000030000000400000000000000010000000300000000000000020000000100000000000000
+  m_BindPoses: []
+  m_Blendshapes: []

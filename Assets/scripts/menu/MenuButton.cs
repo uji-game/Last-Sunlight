@@ -9,6 +9,8 @@ public class MenuButton : MonoBehaviour
 	[SerializeField] AnimatorFunctions animatorFunctions;
 	[SerializeField] int thisIndex;
 
+    [SerializeField] GameManager manager;
+
     // Update is called once per frame
     void Update()
     {
@@ -20,7 +22,21 @@ public class MenuButton : MonoBehaviour
 			}else if (animator.GetBool ("pressed")){
 				animator.SetBool ("pressed", false);
 				animatorFunctions.disableOnce = true;
-			}
+                switch (menuButtonController.index)
+                {
+                    case 0: //New game
+                        manager.CambiarEscena();
+                        break;
+
+                    case 1: //Options
+                        manager.CambiarEscena();
+                        break;
+
+                    case 2://Quit
+                        manager.Salir();
+                        break;
+                }
+            }
 		}else{
 			animator.SetBool ("selected", false);
 		}

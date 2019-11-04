@@ -131,12 +131,12 @@ TextureImporter:
       name: azvael-atlas_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 284
-        width: 108
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 58.499996
+        y: 277
+        width: 122
+        height: 352
+      alignment: 9
+      pivot: {x: 0.48770493, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,12 +152,12 @@ TextureImporter:
       name: azvael-atlas_1
       rect:
         serializedVersion: 2
-        x: 380
-        y: 495
-        width: 101
-        height: 165
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 372.90924
+        y: 488
+        width: 115
+        height: 179
+      alignment: 9
+      pivot: {x: 0.50078917, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +173,12 @@ TextureImporter:
       name: azvael-atlas_2
       rect:
         serializedVersion: 2
-        x: 891
-        y: 303
-        width: 81
-        height: 401
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 885
+        y: 296
+        width: 94
+        height: 411
+      alignment: 9
+      pivot: {x: 0.49468082, y: 0.5048662}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: azvael-atlas_3
       rect:
         serializedVersion: 2
-        x: 221
-        y: 11
-        width: 126
-        height: 329
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 216.60706
+        y: 5.499939
+        width: 138
+        height: 343
+      alignment: 9
+      pivot: {x: 0.48835468, y: 0.49562702}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: azvael-atlas_4
       rect:
         serializedVersion: 2
-        x: 484
-        y: 81
-        width: 181
-        height: 332
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 477
+        y: 74
+        width: 195
+        height: 346
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: azvael-atlas_5
       rect:
         serializedVersion: 2
-        x: 736
-        y: 11
-        width: 135
-        height: 316
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 729
+        y: 4
+        width: 149
+        height: 330
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49999997}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -266,6 +266,6 @@ TextureImporter:
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
-  userData: 
+  userData: 637084535467484605
   assetBundleName: 
   assetBundleVariant: 

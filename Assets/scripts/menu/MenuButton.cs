@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuButton : MonoBehaviour
 {
@@ -8,8 +9,9 @@ public class MenuButton : MonoBehaviour
 	[SerializeField] Animator animator;
 	[SerializeField] AnimatorFunctions animatorFunctions;
 	[SerializeField] int thisIndex;
+    [SerializeField] string Scena;
 
-    [SerializeField] GameManager manager;
+    //[SerializeField] GameManager manager;
 
     // Update is called once per frame
     void Update()
@@ -25,15 +27,15 @@ public class MenuButton : MonoBehaviour
                 switch (menuButtonController.index)
                 {
                     case 0: //New game
-                        manager.CambiarEscena();
+                        SceneManager.LoadScene("level_1");
                         break;
 
                     case 1: //Options
-                        manager.CambiarEscena();
+                        SceneManager.LoadScene("controles");
                         break;
 
                     case 2://Quit
-                        manager.Salir();
+                        Application.Quit();
                         break;
                 }
             }

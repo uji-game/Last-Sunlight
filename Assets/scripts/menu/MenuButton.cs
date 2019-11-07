@@ -18,16 +18,28 @@ public class MenuButton : MonoBehaviour
     {
 		if(menuButtonController.index == thisIndex)
 		{
-			animator.SetBool ("selected", true);
+
+            animator.SetBool ("selected", true);
 			if(Input.GetAxis ("Submit") == 1){
 				animator.SetBool ("pressed", true);
 			}else if (animator.GetBool ("pressed")){
 				animator.SetBool ("pressed", false);
 				animatorFunctions.disableOnce = true;
+                Scene pantalla = SceneManager.GetActiveScene();
+                string cargar = "controles";
+                if (pantalla.name == "SampleScene")
+                {
+                    cargar = "level_1";
+                }
+                else if (pantalla.name == "controles")
+                {
+                    cargar = "SampleScene";
+                }
+
                 switch (menuButtonController.index)
                 {
                     case 0: //New game
-                        SceneManager.LoadScene("level_1");
+                        SceneManager.LoadScene(cargar);
                         break;
 
                     case 1: //Options

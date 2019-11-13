@@ -1,8 +1,7 @@
-Test text
+Test
 Another One
 And Another One
 This is the last text test
 
-Muestra este texto
 
 And even more lines

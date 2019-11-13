@@ -31,7 +31,9 @@ public class movController : MonoBehaviour
     public Animator anim;
     private bool moving, agachado, climbing, volando;
     private bool platJump = true;
+    private bool recojido = false;
 
+    public bool canMove;
 
 // Start is called before the first frame update
     void Start()
@@ -47,12 +49,21 @@ public class movController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canMove)
+        {
+            return;
+        }
         if(onGround()) platJump = true; 
         Move();
         if (activateTimer) cooldown();
         animScript();
         //Debug.Log(platJump);
     }
+    public void recogerObj(bool valor)
+    {
+        recojido = valor;
+    }
+
 
     void Move() {
         if (Input.GetKey(KeyCode.S) && climbing == false)
@@ -125,6 +136,7 @@ public class movController : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
+
 
     private void OnTriggerStay2D(Collider2D trep)
     {
@@ -255,7 +267,8 @@ public class movController : MonoBehaviour
         anim.SetBool("Moving", moving);
         anim.SetBool("Grounded", onGround());
         anim.SetBool("Agachado", agachado); 
-        anim.SetBool("Climbing", climbing); 
+        anim.SetBool("Climbing", climbing);
+        anim.SetBool("Recojido", recojido);
 
 
     }

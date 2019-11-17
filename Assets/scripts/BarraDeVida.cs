@@ -7,21 +7,15 @@ public class BarraDeVida : MonoBehaviour
 {
     // Start is called before the first frame update
     public Scrollbar barraDeVida;
-    public GameObject bVida;
 
-    public float vida, vidaMax, tiempoEsperaParaRegeneracion,vidaRecuperadaPorDecima, despVida;
+    public float vida, vidaMax, tiempoEsperaParaRegeneracion,vidaRecuperadaPorDecima;
     float tiempoParaRegeneracion, tiempoaux = 0;
     float vidaRecuperable;
     bool dañado = false;
-
-
     void Start()
     {
         vida = vidaMax;
         vidaRecuperable = vidaMax;
-        //despVida = 0.133f;
-
-        //bVida = GetComponentInChildren<GameObject>();
     }
 
     public void recibirDaño(float daño)
@@ -29,8 +23,6 @@ public class BarraDeVida : MonoBehaviour
         dañado = true;
         vida = Mathf.Clamp(vida - daño, 0f, vidaRecuperable);
         barraDeVida.size = vida/vidaMax;
-        //bVida.transform.position += new Vector3 (despVida, 0f, 0f);
-        
 
         if (vida <= vidaMax / 2)
             vidaRecuperable = vidaMax / 2;

@@ -35,11 +35,7 @@ public class TextBoxManager : MonoBehaviour
         {
             endAtLine = textLines.Length - 1;
         }
-        if (isActive)
-        {
-            EnableTextBox();
-        }
-        else
+        if (!isActive)
         {
             DisableTextBox();
         }
@@ -55,11 +51,25 @@ public class TextBoxManager : MonoBehaviour
 
         theText.text = textLines[currentLine];
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            currentLine++;
+            DisableTextBox();
+        }
+        if (currentLine > endAtLine)
         {
             DisableTextBox();
         }
-        
+
+        if (isActive)
+        {
+            EnableTextBox();
+        }
+        else
+        {
+            DisableTextBox();
+        }
+
     }
     public void EnableTextBox()
     {
@@ -74,9 +84,9 @@ public class TextBoxManager : MonoBehaviour
 
     public void DisableTextBox()
     {
-        isActive = false;
-
         textBox.SetActive(false);
+
+        isActive = false;
 
         player.canMove = true;
     }

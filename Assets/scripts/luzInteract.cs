@@ -22,7 +22,7 @@ public class luzInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(script.vida);
+        //Debug.Log(script.vida);
         anim.SetBool("Muerte", morision);
     }
 

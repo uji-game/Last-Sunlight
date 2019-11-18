@@ -309,20 +309,18 @@ public class movController : MonoBehaviour
 
         if ((sadajCenterX > p.collider.transform.position.x))//&& p.collider.CompareTag("empujable")
         {
-            Debug.Log("derecha"); 
-            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.F)) { pull = true; push = false; Debug.Log("Tiro desde la derecha"); }
+            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.F)) { pull = true; push = false;  }
 
-            else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.F)) { pull = false; push = true; Debug.Log("Empujo desde la derecha"); }
+            else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.F)) { pull = false; push = true;  }
 
             else { pull = false; push = false; }
 
         }
         else if ((sadajCenterX < p.collider.transform.position.x))// && p.collider.CompareTag("empujable")
         {
-            Debug.Log("izquierda");
-            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.F)) { pull = false; push = true; Debug.Log("Empujo desde la izquierda"); }
+            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.F)) { pull = false; push = true;  }
 
-            else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.F)) { pull = true; push = false; Debug.Log("Tiro desde la izquierda"); }
+            else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.F)) { pull = true; push = false;  }
 
             else { pull = false; push = false; }
 

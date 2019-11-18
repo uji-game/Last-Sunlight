@@ -9,6 +9,7 @@ TagManager:
   - wall
   - luz
   - fueraMapa
+  - pickeable
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,7 @@ public class movController : MonoBehaviour
     public float jumpVel = 5f;
     public float cSpeed = 3f;
     [SerializeField] private LayerMask platformsLayerMask;
-   // private GameObject xd;
+    private BarraDeVida script;
 
     public float desp = 0.3f;
 
@@ -32,8 +32,6 @@ public class movController : MonoBehaviour
     private bool moving, agachado, climbing, topClimb, empujaIdle, empujaMov, push, pull ;
     private bool platJump = true;
 
-    public bool canMove;
-
     
 // Start is called before the first frame update
     void Start()
@@ -50,10 +48,6 @@ public class movController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!canMove)
-        {
-            return;
-        }
         if (onGround()) { platJump = true; topClimb = false; }
         Move();
         if (activateTimer) cooldown();
@@ -220,35 +214,43 @@ public class movController : MonoBehaviour
     }
 
     //Empujar/tirar
-   /* private void OnCollisionStay2D(Collision2D obj)
+    /* private void OnCollisionStay2D(Collision2D obj)
+     {
+         if (obj.collider.CompareTag("empujable") && Input.GetKey(KeyCode.F))//
+         {
+
+             empujaIdle = true;
+             chooseSide(obj);
+
+             if (Input.GetKey(KeyCode.D))
+             {
+                 obj.rigidbody.velocity = new Vector2(speed / 2, obj.rigidbody.velocity.y);
+
+             }
+             else if (Input.GetKey(KeyCode.A))
+             {
+                 obj.rigidbody.velocity = new Vector2(-speed / 2, obj.rigidbody.velocity.y);
+             }
+             else
+             {
+                 obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);
+             }
+
+         }
+         else 
+         {
+             empujaIdle = false ; obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);
+         }
+     }*/
+    private void OnCollisionEnter2D(Collision2D outMap)
     {
-        if (obj.collider.CompareTag("empujable") && Input.GetKey(KeyCode.F))//
+
+        if (outMap.collider.CompareTag("fueraMapa"))
         {
-            
-            empujaIdle = true;
-            chooseSide(obj);
-
-            if (Input.GetKey(KeyCode.D))
-            {
-                obj.rigidbody.velocity = new Vector2(speed / 2, obj.rigidbody.velocity.y);
-
-            }
-            else if (Input.GetKey(KeyCode.A))
-            {
-                obj.rigidbody.velocity = new Vector2(-speed / 2, obj.rigidbody.velocity.y);
-            }
-            else
-            {
-                obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);
-            }
-
+            //Debug.Log("Me muerooo");
+            script.setHP(10f);
         }
-        else 
-        {
-            empujaIdle = false ; obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);
-        }
-    }*/
-
+    }
     private void OnCollisionStay2D(Collision2D obj)
             {
                 if (obj.collider.CompareTag("empujable") && Input.GetKey(KeyCode.F))//
@@ -284,8 +286,19 @@ public class movController : MonoBehaviour
                 }
     }
 
+    private void OnCollisionExit2D(Collision2D obj) {
+        if (obj.collider.CompareTag("empujable") )//
+        {
+            empujaMov = false;
+            obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);
+            float lx = obj.rigidbody.position.x;
+            obj.rigidbody.position = new Vector2(lx, obj.rigidbody.position.y);
+            empujaIdle = false;
+        }
+    }
+
  //Ver desde que lado se empuja/tira
- void chooseSide(Collision2D p) {
+    void chooseSide(Collision2D p) {
 
         float sadajHigh = boxCollider2d.size.y / 2;
         float sadajCenterY = boxCollider2d.transform.position.y;
@@ -405,7 +418,9 @@ public class movController : MonoBehaviour
 
     }
 
-    void animScript() {
+    
+
+    void animScript() { 
         //math.abs return a '+¡ number
         //anim.SetFloat("Speed", Mathf.Abs(mH)/*Mathf.Abs(rb2d.velocity.x)*/); 
         anim.SetBool("Moving", moving);

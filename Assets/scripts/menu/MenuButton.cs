@@ -27,13 +27,13 @@ public class MenuButton : MonoBehaviour
 				animatorFunctions.disableOnce = true;
                 Scene pantalla = SceneManager.GetActiveScene();
                 string cargar = "controles";
-                if (pantalla.name == "SampleScene")
+                if (pantalla.name == "MenuIncio")
                 {
                     cargar = "level_1";
                 }
                 else if (pantalla.name == "controles")
                 {
-                    cargar = "SampleScene";
+                    cargar = "MenuIncio";
                 }
 
                 switch (menuButtonController.index)

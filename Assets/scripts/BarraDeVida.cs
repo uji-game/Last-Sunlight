@@ -33,7 +33,7 @@ public class BarraDeVida : MonoBehaviour
         vida = Mathf.Clamp(vida + vidacurada, 0f, vidaRecuperable);
         barraDeVida.size = vida / vidaMax;
     }
-
+    public void setHP(float v) { vida = v; }
     void Update()
     {
         if (dañado)

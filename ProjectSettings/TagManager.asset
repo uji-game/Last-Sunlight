@@ -6,6 +6,9 @@ TagManager:
   tags:
   - trepable
   - empujable
+  - wall
+  - luz
+  - fueraMapa
   layers:
   - Default
   - TransparentFX

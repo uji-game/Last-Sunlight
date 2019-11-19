@@ -8,6 +8,9 @@ public class BarraDeVida : MonoBehaviour
     // Start is called before the first frame update
     public Scrollbar barraDeVida;
 
+    public bool dead;
+
+
     public float vida, vidaMax, tiempoEsperaParaRegeneracion,vidaRecuperadaPorDecima;
     float tiempoParaRegeneracion, tiempoaux = 0;
     float vidaRecuperable;
@@ -16,6 +19,7 @@ public class BarraDeVida : MonoBehaviour
     {
         vida = vidaMax;
         vidaRecuperable = vidaMax;
+        dead = false;
     }
 
     public void recibirDaño(float daño)
@@ -30,31 +34,57 @@ public class BarraDeVida : MonoBehaviour
 
     public void curarVida(float vidacurada)
     {
-        vida = Mathf.Clamp(vida + vidacurada, 0f, vidaRecuperable);
-        barraDeVida.size = vida / vidaMax;
+        if (!dead) { 
+            vida = Mathf.Clamp(vida + vidacurada, 0f, vidaRecuperable);
+            barraDeVida.size = vida / vidaMax;
+        }
     }
     public void setHP(float v) { vida = v; }
     void Update()
     {
-        if (dañado)
+        //if (vida == 0f) {  dead = true; }
+        if (!dead)
         {
-            tiempoParaRegeneracion = tiempoEsperaParaRegeneracion;
-            dañado = false;
-        }
-        else
-        {
-            tiempoParaRegeneracion = Mathf.Clamp(tiempoParaRegeneracion - Time.deltaTime, 0f, tiempoEsperaParaRegeneracion);
-
-            if (tiempoParaRegeneracion <= 0)
+            if (dañado)
             {
-                tiempoaux += Time.deltaTime;
-                if (tiempoaux >= 0.01f)
+                tiempoParaRegeneracion = tiempoEsperaParaRegeneracion;
+                dañado = false;
+            }
+            else
+            {
+                tiempoParaRegeneracion = Mathf.Clamp(tiempoParaRegeneracion - Time.deltaTime, 0f, tiempoEsperaParaRegeneracion);
+
+                if (tiempoParaRegeneracion <= 0)
                 {
-                    curarVida(vidaRecuperadaPorDecima);
-                    tiempoaux = 0;
+                    tiempoaux += Time.deltaTime;
+                    if (tiempoaux >= 0.01f)
+                    {
+                        curarVida(vidaRecuperadaPorDecima);
+                        tiempoaux = 0;
+                    }
+
                 }
-                
             }
         }
+        else {  Debug.Log("Muerto wey"); }
+        
+       
     }
+
+    void outWorld() 
+    { 
+        
+        //if(gameObject.CompareTag("Player"))
+    
+    }
+
+    /*private void OnCollisionEnter2D(Collision2D outMap)
+    {
+
+        if (outMap.collider.CompareTag("fueraMapa"))
+        {
+            Debug.Log("Me muerooo");
+            //script.setHP(0f);
+        }
+    }*/
 }

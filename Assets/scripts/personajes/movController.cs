@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class movController : MonoBehaviour
 {//jump tutorial
@@ -9,6 +10,7 @@ public class movController : MonoBehaviour
     [SerializeField] private LayerMask platformsLayerMask;
     private BarraDeVida script;
 
+    
     public float desp = 0.3f;
 
     public bool control = true;
@@ -24,24 +26,29 @@ public class movController : MonoBehaviour
 
     private BoxCollider2D boxCollider2d;
 
-    public float tLeft = 0.25f;
+    public float tLeft =5f;
     public bool activateTimer = false;
 
     //Anim controller
     public Animator anim;
     private bool moving, agachado, climbing, topClimb, empujaIdle, empujaMov, push, pull ;
     private bool platJump = true;
+    string cargar;
 
-    
 // Start is called before the first frame update
     void Start()
     {
-        
+        Scene pantalla = SceneManager.GetActiveScene();
+        cargar = pantalla.name;
+
         obj = GetComponent<Transform>();
         rb2d = transform.GetComponent<Rigidbody2D>();
         boxCollider2d = transform.GetComponent<BoxCollider2D>();
 
         anim = GetComponent<Animator>();
+
+        script = FindObjectOfType<BarraDeVida>();
+        
         
     }
 
@@ -208,7 +215,7 @@ public class movController : MonoBehaviour
 
             rb2d.velocity = Vector2.up * jumpVel;
             platJump = false;
-            activateTimer = true;
+            //activateTimer = true;
             control = false;
         }
     }
@@ -247,8 +254,14 @@ public class movController : MonoBehaviour
 
         if (outMap.collider.CompareTag("fueraMapa"))
         {
-            //Debug.Log("Me muerooo");
-            script.setHP(10f);
+            script.dead = true;
+            script.setHP(0f);
+            script.recibirDaño(0f);
+
+            
+            activateTimer = true;
+            
+
         }
     }
     private void OnCollisionStay2D(Collision2D obj)
@@ -411,7 +424,7 @@ public class movController : MonoBehaviour
         
         tLeft -= Time.deltaTime;
         if (tLeft <= 0) {
-            activateTimer = false; tLeft = 0.5f; control = true;
+            activateTimer = false; tLeft =5f; SceneManager.LoadScene(cargar); ;
         }
 
     }
@@ -431,6 +444,8 @@ public class movController : MonoBehaviour
 
         anim.SetBool("Push", push); 
         anim.SetBool("Pull", pull); 
+
+        anim.SetBool("Muerte", script.dead); 
 
 
     }

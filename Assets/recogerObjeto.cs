@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class recogerObjeto : MonoBehaviour
 {
+    private GameObject obj;
     public Text myText;
     private Rigidbody2D sadRB;
     private string r;
@@ -13,22 +14,30 @@ public class recogerObjeto : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myText = GetComponent<Text>();
+       // player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
 
-       myText.Text = r;
+       
     }
 
-    private void OnTriggerEnter2D(Collider2D pj)
+    private void OnTriggerStay2D(Collider2D pickea)
     {
-        if (pj.tag == "pickeable") {
-            Debug.Log("holap");
-            r = "Pulsa F para recoger";
+        if (pickea.tag == "pickeable") {
+            //Debug.Log("holap");
+            myText.text = "Pulsa F para recoger el objeto";
+            if (Input.GetKey(KeyCode.F)) {  pickea.attachedRigidbody.gameObject.SetActive(false) ; }
+        }
+       
+    }
+    private void OnTriggerExit2D(Collider2D pj)
+    {
+        if (pj.tag == "pickeable")
+        {
+            myText.text = "";
         }
     }
-
 }

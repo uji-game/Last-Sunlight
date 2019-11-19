@@ -464,7 +464,7 @@ public class movController : MonoBehaviour
             activateTimer = false; 
             tLeft =3f; 
             control = true;
-            //(scBarraVida.dead)SceneManager.LoadScene("level_1");
+            //if(scBarraVida.dead)SceneManager.LoadScene("level_1");
             
         }
 

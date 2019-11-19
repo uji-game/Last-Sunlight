@@ -91,30 +91,30 @@ public class movController : MonoBehaviour
 
             if (Input.GetKey(KeyCode.A) && climbing==false && topClimb==false)
             {
-                if (empujaIdle) {
+                /*if (empujaIdle) {
                     empujaMov = true;
                     rb2d.velocity = new Vector2(-speed / 2.45f, rb2d.velocity.y);
                 }
-                else { 
-                    empujaMov = false; 
+                else {*/
+                    //empujaMov = false; 
                     rb2d.velocity = new Vector2(-speed, rb2d.velocity.y);
                     moving = true;
-                }
+                //}
                 
             }
             else if (Input.GetKey(KeyCode.D) && climbing == false && topClimb == false)
             {
-                if (empujaIdle)
+                /*if (empujaIdle)
                 {
                     empujaMov = true;
                     rb2d.velocity = new Vector2(speed/2.35f, rb2d.velocity.y);
                 }
                 else
-                {
-                    empujaMov = false;
+                {*/
+                    //empujaMov = false;
                     rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
                     moving = true;
-                }
+                //}
                 
             }
 
@@ -122,13 +122,13 @@ public class movController : MonoBehaviour
             {
                 rb2d.velocity = new Vector2(0, rb2d.velocity.y);
                 moving = false;
-                empujaMov = false;
+                //empujaMov = false;
             }
             Jump();
 
         }
 
-        if(!pull && !push) flip();
+        flip();//if(!pull && !push) 
 
     }
 
@@ -138,7 +138,7 @@ public class movController : MonoBehaviour
     }
 
     void Jump() {
-        if (onGround() &&  Input.GetKeyDown(KeyCode.Space) && platJump && !empujaIdle && !empujaMov)
+        if (onGround() &&  Input.GetKeyDown(KeyCode.Space) && platJump /*!empujaIdle && !empujaMov*/)
         {
             rb2d.velocity = Vector2.up * jumpVel;
             platJump = false;
@@ -159,18 +159,18 @@ public class movController : MonoBehaviour
         transform.localScale = Scaler;
     }
 
-    private void OnTriggerStay2D(Collider2D trep)
+    private void OnTriggerStay2D(Collider2D obj)
     {
         float sadajCenter = boxCollider2d.transform.position.y;
         float sadajHigh = boxCollider2d.size.y/2;
-        float platformTop =  + trep.bounds.size.y ;
-        float trepYMax = trep.transform.position.y + trep.bounds.size.y / 1.95f;
+        float platformTop =  + obj.bounds.size.y ;
+        float trepYMax = obj.transform.position.y + obj.bounds.size.y / 1.95f;
 
         float pies = sadajCenter - sadajHigh;
 
         //hay un bug al llegar arriba de la plataforma, siguiente sprint para solucionarlo
 
-        if (trep.CompareTag("trepable") && Input.GetKey(KeyCode.W) && control ) //&& !(sadajCenter > platformTop)
+        if (obj.CompareTag("trepable") && Input.GetKey(KeyCode.W) && control ) //&& !(sadajCenter > platformTop)
         {
             
             platJump = true;
@@ -186,7 +186,7 @@ public class movController : MonoBehaviour
             else if(sadajCenter >= trepYMax) {
                 rb2d.gravityScale = 0f;
                 rb2d.velocity = new Vector2(0f, 0f);
-                boxCollider2d.transform.position = new Vector2(trep.transform.position.x, platformTop / 1.6f + sadajHigh / 2);
+                boxCollider2d.transform.position = new Vector2(obj.transform.position.x, platformTop / 1.6f + sadajHigh / 2);
                 topClimb = true;
             }
             
@@ -218,37 +218,51 @@ public class movController : MonoBehaviour
             //activateTimer = true;
             control = false;
         }
+
+
+        //if (obj.CompareTag("empujable"))
     }
 
     //Empujar/tirar
-    /* private void OnCollisionStay2D(Collision2D obj)
-     {
-         if (obj.collider.CompareTag("empujable") && Input.GetKey(KeyCode.F))//
-         {
+    private void OnCollisionStay2D(Collision2D obj)
+    {
+        if (obj.collider.CompareTag("empujable"))
+        {
+            Debug.Log("F");
+            if (Input.GetKeyDown(KeyCode.F) && !empujaIdle)
+            {
+                empujaIdle = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.F) && empujaIdle)
+            {
+                empujaIdle = false;
+            }
 
-             empujaIdle = true;
-             chooseSide(obj);
+            //Empujar//
+            if (Input.GetKey(KeyCode.D) && empujaIdle)
+            {
+                empujaMov = true;
 
-             if (Input.GetKey(KeyCode.D))
-             {
-                 obj.rigidbody.velocity = new Vector2(speed / 2, obj.rigidbody.velocity.y);
+                obj.rigidbody.velocity = new Vector2(speed, obj.rigidbody.velocity.y);
+            }
+            else { empujaMov = false; obj.rigidbody.velocity = new Vector2(0, obj.rigidbody.velocity.y); }
+        }
+        else //Frenar objeto en X al separarte de el
+        { 
+            obj.rigidbody.velocity = new Vector2(0, obj.rigidbody.velocity.y);// obj.rigidbody.inertia = 0f;
+        }
 
-             }
-             else if (Input.GetKey(KeyCode.A))
-             {
-                 obj.rigidbody.velocity = new Vector2(-speed / 2, obj.rigidbody.velocity.y);
-             }
-             else
-             {
-                 obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);
-             }
+    }
 
-         }
-         else 
-         {
-             empujaIdle = false ; obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);
-         }
-     }*/
+   
+    private void OnTriggerExit2D(Collider2D obj) 
+    { 
+        if (obj.CompareTag("empujable")) empujaIdle = false; empujaMov = false; obj.attachedRigidbody.velocity = new Vector2(0, obj.rigidbody.velocity.y);//    obj.rigidbody.velocity = new Vector2(0, obj.rigidbody.velocity.y);
+    }
+
+
+
+    //Muerte fuera del mapa
     private void OnCollisionEnter2D(Collision2D outMap)
     {
 
@@ -257,14 +271,13 @@ public class movController : MonoBehaviour
             script.dead = true;
             script.setHP(0f);
             script.recibirDaño(0f);
-
-            
             activateTimer = true;
-            
-
         }
     }
-    private void OnCollisionStay2D(Collision2D obj)
+
+
+
+   /*private void OnCollisionStay2D(Collision2D obj)
             {
                 if (obj.collider.CompareTag("empujable") && Input.GetKey(KeyCode.F))//
                 {
@@ -308,8 +321,8 @@ public class movController : MonoBehaviour
             obj.rigidbody.position = new Vector2(lx, obj.rigidbody.position.y);
             empujaIdle = false;
         }
-    }
-
+    }*/
+    
  //Ver desde que lado se empuja/tira
     void chooseSide(Collision2D p) {
 
@@ -439,11 +452,11 @@ public class movController : MonoBehaviour
         anim.SetBool("Agachado", agachado); 
         anim.SetBool("Climbing", climbing); 
         anim.SetBool("topClimb", topClimb); 
+
         anim.SetBool("EmpujaIdle", empujaIdle); 
         anim.SetBool("EmpujaMov", empujaMov); 
-
-        anim.SetBool("Push", push); 
-        anim.SetBool("Pull", pull); 
+        //anim.SetBool("Push", push); 
+        //anim.SetBool("Pull", pull); 
 
         anim.SetBool("Muerte", script.dead); 
 

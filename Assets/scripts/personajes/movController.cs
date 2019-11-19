@@ -18,6 +18,7 @@ public class movController : MonoBehaviour
     private Rigidbody2D rb2d;
     private float mH, mV;
     public float speed = 7;
+    public float pushSpeed =4;
     
     private Transform obj;
     private bool facingRight = true;
@@ -91,30 +92,30 @@ public class movController : MonoBehaviour
 
             if (Input.GetKey(KeyCode.A) && climbing==false && topClimb==false)
             {
-                /*if (empujaIdle) {
-                    empujaMov = true;
-                    rb2d.velocity = new Vector2(-speed / 2.45f, rb2d.velocity.y);
+                if (empujaIdle) {
+                    //empujaMov = true;
+                    rb2d.velocity = new Vector2(-pushSpeed+0.35f, rb2d.velocity.y);
                 }
-                else {*/
+                else {
                     //empujaMov = false; 
                     rb2d.velocity = new Vector2(-speed, rb2d.velocity.y);
                     moving = true;
-                //}
+                }
                 
             }
             else if (Input.GetKey(KeyCode.D) && climbing == false && topClimb == false)
             {
-                /*if (empujaIdle)
+                if (empujaIdle)
                 {
-                    empujaMov = true;
-                    rb2d.velocity = new Vector2(speed/2.35f, rb2d.velocity.y);
+                    //empujaMov = true;
+                    rb2d.velocity = new Vector2(pushSpeed-0.35f, rb2d.velocity.y);
                 }
                 else
-                {*/
-                    //empujaMov = false;
+                {
+                //empujaMov = false;
                     rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
                     moving = true;
-                //}
+                }
                 
             }
 
@@ -128,7 +129,7 @@ public class movController : MonoBehaviour
 
         }
 
-        flip();//if(!pull && !push) 
+        if (!empujaIdle) flip();//Solo gira el sprite si no empuja ni tira
 
     }
 
@@ -227,7 +228,7 @@ public class movController : MonoBehaviour
     {
         if (obj.collider.CompareTag("empujable"))
         {
-            Debug.Log("F");
+            chooseSide(obj);    //Desde donde estas interactuando con el objeto
             if (Input.GetKeyDown(KeyCode.F) && !empujaIdle)
             {
                 empujaIdle = true;
@@ -242,14 +243,23 @@ public class movController : MonoBehaviour
             {
                 empujaMov = true;
 
-                obj.rigidbody.velocity = new Vector2(speed, obj.rigidbody.velocity.y);
-                push = true;
+                obj.rigidbody.velocity = new Vector2(pushSpeed, obj.rigidbody.velocity.y);
+                //push = true;
             }
-            else { empujaMov = false; obj.rigidbody.velocity = new Vector2(0, obj.rigidbody.velocity.y); push = false; }
+            //Tirar//
+            else if (Input.GetKey(KeyCode.A) && empujaIdle)
+            {
+                empujaMov = true;
+
+                obj.rigidbody.velocity = new Vector2(-pushSpeed, obj.rigidbody.velocity.y);
+                //push = true;
+            }
+            //Ninguna de las dos
+            else { obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y); empujaMov = false;  }
         }
         else //Frenar objeto en X al separarte de el
         { 
-            obj.rigidbody.velocity = new Vector2(0, obj.rigidbody.velocity.y);// obj.rigidbody.inertia = 0f;
+            obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);// obj.rigidbody.inertia = 0f;
         }
 
     }
@@ -262,6 +272,7 @@ public class movController : MonoBehaviour
             empujaIdle = false;
             empujaMov = false;
             push = false;
+            pull = false;
             obj.attachedRigidbody.velocity = new Vector2(0f, obj.attachedRigidbody.velocity.y);
         }
         if (obj.CompareTag("trepable"))
@@ -335,7 +346,7 @@ public class movController : MonoBehaviour
     }*/
     
  //Ver desde que lado se empuja/tira
-   /* void chooseSide(Collision2D p) {
+   void chooseSide(Collision2D p) {
 
         float sadajHigh = boxCollider2d.size.y / 2;
         float sadajCenterY = boxCollider2d.transform.position.y;
@@ -346,25 +357,25 @@ public class movController : MonoBehaviour
 
         if ((sadajCenterX > p.collider.transform.position.x))//&& p.collider.CompareTag("empujable")
         {
-            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.F)) { pull = true; push = false;  }
+            if (Input.GetKey(KeyCode.D)) { pull = true; push = false;  }
 
-            else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.F)) { pull = false; push = true;  }
+            else if (Input.GetKey(KeyCode.A)) { pull = false; push = true;  }
 
             else { pull = false; push = false; }
 
         }
         else if ((sadajCenterX < p.collider.transform.position.x))// && p.collider.CompareTag("empujable")
         {
-            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.F)) { pull = false; push = true;  }
+            if (Input.GetKey(KeyCode.D)) { pull = false; push = true;  }
 
-            else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.F)) { pull = true; push = false;  }
+            else if (Input.GetKey(KeyCode.A)) { pull = true; push = false;  }
 
             else { pull = false; push = false; }
 
         }
         else { pull = false; push = false;  }
     
-    }*/
+    }
 
 
 
@@ -470,7 +481,7 @@ public class movController : MonoBehaviour
         anim.SetBool("EmpujaIdle", empujaIdle); 
         anim.SetBool("EmpujaMov", empujaMov); 
         anim.SetBool("Push", push); 
-        //anim.SetBool("Pull", pull); 
+        anim.SetBool("Pull", pull); 
 
         anim.SetBool("Muerte", script.dead); 
 

@@ -8,7 +8,8 @@ public class movController : MonoBehaviour
     public float jumpVel = 5f;
     public float cSpeed = 3f;
     [SerializeField] private LayerMask platformsLayerMask;
-    private BarraDeVida script;
+    private BarraDeVida scBarraVida;
+    private PauseMenu scPause;
 
     
     public float desp = 0.3f;
@@ -34,13 +35,13 @@ public class movController : MonoBehaviour
     public Animator anim;
     private bool moving, agachado, climbing, topClimb, empujaIdle, empujaMov, push, pull ;
     private bool platJump = true;
-    string cargar;
+    //string cargar;
 
 // Start is called before the first frame update
     void Start()
     {
-        Scene pantalla = SceneManager.GetActiveScene();
-        cargar = pantalla.name;
+       /* Scene pantalla = SceneManager.GetActiveScene();
+        cargar = pantalla.name;*/
 
         obj = GetComponent<Transform>();
         rb2d = transform.GetComponent<Rigidbody2D>();
@@ -48,7 +49,8 @@ public class movController : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-        script = FindObjectOfType<BarraDeVida>();
+        scBarraVida = FindObjectOfType<BarraDeVida>();
+        scPause = FindObjectOfType<PauseMenu>();
         
         
     }
@@ -57,7 +59,7 @@ public class movController : MonoBehaviour
     void Update()
     {
         if (onGround()) { platJump = true; topClimb = false; }
-        Move();
+        if(!scBarraVida.dead && !scPause.gamePaused) Move();
         if (activateTimer) cooldown();
         animScript();
         //Debug.Log("yepa "+empujaIdle); 
@@ -289,10 +291,10 @@ public class movController : MonoBehaviour
 
         if (outMap.collider.CompareTag("fueraMapa"))
         {
-            script.dead = true;
+            scBarraVida.dead = true;
             tLeft = 3f;
-            script.setHP(0f);
-            script.recibirDaño(0f);
+            scBarraVida.setHP(0f);
+            scBarraVida.recibirDaño(0f);
             activateTimer = true;
         }
     }
@@ -456,13 +458,14 @@ public class movController : MonoBehaviour
     }
     */
     void cooldown() {
-        
+  
         tLeft -= Time.deltaTime;
         if (tLeft <= 0) {
             activateTimer = false; 
             tLeft =3f; 
             control = true;
-            if(script.dead)SceneManager.LoadScene(cargar); ;
+            //(scBarraVida.dead)SceneManager.LoadScene("level_1");
+            
         }
 
     }
@@ -483,7 +486,7 @@ public class movController : MonoBehaviour
         anim.SetBool("Push", push); 
         anim.SetBool("Pull", pull); 
 
-        anim.SetBool("Muerte", script.dead); 
+        anim.SetBool("Muerte", scBarraVida.dead); 
 
 
     }

@@ -167,9 +167,7 @@ public class movController : MonoBehaviour
         float trepYMax = obj.transform.position.y + obj.bounds.size.y / 1.95f;
 
         float pies = sadajCenter - sadajHigh;
-
-        //hay un bug al llegar arriba de la plataforma, siguiente sprint para solucionarlo
-
+        
         if (obj.CompareTag("trepable") && Input.GetKey(KeyCode.W) && control ) //&& !(sadajCenter > platformTop)
         {
             
@@ -192,8 +190,9 @@ public class movController : MonoBehaviour
             
             else
             {
+                climbing = false; 
                 topClimb = true;
-                climbing = false;
+                
                 rb2d.velocity = Vector2.up * 0;
                 rb2d.gravityScale = 0f;
             }
@@ -215,12 +214,12 @@ public class movController : MonoBehaviour
 
             rb2d.velocity = Vector2.up * jumpVel;
             platJump = false;
-            //activateTimer = true;
+            tLeft = 0.5f;
+            activateTimer = true;
             control = false;
         }
 
 
-        //if (obj.CompareTag("empujable"))
     }
 
     //Empujar/tirar
@@ -244,8 +243,9 @@ public class movController : MonoBehaviour
                 empujaMov = true;
 
                 obj.rigidbody.velocity = new Vector2(speed, obj.rigidbody.velocity.y);
+                push = true;
             }
-            else { empujaMov = false; obj.rigidbody.velocity = new Vector2(0, obj.rigidbody.velocity.y); }
+            else { empujaMov = false; obj.rigidbody.velocity = new Vector2(0, obj.rigidbody.velocity.y); push = false; }
         }
         else //Frenar objeto en X al separarte de el
         { 
@@ -254,12 +254,22 @@ public class movController : MonoBehaviour
 
     }
 
-   
-    private void OnTriggerExit2D(Collider2D obj) 
-    { 
-        if (obj.CompareTag("empujable")) empujaIdle = false; empujaMov = false; obj.attachedRigidbody.velocity = new Vector2(0, obj.rigidbody.velocity.y);//    obj.rigidbody.velocity = new Vector2(0, obj.rigidbody.velocity.y);
-    }
 
+    private void OnTriggerExit2D(Collider2D obj)
+    {
+        if (obj.CompareTag("empujable"))
+        {
+            empujaIdle = false;
+            empujaMov = false;
+            push = false;
+            obj.attachedRigidbody.velocity = new Vector2(0f, obj.attachedRigidbody.velocity.y);
+        }
+        if (obj.CompareTag("trepable"))
+        {
+            //climbing = false;
+            Debug.Log("Paz y Amor");
+        }
+    }
 
 
     //Muerte fuera del mapa
@@ -269,6 +279,7 @@ public class movController : MonoBehaviour
         if (outMap.collider.CompareTag("fueraMapa"))
         {
             script.dead = true;
+            tLeft = 3f;
             script.setHP(0f);
             script.recibirDaño(0f);
             activateTimer = true;
@@ -324,7 +335,7 @@ public class movController : MonoBehaviour
     }*/
     
  //Ver desde que lado se empuja/tira
-    void chooseSide(Collision2D p) {
+   /* void chooseSide(Collision2D p) {
 
         float sadajHigh = boxCollider2d.size.y / 2;
         float sadajCenterY = boxCollider2d.transform.position.y;
@@ -353,7 +364,7 @@ public class movController : MonoBehaviour
         }
         else { pull = false; push = false;  }
     
-    }
+    }*/
 
 
 
@@ -437,7 +448,10 @@ public class movController : MonoBehaviour
         
         tLeft -= Time.deltaTime;
         if (tLeft <= 0) {
-            activateTimer = false; tLeft =5f; SceneManager.LoadScene(cargar); ;
+            activateTimer = false; 
+            tLeft =3f; 
+            control = true;
+            if(script.dead)SceneManager.LoadScene(cargar); ;
         }
 
     }
@@ -455,7 +469,7 @@ public class movController : MonoBehaviour
 
         anim.SetBool("EmpujaIdle", empujaIdle); 
         anim.SetBool("EmpujaMov", empujaMov); 
-        //anim.SetBool("Push", push); 
+        anim.SetBool("Push", push); 
         //anim.SetBool("Pull", pull); 
 
         anim.SetBool("Muerte", script.dead); 

@@ -71,10 +71,17 @@ public class movController : MonoBehaviour
         //Debug.Log("yepa "+empujaIdle);
         
         //if(isMoving)
-        if (moving)
+        if (moving || push || pull)
         {
-            if (!audioWalk.isPlaying)
-                audioWalk.Play();
+            if (onGround() == true)
+            {
+                if (!audioWalk.isPlaying)
+                    audioWalk.Play();
+            }
+            if (onGround() == false)
+            {
+                audioWalk.Stop();
+            }
         }
         else
         {

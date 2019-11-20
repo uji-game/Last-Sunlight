@@ -11,7 +11,9 @@ public class movController : MonoBehaviour
     private BarraDeVida scBarraVida;
     private PauseMenu scPause;
 
-    
+    //serx
+    public bool trig;
+    //
     public float desp = 0.3f;
 
     public bool control = true;
@@ -40,9 +42,9 @@ public class movController : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
-       /* Scene pantalla = SceneManager.GetActiveScene();
-        cargar = pantalla.name;*/
-
+        /* Scene pantalla = SceneManager.GetActiveScene();
+         cargar = pantalla.name;*/
+        trig = true;
         obj = GetComponent<Transform>();
         rb2d = transform.GetComponent<Rigidbody2D>();
         boxCollider2d = transform.GetComponent<BoxCollider2D>();
@@ -141,12 +143,14 @@ public class movController : MonoBehaviour
     }
 
     void Jump() {
-        if (onGround() &&  Input.GetKeyDown(KeyCode.Space) && platJump /*!empujaIdle && !empujaMov*/)
+        if (onGround() && Input.GetKeyDown(KeyCode.Space) && platJump && !empujaIdle)
         {
-            rb2d.velocity = Vector2.up * jumpVel;
-            platJump = false;
+            if (!trig)
+            {
+                rb2d.velocity = Vector2.up * jumpVel;
+                platJump = false;
+            }
         }
-       
     }
     public bool onGround()
     {
@@ -164,6 +168,7 @@ public class movController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D obj)
     {
+        trig = true;
         float sadajCenter = boxCollider2d.transform.position.y;
         float sadajHigh = boxCollider2d.size.y/2;
         float platformTop =  + obj.bounds.size.y ;
@@ -208,7 +213,7 @@ public class movController : MonoBehaviour
 
         if (pies > trepYMax) { platJump = false;  }
 
-        if ((Input.GetKeyDown(KeyCode.Space) && platJump ) )//|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
+        if ((Input.GetKeyDown(KeyCode.Space) && platJump && onGround() && !empujaIdle && !trig) )//|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
         {
             climbing = false;
             topClimb = false;
@@ -269,6 +274,7 @@ public class movController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D obj)
     {
+        trig = false;
         if (obj.CompareTag("empujable"))
         {
             empujaIdle = false;

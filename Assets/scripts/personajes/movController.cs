@@ -10,7 +10,6 @@ public class movController : MonoBehaviour
     [SerializeField] private LayerMask platformsLayerMask;
     private BarraDeVida scBarraVida;
     private PauseMenu scPause;
-
     
     public float desp = 0.3f;
 
@@ -37,6 +36,8 @@ public class movController : MonoBehaviour
     private bool platJump = true;
     //string cargar;
 
+    AudioSource audioWalk;
+
 // Start is called before the first frame update
     void Start()
     {
@@ -51,8 +52,8 @@ public class movController : MonoBehaviour
 
         scBarraVida = FindObjectOfType<BarraDeVida>();
         scPause = FindObjectOfType<PauseMenu>();
-        
-        
+
+        audioWalk = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -62,7 +63,17 @@ public class movController : MonoBehaviour
         if(!scBarraVida.dead && !scPause.gamePaused) Move();
         if (activateTimer) cooldown();
         animScript();
-        //Debug.Log("yepa "+empujaIdle); 
+        //Debug.Log("yepa "+empujaIdle);
+        
+        if (moving)
+        {
+            if (!audioWalk.isPlaying)
+                audioWalk.Play();
+        }
+        else
+        {
+            audioWalk.Stop();
+        }
 
     }
     
@@ -198,9 +209,7 @@ public class movController : MonoBehaviour
                 
                 rb2d.velocity = Vector2.up * 0;
                 rb2d.gravityScale = 0f;
-            }
-
-            
+            }  
 
         }
                 
@@ -221,7 +230,6 @@ public class movController : MonoBehaviour
             activateTimer = true;
             control = false;
         }
-
 
     }
 
@@ -465,7 +473,6 @@ public class movController : MonoBehaviour
             tLeft =3f; 
             control = true;
             //if(scBarraVida.dead)SceneManager.LoadScene("level_1");
-            
         }
 
     }

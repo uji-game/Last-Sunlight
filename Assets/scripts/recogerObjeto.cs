@@ -11,6 +11,8 @@ public class recogerObjeto : MonoBehaviour
     private Rigidbody2D sadRB;
     private string r;
 
+    //public movController player;
+
     // Start is called before the first frame update
     void Start()
     {

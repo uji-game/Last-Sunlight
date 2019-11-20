@@ -38,6 +38,9 @@ public class movController : MonoBehaviour
 
     AudioSource audioWalk;
 
+    //bool isMoving; // Jordi
+    //bool objectPick; // Jordi
+
 // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +68,7 @@ public class movController : MonoBehaviour
         animScript();
         //Debug.Log("yepa "+empujaIdle);
         
+        //if(isMoving)
         if (moving)
         {
             if (!audioWalk.isPlaying)
@@ -84,7 +88,7 @@ public class movController : MonoBehaviour
 
             if (onGround() && rb2d.velocity.x != 0)
             {
-
+                //isMoving = true; // Jordi
                 if (rb2d.velocity.x > 0.1) slow = -0.1f;// rb2d.velocity -= new Vector2(0.1f, 0);
                 else if (rb2d.velocity.x < -0.1) slow = 0.1f;//rb2d.velocity += new Vector2(0.1f, 0);
 
@@ -93,6 +97,7 @@ public class movController : MonoBehaviour
             }
             
             moving = false;
+            //isMoving = flase; // Jordi
             boxCollider2d.size = new Vector2(6.5f, 6);
             boxCollider2d.offset = new Vector2(1.75f, -1.8f);
             agachado = true;
@@ -107,12 +112,14 @@ public class movController : MonoBehaviour
             {
                 if (empujaIdle) {
                     //empujaMov = true;
+                    //isMoving = true; // Jordi
                     rb2d.velocity = new Vector2(-pushSpeed+0.35f, rb2d.velocity.y);
                 }
                 else {
                     //empujaMov = false; 
                     rb2d.velocity = new Vector2(-speed, rb2d.velocity.y);
                     moving = true;
+                    //isMoving = true; // Jordi
                 }
                 
             }
@@ -493,8 +500,8 @@ public class movController : MonoBehaviour
         anim.SetBool("Push", push); 
         anim.SetBool("Pull", pull); 
 
-        anim.SetBool("Muerte", scBarraVida.dead); 
+        anim.SetBool("Muerte", scBarraVida.dead);
 
-
+        //anim.SetBool("RecojeObjeto", objectPick);
     }
 }

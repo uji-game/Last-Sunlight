@@ -30,7 +30,7 @@ public class recogerObjeto : MonoBehaviour
     {
         if (pickea.tag == "pickeable") {
             //Debug.Log("holap");
-            myText.text = "Pulsa F para recoger el objeto";
+            myText.text = "Pulsa R para recoger el objeto";
             if (Input.GetKey(KeyCode.R)) {  pickea.attachedRigidbody.gameObject.SetActive(false) ; }
         }
        

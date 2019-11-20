@@ -10,6 +10,8 @@ public class luzInteract : MonoBehaviour
 
     public Collision2D saddaj;
 
+    public float daño;
+
     private bool damage, morision;
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,7 @@ public class luzInteract : MonoBehaviour
         {
             
             damage = true;
-            script.recibirDaño(0.25f);
+            script.recibirDaño(daño);
             defuncion();
 
             anim.SetBool("Damaged",damage);

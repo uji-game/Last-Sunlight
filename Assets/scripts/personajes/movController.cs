@@ -233,41 +233,54 @@ public class movController : MonoBehaviour
     //Empujar/tirar
     private void OnCollisionStay2D(Collision2D obj)
     {
-        if (obj.collider.CompareTag("empujable"))
+        float sadajCenter = boxCollider2d.transform.position.y;
+        float sadajHigh = boxCollider2d.size.y / 2;
+        float sadajFoots = sadajCenter - sadajHigh+2;
+
+        float platformMiddle = obj.collider.transform.position.y;
+        float platformMidTop = obj.collider.bounds.size.y / 2;
+        float platformTop = platformMiddle + platformMidTop-2;
+
+        if (platformTop > sadajFoots)
         {
-            chooseSide(obj);    //Desde donde estas interactuando con el objeto
-            if (Input.GetKeyDown(KeyCode.F) && !empujaIdle)
+            if (obj.collider.CompareTag("empujable"))
             {
-                empujaIdle = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.F) && empujaIdle)
-            {
-                empujaIdle = false;
-            }
+                chooseSide(obj);    //Desde donde estas interactuando con el objeto
+                if (Input.GetKeyDown(KeyCode.F) && !empujaIdle)
+                {
+                    empujaIdle = true;
+                }
+                else if (Input.GetKeyDown(KeyCode.F) && empujaIdle)
+                {
+                    empujaIdle = false;
+                }
 
-            //Empujar//
-            if (Input.GetKey(KeyCode.D) && empujaIdle)
-            {
-                empujaMov = true;
+                //Empujar//
+                if (Input.GetKey(KeyCode.D) && empujaIdle)
+                {
+                    empujaMov = true;
 
-                obj.rigidbody.velocity = new Vector2(pushSpeed, obj.rigidbody.velocity.y);
-                //push = true;
-            }
-            //Tirar//
-            else if (Input.GetKey(KeyCode.A) && empujaIdle)
-            {
-                empujaMov = true;
+                    obj.rigidbody.velocity = new Vector2(pushSpeed, obj.rigidbody.velocity.y);
+                    //push = true;
+                }
+                //Tirar//
+                else if (Input.GetKey(KeyCode.A) && empujaIdle)
+                {
+                    empujaMov = true;
 
-                obj.rigidbody.velocity = new Vector2(-pushSpeed, obj.rigidbody.velocity.y);
-                //push = true;
+                    obj.rigidbody.velocity = new Vector2(-pushSpeed, obj.rigidbody.velocity.y);
+                    //push = true;
+                }
+                //Ninguna de las dos
+                else { obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y); empujaMov = false; }
             }
-            //Ninguna de las dos
-            else { obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y); empujaMov = false;  }
+            else //Frenar objeto en X al separarte de el
+            {
+                obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);// obj.rigidbody.inertia = 0f;
+            }
         }
-        else //Frenar objeto en X al separarte de el
-        { 
-            obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);// obj.rigidbody.inertia = 0f;
-        }
+
+        
 
     }
 

@@ -10,7 +10,9 @@ public class movController : MonoBehaviour
     [SerializeField] private LayerMask platformsLayerMask;
     private BarraDeVida scBarraVida;
     private PauseMenu scPause;
-    
+
+    public bool trig;
+
     public float desp = 0.3f;
 
     public bool control = true;
@@ -44,9 +46,9 @@ public class movController : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
-       /* Scene pantalla = SceneManager.GetActiveScene();
-        cargar = pantalla.name;*/
-
+        /* Scene pantalla = SceneManager.GetActiveScene();
+         cargar = pantalla.name;*/
+        trig = true;
         obj = GetComponent<Transform>();
         rb2d = transform.GetComponent<Rigidbody2D>();
         boxCollider2d = transform.GetComponent<BoxCollider2D>();
@@ -159,12 +161,14 @@ public class movController : MonoBehaviour
     }
 
     void Jump() {
-        if (onGround() &&  Input.GetKeyDown(KeyCode.Space) && platJump /*!empujaIdle && !empujaMov*/)
+        if (onGround() && Input.GetKeyDown(KeyCode.Space) && platJump && !empujaIdle)
         {
-            rb2d.velocity = Vector2.up * jumpVel;
-            platJump = false;
+            if (!trig)
+            {
+                rb2d.velocity = Vector2.up * jumpVel;
+                platJump = false;
+            }
         }
-       
     }
     public bool onGround()
     {
@@ -182,6 +186,9 @@ public class movController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D obj)
     {
+        if (obj.CompareTag("empujable")) {
+            trig = true;
+        }
         float sadajCenter = boxCollider2d.transform.position.y;
         float sadajHigh = boxCollider2d.size.y/2;
         float platformTop =  + obj.bounds.size.y ;
@@ -224,7 +231,7 @@ public class movController : MonoBehaviour
 
         if (pies > trepYMax) { platJump = false;  }
 
-        if ((Input.GetKeyDown(KeyCode.Space) && platJump ) )//|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
+        if ((Input.GetKeyDown(KeyCode.Space) && platJump && onGround() && !empujaIdle && !trig) )//|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
         {
             climbing = false;
             topClimb = false;
@@ -243,47 +250,61 @@ public class movController : MonoBehaviour
     //Empujar/tirar
     private void OnCollisionStay2D(Collision2D obj)
     {
-        if (obj.collider.CompareTag("empujable"))
+        float sadajCenter = boxCollider2d.transform.position.y;
+        float sadajHigh = boxCollider2d.size.y / 2;
+        float sadajFoots = sadajCenter - sadajHigh+2;
+
+        float platformMiddle = obj.collider.transform.position.y;
+        float platformMidTop = obj.collider.bounds.size.y / 2;
+        float platformTop = platformMiddle + platformMidTop-2;
+
+        if (platformTop > sadajFoots)
         {
-            chooseSide(obj);    //Desde donde estas interactuando con el objeto
-            if (Input.GetKeyDown(KeyCode.F) && !empujaIdle)
+            if (obj.collider.CompareTag("empujable"))
             {
-                empujaIdle = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.F) && empujaIdle)
-            {
-                empujaIdle = false;
-            }
+                chooseSide(obj);    //Desde donde estas interactuando con el objeto
+                if (Input.GetKeyDown(KeyCode.F) && !empujaIdle)
+                {
+                    empujaIdle = true;
+                }
+                else if (Input.GetKeyDown(KeyCode.F) && empujaIdle)
+                {
+                    empujaIdle = false;
+                }
 
-            //Empujar//
-            if (Input.GetKey(KeyCode.D) && empujaIdle)
-            {
-                empujaMov = true;
+                //Empujar//
+                if (Input.GetKey(KeyCode.D) && empujaIdle)
+                {
+                    empujaMov = true;
 
-                obj.rigidbody.velocity = new Vector2(pushSpeed, obj.rigidbody.velocity.y);
-                //push = true;
-            }
-            //Tirar//
-            else if (Input.GetKey(KeyCode.A) && empujaIdle)
-            {
-                empujaMov = true;
+                    obj.rigidbody.velocity = new Vector2(pushSpeed, obj.rigidbody.velocity.y);
+                    //push = true;
+                }
+                //Tirar//
+                else if (Input.GetKey(KeyCode.A) && empujaIdle)
+                {
+                    empujaMov = true;
 
-                obj.rigidbody.velocity = new Vector2(-pushSpeed, obj.rigidbody.velocity.y);
-                //push = true;
+                    obj.rigidbody.velocity = new Vector2(-pushSpeed, obj.rigidbody.velocity.y);
+                    //push = true;
+                }
+                //Ninguna de las dos
+                else { obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y); empujaMov = false; }
             }
-            //Ninguna de las dos
-            else { obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y); empujaMov = false;  }
+            else //Frenar objeto en X al separarte de el
+            {
+                obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);// obj.rigidbody.inertia = 0f;
+            }
         }
-        else //Frenar objeto en X al separarte de el
-        { 
-            obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);// obj.rigidbody.inertia = 0f;
-        }
+
+        
 
     }
 
 
     private void OnTriggerExit2D(Collider2D obj)
     {
+        trig = false;
         if (obj.CompareTag("empujable"))
         {
             empujaIdle = false;

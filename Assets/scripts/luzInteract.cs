@@ -12,10 +12,13 @@ public class luzInteract : MonoBehaviour
 
     public float daño;
 
+    private BoxCollider2D boxCollider2d;
+
     private bool damage, morision;
     // Start is called before the first frame update
     void Start()
     {
+        boxCollider2d = transform.GetComponent<BoxCollider2D>();
         //anim = GetComponent<Animator>();
         script = FindObjectOfType<BarraDeVida>();
         morision = false;
@@ -40,6 +43,21 @@ public class luzInteract : MonoBehaviour
 
             anim.SetBool("Damaged",damage);
 
+        }
+        else if (sad.CompareTag("empujable"))
+        {
+            float empujableCentroY = sad.transform.position.y;
+            float empujableMidTopY = sad.bounds.size.y / 2;
+            float empujableTopY = empujableCentroY + empujableMidTopY;
+
+            float luzCentroY = boxCollider2d.transform.position.y;
+            float luzMidBotY = boxCollider2d.bounds.size.y / 2;
+            float luzAbajoY = luzCentroY - luzMidBotY;
+
+            if (empujableTopY > luzAbajoY)
+            {
+                boxCollider2d.transform.position = new Vector2(boxCollider2d.transform.position.x, empujableTopY+luzMidBotY+0.2f);
+            }
         }
 
 

@@ -10,6 +10,7 @@ public class movController : MonoBehaviour
     [SerializeField] private LayerMask platformsLayerMask;
     private BarraDeVida scBarraVida;
     private PauseMenu scPause;
+    private recogerObjeto scRecoger;
 
     public bool trig;
 
@@ -57,6 +58,7 @@ public class movController : MonoBehaviour
 
         scBarraVida = FindObjectOfType<BarraDeVida>();
         scPause = FindObjectOfType<PauseMenu>();
+        scRecoger = FindObjectOfType<recogerObjeto>();
 
         audioWalk = GetComponent<AudioSource>();
     }
@@ -65,16 +67,23 @@ public class movController : MonoBehaviour
     void Update()
     {
         if (onGround()) { platJump = true; topClimb = false; }
-        if(!scBarraVida.dead && !scPause.gamePaused) Move();
+        if(!scBarraVida.dead && !scPause.gamePaused && !scRecoger.recoger) Move();
         if (activateTimer) cooldown();
         animScript();
         //Debug.Log("yepa "+empujaIdle);
         
         //if(isMoving)
-        if (moving)
+        if (moving || push || pull)
         {
-            if (!audioWalk.isPlaying)
-                audioWalk.Play();
+            if (onGround() == true)
+            {
+                if (!audioWalk.isPlaying)
+                    audioWalk.Play();
+            }
+            if (onGround() == false)
+            {
+                audioWalk.Stop();
+            }
         }
         else
         {

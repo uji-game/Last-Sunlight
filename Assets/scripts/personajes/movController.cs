@@ -168,7 +168,9 @@ public class movController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D obj)
     {
-        trig = true;
+        if (obj.CompareTag("empujable")) {
+            trig = true;
+        }
         float sadajCenter = boxCollider2d.transform.position.y;
         float sadajHigh = boxCollider2d.size.y/2;
         float platformTop =  + obj.bounds.size.y ;

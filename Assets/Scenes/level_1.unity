@@ -3619,11 +3619,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 82734b098501e584c960d6387626e02f, type: 3}
-<<<<<<< HEAD
+
     m_FontSize: 16
-=======
+
     m_FontSize: 10
->>>>>>> 6f54781c9affc3ee44d6c3db9d7e18827fc4becf
+
+    m_FontSize: 10
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0

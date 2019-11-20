@@ -41,6 +41,7 @@ public class recogerObjeto : MonoBehaviour
             //Debug.Log("holap");
             myText.text = "Pulsa R para recoger el objeto";
 
+
             if (Input.GetKey(KeyCode.R)) { pickea.attachedRigidbody.gameObject.SetActive(false); recoger = true; activate = true; }
            
 

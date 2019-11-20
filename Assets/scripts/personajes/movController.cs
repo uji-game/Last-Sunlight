@@ -49,7 +49,7 @@ public class movController : MonoBehaviour
     {
         /* Scene pantalla = SceneManager.GetActiveScene();
          cargar = pantalla.name;*/
-        trig = true;
+        trig = false;
         obj = GetComponent<Transform>();
         rb2d = transform.GetComponent<Rigidbody2D>();
         boxCollider2d = transform.GetComponent<BoxCollider2D>();
@@ -89,7 +89,7 @@ public class movController : MonoBehaviour
         {
             audioWalk.Stop();
         }
-
+        Debug.Log(trig);
     }
     
     void Move() {       //movimiento de saddaj

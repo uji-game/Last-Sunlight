@@ -89,7 +89,7 @@ public class movController : MonoBehaviour
         {
             audioWalk.Stop();
         }
-        Debug.Log(trig);
+        Debug.Log("trig: "+trig);
     }
     
     void Move() {       //movimiento de saddaj
@@ -195,23 +195,28 @@ public class movController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D obj)
     {
-        if (obj.CompareTag("empujable")) {
-            trig = true;
-        }
+        //Trepar//
         float sadajCenter = boxCollider2d.transform.position.y;
-        float sadajHigh = boxCollider2d.size.y/2;
-        float platformTop =  + obj.bounds.size.y ;
-        float trepYMax = obj.transform.position.y + obj.bounds.size.y / 1.95f;
+        float sadajHigh = boxCollider2d.size.y / 2;
+        float platformTop = obj.bounds.size.y;
+        float trepYMax = obj.transform.position.y + obj.bounds.size.y / 2f;
 
         float pies = sadajCenter - sadajHigh;
-        
+
         if (obj.CompareTag("trepable") && Input.GetKey(KeyCode.W) && control ) //&& !(sadajCenter > platformTop)
         {
+            
+            
+
+            //Debug.Log("sadajjCenter: "+sadajCenter+"// trepY: "+trepYMax);
+            Debug.Log("platformTop: "+ platformTop+ "\ntrepY: " + trepYMax + "\ntrepY/1.9: " + (trepYMax/1.05f));
+
+            trig = false;
             
             platJump = true;
             
             
-            if (sadajCenter < platformTop ) { 
+            if (sadajCenter < trepYMax / 1.05f) { 
                 rb2d.velocity = new Vector2(0f, cSpeed); 
                 climbing = true; 
                 topClimb = false; 
@@ -221,7 +226,7 @@ public class movController : MonoBehaviour
             else if(sadajCenter >= trepYMax) {
                 rb2d.gravityScale = 0f;
                 rb2d.velocity = new Vector2(0f, 0f);
-                boxCollider2d.transform.position = new Vector2(obj.transform.position.x, platformTop / 1.6f + sadajHigh / 2);
+                boxCollider2d.transform.position = new Vector2(obj.transform.position.x, trepYMax);//  + sadajHigh / 2f
                 topClimb = true;
             }
             
@@ -232,15 +237,17 @@ public class movController : MonoBehaviour
                 
                 rb2d.velocity = Vector2.up * 0;
                 rb2d.gravityScale = 0f;
-            }  
+            }
 
-        }
-                
+
+            if (pies > trepYMax) { platJump = false; }
+
+        }                
         else climbing = false; //topClimb = false;
+        if (pies > trepYMax) { platJump = false; }
 
-        if (pies > trepYMax) { platJump = false;  }
 
-        if ((Input.GetKeyDown(KeyCode.Space) && platJump && onGround() && !empujaIdle && !trig) )//|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
+        if ((Input.GetKeyDown(KeyCode.Space) && platJump && /*onGround() &&*/ !empujaIdle && !trig) )//|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
         {
             climbing = false;
             topClimb = false;
@@ -252,6 +259,11 @@ public class movController : MonoBehaviour
             tLeft = 0.5f;
             activateTimer = true;
             control = false;
+        }
+
+        if (obj.CompareTag("empujable"))
+        {
+            trig = true;
         }
 
     }
@@ -313,7 +325,7 @@ public class movController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D obj)
     {
-        trig = false;
+       
         if (obj.CompareTag("empujable"))
         {
             empujaIdle = false;
@@ -324,8 +336,8 @@ public class movController : MonoBehaviour
         }
         if (obj.CompareTag("trepable"))
         {
-            //climbing = false;
-            Debug.Log("Paz y Amor");
+            trig = false;
+
         }
     }
 

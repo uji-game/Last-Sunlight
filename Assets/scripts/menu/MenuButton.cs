@@ -20,34 +20,26 @@ public class MenuButton : MonoBehaviour
 		{
 
             animator.SetBool ("selected", true);
-
 			if(Input.GetAxis ("Submit") == 1){
 				animator.SetBool ("pressed", true);
-			}
-            else if (animator.GetBool ("pressed"))
-            {
+			}else if (animator.GetBool ("pressed")){
 				animator.SetBool ("pressed", false);
 				animatorFunctions.disableOnce = true;
-                //Scene pantalla = SceneManager.GetActiveScene();
-
-                /*string cargar = "controles";
+                Scene pantalla = SceneManager.GetActiveScene();
+                string cargar = "controles";
                 if (pantalla.name == "MenuIncio")
                 {
-                    cargar = "level_1";
+                    cargar = "Nivel 1";
                 }
                 else if (pantalla.name == "controles")
                 {
                     cargar = "MenuIncio";
                 }
-                else if(pantalla.name == "level_1")
-                {
-                    cargar = "MenuIncio";
-                }*/
 
                 switch (menuButtonController.index)
                 {
                     case 0: //New game
-                        SceneManager.LoadScene("level_1");
+                        SceneManager.LoadScene(cargar);
                         break;
 
                     case 1: //Options

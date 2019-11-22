@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class recogerObjeto : MonoBehaviour
 {
     private GameObject obj;
     public Text myText;
     private Rigidbody2D sadRB;
+    private Transform sad;
     public Animator anim;
 
     private bool activate;
     private float tRem;
     public bool recoger=false;
+    public bool recogido = false;
 
     //public movController player;
 
@@ -22,17 +24,18 @@ public class recogerObjeto : MonoBehaviour
     {
         tRem = 0.8f;
         anim = GetComponent<Animator>();
-        
-        
+        sad = GetComponent<Transform>();
+
     }
         // Update is called once per frame
     void Update()
     {
 
-
+        Debug.Log(sad.transform.position.x);
         anim.SetBool("Recoger", recoger);
         if (activate) cd();
-        
+        if (recogido) finNivel();
+
     }
 
     private void OnTriggerStay2D(Collider2D pickea)
@@ -42,10 +45,16 @@ public class recogerObjeto : MonoBehaviour
             myText.text = "Pulsa R para recoger el objeto";
 
 
-            if (Input.GetKey(KeyCode.R)) { pickea.attachedRigidbody.gameObject.SetActive(false); recoger = true; activate = true; }
+            if (Input.GetKey(KeyCode.R)) { 
+                pickea.attachedRigidbody.gameObject.SetActive(false); 
+                recoger = true; 
+                activate = true; 
+                recogido = true;
+            }
            
 
             if (Input.GetKey(KeyCode.R)) {  pickea.attachedRigidbody.gameObject.SetActive(false) ; }
+
         }
     }
     private void OnTriggerExit2D(Collider2D pj)
@@ -69,5 +78,16 @@ public class recogerObjeto : MonoBehaviour
             
         }
 
+    }
+
+    void finNivel()
+    {
+        if (TestRange(sad.transform.position.x, 31, 33))
+            SceneManager.LoadScene("Scenes/diapos2");
+    }
+
+    bool TestRange(float numberToCheck, int bottom, int top)
+    {
+        return (numberToCheck >= bottom && numberToCheck <= top);
     }
 }

@@ -29,7 +29,7 @@ public class MenuButton : MonoBehaviour
                 string cargar = "controles";
                 if (pantalla.name == "MenuIncio")
                 {
-                    cargar = "Nivel 1";
+                    cargar = "diapos1";
                 }
                 else if (pantalla.name == "controles")
                 {

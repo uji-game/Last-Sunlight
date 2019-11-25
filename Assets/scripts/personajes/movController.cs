@@ -333,6 +333,8 @@ public class movController : MonoBehaviour
             push = false;
             pull = false;
             obj.attachedRigidbody.velocity = new Vector2(0f, obj.attachedRigidbody.velocity.y);
+            trig = false;
+
         }
         if (obj.CompareTag("trepable"))
         {

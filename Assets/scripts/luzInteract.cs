@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class luzInteract : MonoBehaviour
 {
-    private BarraDeVida script; 
-    
+    private BarraDeVida script;
+    private shieldManage scShieldM;
+
+
     public Animator anim;
 
     public Collision2D saddaj;
@@ -18,6 +20,7 @@ public class luzInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scShieldM = FindObjectOfType<shieldManage>();
         boxCollider2d = transform.GetComponent<BoxCollider2D>();
         //anim = GetComponent<Animator>();
         script = FindObjectOfType<BarraDeVida>();
@@ -27,6 +30,7 @@ public class luzInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (scShieldM.shieldUP) damage = false;
         //Debug.Log(script.vida);
         anim.SetBool("Muerte", morision);
     }
@@ -36,10 +40,14 @@ public class luzInteract : MonoBehaviour
 
         if (sad.CompareTag("Player"))
         {
-            
-            damage = true;
-            script.recibirDaño(daño);
-            defuncion();
+
+            if (!scShieldM.shieldUP)
+            {
+                damage = true;
+                script.recibirDaño(daño);
+                defuncion();
+            }
+            else damage = false;
 
             anim.SetBool("Damaged",damage);
 
@@ -62,11 +70,12 @@ public class luzInteract : MonoBehaviour
 
 
     }
-    private void OnTriggerExit2D(Collider2D sad) 
+    private void OnTriggerExit2D(Collider2D p) 
     {
-        if (sad.CompareTag("Player")) damage = false; anim.SetBool("Damaged", damage); ; 
+        if (p.CompareTag("Player")) damage = false; anim.SetBool("Damaged", damage); 
+       
     }
     void defuncion() {
-        if (script.vida == 0f) { morision = true; }
+        if (script.vida == 0f) { morision = true; script.dead = true; }
     }
 }

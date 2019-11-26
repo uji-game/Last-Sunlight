@@ -7,7 +7,7 @@ public class BarraDeVida : MonoBehaviour
 {
     // Start is called before the first frame update
     public Scrollbar barraDeVida;
-
+    private shieldManage scShieldM;
     public bool dead;
 
 
@@ -17,6 +17,8 @@ public class BarraDeVida : MonoBehaviour
     bool dañado = false;
     void Start()
     {
+        scShieldM = FindObjectOfType<shieldManage>();
+
         vida = vidaMax;
         vidaRecuperable = vidaMax;
         dead = false;
@@ -24,9 +26,14 @@ public class BarraDeVida : MonoBehaviour
 
     public void recibirDaño(float daño)
     {
-        dañado = true;
-        vida = Mathf.Clamp(vida - daño, 0f, vidaRecuperable);
-        barraDeVida.size = vida/vidaMax;
+        if (!scShieldM.shieldUP)
+        {
+            dañado = true;
+            vida = Mathf.Clamp(vida - daño, 0f, vidaRecuperable);
+            barraDeVida.size = vida / vidaMax;
+        }
+        else dañado = false;
+
 
         if (vida <= vidaMax / 2)
             vidaRecuperable = vidaMax / 2;

@@ -31,7 +31,7 @@ public class recogerObjeto : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(sad.transform.position.x);
+        //Debug.Log(sad.transform.position.x);
         anim.SetBool("Recoger", recoger);
         if (activate) cd();
         if (recogido) finNivel();

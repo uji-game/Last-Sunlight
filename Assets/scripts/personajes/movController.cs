@@ -10,6 +10,7 @@ public class movController : MonoBehaviour
     [SerializeField] private LayerMask platformsLayerMask;
     private BarraDeVida scBarraVida;
     private PauseMenu scPause;
+    private shieldManage scShieldM;
     private recogerObjeto scRecoger;
 
     public bool trig;
@@ -47,8 +48,6 @@ public class movController : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
-        /* Scene pantalla = SceneManager.GetActiveScene();
-         cargar = pantalla.name;*/
         trig = false;
         obj = GetComponent<Transform>();
         rb2d = transform.GetComponent<Rigidbody2D>();
@@ -59,6 +58,8 @@ public class movController : MonoBehaviour
         scBarraVida = FindObjectOfType<BarraDeVida>();
         scPause = FindObjectOfType<PauseMenu>();
         scRecoger = FindObjectOfType<recogerObjeto>();
+        scShieldM = FindObjectOfType<shieldManage>();
+
 
         audioWalk = GetComponent<AudioSource>();
     }
@@ -67,7 +68,10 @@ public class movController : MonoBehaviour
     void Update()
     {
         if (onGround()) { platJump = true; topClimb = false; }
+
         if(!scBarraVida.dead && !scPause.gamePaused && !scRecoger.recoger) Move();
+        if(scBarraVida.dead) rb2d.velocity = new Vector2(0, 0);
+
         if (activateTimer) cooldown();
         animScript();
         //Debug.Log("yepa "+empujaIdle);
@@ -89,7 +93,7 @@ public class movController : MonoBehaviour
         {
             audioWalk.Stop();
         }
-        Debug.Log("trig: "+trig);
+        //Debug.Log("trig: "+trig);
     }
     
     void Move() {       //movimiento de saddaj
@@ -156,7 +160,7 @@ public class movController : MonoBehaviour
                 moving = false;
                 //empujaMov = false;
             }
-            Jump();
+            if (!scShieldM.shieldUP) { Jump(); Debug.Log("Corneto"); }
 
         }
 
@@ -247,7 +251,7 @@ public class movController : MonoBehaviour
         if (pies > trepYMax) { platJump = false; }
 
 
-        if ((Input.GetKeyDown(KeyCode.Space) && platJump && /*onGround() &&*/ !empujaIdle && !trig) )//|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
+        if ((Input.GetKeyDown(KeyCode.Space) && platJump && /*onGround() &&*/ !empujaIdle && !trig && !scShieldM.shieldUP) )//|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
         {
             climbing = false;
             topClimb = false;

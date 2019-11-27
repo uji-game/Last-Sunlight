@@ -4776,6 +4776,7 @@ GameObject:
   - component: {fileID: 1380895175}
   - component: {fileID: 1380895174}
   - component: {fileID: 1380895180}
+  - component: {fileID: 1380895184}
   - component: {fileID: 1380895181}
   - component: {fileID: 1380895182}
   - component: {fileID: 1380895179}
@@ -5016,6 +5017,7 @@ MonoBehaviour:
   myText: {fileID: 1046506647}
   anim: {fileID: 1380895177}
   recoger: 0
+  recogido: 0
 --- !u!222 &1380895182
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5051,6 +5053,24 @@ RectTransform:
   m_AnchoredPosition: {x: -19.86, y: 4.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1380895184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380895173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f82f57a645d6fba469972656f7c0ce9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shield: {fileID: 0}
+  rLight: {fileID: 0}
+  shieldUP: 0
+  canUse: 0
+  actUsingTimer: 0
+  actCdShield: 0
 --- !u!1 &1462362142
 GameObject:
   m_ObjectHideFlags: 0

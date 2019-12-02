@@ -11,6 +11,7 @@ TagManager:
   - fueraMapa
   - pickeable
   - luzRef
+  - goHome
   layers:
   - Default
   - TransparentFX

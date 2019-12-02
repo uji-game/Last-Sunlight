@@ -17,6 +17,8 @@ public class recogerObjeto : MonoBehaviour
     public bool recoger=false;
     public bool recogido = false;
 
+    public GameObject casa;
+
     //public movController player;
 
     // Start is called before the first frame update
@@ -25,6 +27,7 @@ public class recogerObjeto : MonoBehaviour
         tRem = 0.8f;
         anim = GetComponent<Animator>();
         sad = GetComponent<Transform>();
+        //casa = GameObject.FindGameObjectWithTag("goHome");
 
     }
         // Update is called once per frame
@@ -50,6 +53,7 @@ public class recogerObjeto : MonoBehaviour
                 recoger = true; 
                 activate = true; 
                 recogido = true;
+                casa.SetActive(true);
             }
            
 

@@ -12,6 +12,7 @@ TagManager:
   - pickeable
   - luzRef
   - goHome
+  - shield
   layers:
   - Default
   - TransparentFX

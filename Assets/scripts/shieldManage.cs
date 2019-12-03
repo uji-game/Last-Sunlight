@@ -6,19 +6,20 @@ public class shieldManage : MonoBehaviour
 {
     private movController scMController;
 
-    private BoxCollider2D shieldCollider2d;
     private Rigidbody2D shieldRB;
 
     private Rigidbody2D saddajRB;
 
     public GameObject Shield;
     private SpriteRenderer shieldRender;
+    private BoxCollider2D shieldCollider2d;
+
 
     public GameObject rLight;
     private Rigidbody2D rLightRB;
     private SpriteRenderer rLightRender;
 
-
+    private Vector3 luxPosIni;
 
     public bool shieldUP;
     public bool canUse, actUsingTimer, actCdShield;
@@ -29,10 +30,12 @@ public class shieldManage : MonoBehaviour
 
     void Start()
     {
+        shieldUP = false;
         scMController = FindObjectOfType<movController>();
 
         saddajRB = transform.GetComponent<Rigidbody2D>();
         shieldRender = Shield.GetComponent<SpriteRenderer>();
+        shieldCollider2d = Shield.GetComponent<BoxCollider2D>();
 
 
         rLightRB = rLight.GetComponent<Rigidbody2D>();
@@ -52,7 +55,7 @@ public class shieldManage : MonoBehaviour
     {
         useShield();
         followSaddaj();
-        Debug.Log(shieldUP);
+        //Debug.Log(shieldUP);
 
         if (actUsingTimer) { usingShieldTime(); }
         if(actCdShield) {shieldCD();}
@@ -98,20 +101,40 @@ public class shieldManage : MonoBehaviour
         }
 
     }
+    private void OnTriggerEnter2D(Collider2D lux)
+    {
+        if (lux.CompareTag("luz")) { luxPosIni = lux.transform.position; }
+    }
 
     private void OnTriggerStay2D(Collider2D lux)
     {
+        Debug.Log(lux.transform.position.y);
         if (lux.CompareTag("luz") && scMController.onGround() && shieldUP)
         {
             rLightRender.enabled = true;
 
+
+            float shieldCenter = shieldCollider2d.transform.position.y;
+            float luxMidTopY = lux.bounds.size.y / 2;
+            float shieldTopY = luxMidTopY + shieldCenter;
+
+            Debug.Log(lux.transform.position.y);
+
+            lux.transform.position = new Vector2(lux.transform.position.x, shieldTopY);
+            
+
         }
-        else rLightRender.enabled = false;
+        else rLightRender.enabled = false; 
+    }
+
+    private void OnTriggerExit2D(Collider2D lux)
+    {
+        if (lux.CompareTag("luz") && shieldUP) lux.transform.position = luxPosIni;
     }
 
     void usingShieldTime()
     {
-        Debug.Log("Usando");
+        //ebug.Log("Usando");
 
         tRem -= Time.deltaTime;
         if (tRem <= 0)

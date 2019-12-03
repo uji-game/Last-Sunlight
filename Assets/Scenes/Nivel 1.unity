@@ -18052,7 +18052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Poses:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 201487b9835ef5043a3b9fa19336545d, type: 2}
 --- !u!82 &1380895179
 AudioSource:
   m_ObjectHideFlags: 0

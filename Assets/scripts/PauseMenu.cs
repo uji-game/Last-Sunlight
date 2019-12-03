@@ -8,15 +8,18 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     public  bool gamePaused = false;
     public GameObject PauseMenuUI;
-    /*void Start()
+    private BarraDeVida scBarraVida;
+
+    void Start()
     {
-        
-    }*/
+        scBarraVida = FindObjectOfType<BarraDeVida>();
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape) && !scBarraVida.dead) {
             if (gamePaused) { Resume(); }
             else { Pause(); }
         }

@@ -32,14 +32,17 @@ public class luzInteract : MonoBehaviour
     {
         //if (scShieldM.shieldUP) damage = false;
         //Debug.Log(script.vida);
-        anim.SetBool("Muerte", morision);
+        //anim.SetBool("Muerte", morision);
     }
 
-    private void OnTriggerStay2D(Collider2D sad)
+    private void OnTriggerStay2D(Collider2D entidad)
     {
 
-        if (sad.CompareTag("Player"))
+        //if (entidad.CompareTag("shield")) { Debug.Log("Yepa"); }
+
+        if (entidad.CompareTag("Player"))
         {
+            
 
             if (!scShieldM.shieldUP)
             {
@@ -52,10 +55,10 @@ public class luzInteract : MonoBehaviour
             anim.SetBool("Damaged",damage);
 
         }
-        else if (sad.CompareTag("empujable"))
+        else if (entidad.CompareTag("empujable"))
         {
-            float empujableCentroY = sad.transform.position.y;
-            float empujableMidTopY = sad.bounds.size.y / 2;
+            float empujableCentroY = entidad.transform.position.y;
+            float empujableMidTopY = entidad.bounds.size.y / 2;
             float empujableTopY = empujableCentroY + empujableMidTopY;
 
             float luzCentroY = boxCollider2d.transform.position.y;
@@ -68,6 +71,8 @@ public class luzInteract : MonoBehaviour
             }
         }
 
+        //else 
+
 
     }
     private void OnTriggerExit2D(Collider2D p) 
@@ -76,6 +81,6 @@ public class luzInteract : MonoBehaviour
        
     }
     void defuncion() {
-        if (script.vida == 0f) { morision = true; script.dead = true; }
+        if (script.vida <= 0f) {  script.dead = true; }
     }
 }

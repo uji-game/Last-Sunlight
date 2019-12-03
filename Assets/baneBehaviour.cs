@@ -56,13 +56,13 @@ public class baneBehaviour : MonoBehaviour
             //flip();
             if ((posBane <= posMax) && !pDir)
             {
-                Debug.Log(posBane + " " + posMax);
+                //Debug.Log(posBane + " " + posMax);
 
                 baneRB.transform.position += new Vector3(0.025f, 0f, 0f);
 
                 if (posBane == posMax)
                 {
-                    Debug.Log("hago pocas cosas");
+                    //Debug.Log("hago pocas cosas");
 
                     pDir = true;
                     flip();
@@ -70,7 +70,7 @@ public class baneBehaviour : MonoBehaviour
             }
             else if ((posBane >= posMin) && pDir)
             {
-                Debug.Log("hago muchas cosas");
+                //Debug.Log("hago muchas cosas");
 
                 baneRB.transform.position += new Vector3(-0.025f, 0f, 0f);
 

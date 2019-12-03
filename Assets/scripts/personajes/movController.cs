@@ -152,7 +152,7 @@ public class movController : MonoBehaviour
                 moving = false;
                 //empujaMov = false;
             }
-            if (!scShieldM.shieldUP) { Jump(); Debug.Log("Corneto"); }
+            if (!scShieldM.shieldUP) { Jump();  }
 
         }
 

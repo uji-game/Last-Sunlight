@@ -121,15 +121,17 @@ public class shieldManage : MonoBehaviour
             Debug.Log(lux.transform.position.y);
 
             lux.transform.position = new Vector2(lux.transform.position.x, shieldTopY);
-            
+
 
         }
-        else rLightRender.enabled = false; 
+        else if (lux.CompareTag("luz") && scMController.onGround() && !shieldUP) { lux.transform.position = luxPosIni; }
+
+        else rLightRender.enabled = false;
     }
 
     private void OnTriggerExit2D(Collider2D lux)
     {
-        if (lux.CompareTag("luz") && shieldUP) lux.transform.position = luxPosIni;
+        if (lux.CompareTag("luz") ) lux.transform.position = luxPosIni;
     }
 
     void usingShieldTime()

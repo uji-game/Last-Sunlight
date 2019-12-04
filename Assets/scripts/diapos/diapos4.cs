@@ -32,7 +32,7 @@ public class diapos4 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (cont == 7)
-                SceneManager.LoadScene("Scenes/Nivel 2");
+                SceneManager.LoadScene("Scenes/level2");
             else
             {
                 spriteRenderer.sprite = Resources.Load<Sprite>("4/" + cont);

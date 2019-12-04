@@ -16,10 +16,13 @@ using UnityEngine;
 public class baneBehaviour : MonoBehaviour
 {
     private Rigidbody2D baneRB;
+    public BoxCollider2D range;
     private movController scMov;
 
+    public LayerMask saddaj;
+
     private float velPatrulla;
-    private bool patrullando, pDir, facingRight=false; //false derecha, true izq
+    private bool patrullando, pDir, facingRight=false, inRange; //false derecha, true izq
     public float posBane, posMax, posMin, posIni;
     // Start is called before the first frame update
     void Start()
@@ -28,8 +31,9 @@ public class baneBehaviour : MonoBehaviour
         //scMov = FindObjectOfType<movController>();
 
         baneRB = GetComponent<Rigidbody2D>();
+        range = GetComponent<BoxCollider2D>();
 
-        baneRB.transform.position = new Vector2(-35f, 4f); 
+        baneRB.transform.position = new Vector2(-18f, 4f); 
 
         posIni = baneRB.transform.position.x;
         posMax = posIni + 7f;
@@ -46,6 +50,14 @@ public class baneBehaviour : MonoBehaviour
         posBane = Mathf.Floor(baneRB.transform.position.x);
         movimiento();
         //if (baneRB.transform.position.x >= patrulla) { baneRB.transform.position += new Vector3(-2f,0f,0f); }
+
+        Vector2 a = new Vector2(baneRB.transform.position.x, baneRB.transform.position.y);
+        Vector2 b = new Vector2(100f, 10f);
+        inRange = Physics2D.OverlapBox(a, b, 0f, saddaj, -100f, 100f);
+
+        sjInRange();
+        Debug.Log("xddddddddd");
+        print(inRange);
     }
 
 
@@ -96,5 +108,12 @@ public class baneBehaviour : MonoBehaviour
         if (!facingRight) { flipSprite(); }
         else if (facingRight) { flipSprite(); }
     }
+    void sjInRange()
+    {
 
+        if (inRange) { Debug.Log("Me cago en tus muertos, Unity"); }
+        
+    
+
+    }
 }

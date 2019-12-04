@@ -4646,6 +4646,8 @@ MonoBehaviour:
   myText: {fileID: 1046506647}
   anim: {fileID: 0}
   recoger: 0
+  recogido: 0
+  casa: {fileID: 0}
 --- !u!222 &1380895182
 CanvasRenderer:
   m_ObjectHideFlags: 0

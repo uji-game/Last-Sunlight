@@ -150,13 +150,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc24881d02a045041b8d9aa3fe4469ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite1: {fileID: 0}
-  sprite2: {fileID: 0}
-  sprite3: {fileID: 0}
-  sprite4: {fileID: 0}
-  sprite5: {fileID: 0}
-  sprite6: {fileID: 0}
-  sprite7: {fileID: 0}
+  sprite1: {fileID: 21300000, guid: 6e103987efbb5164fad6c6344f7d9a3d, type: 3}
+  sprite2: {fileID: 21300000, guid: 17966a3f67bf6ce4c9eb43180e7d0dce, type: 3}
+  sprite3: {fileID: 21300000, guid: 7e9ff5f2558829046b7a7bfc00ee1645, type: 3}
+  sprite4: {fileID: 21300000, guid: 01d5f4d65b4d3c244a5d5d6e867204f8, type: 3}
+  sprite5: {fileID: 21300000, guid: 20af3d2e248878247931938729c29bc6, type: 3}
+  sprite6: {fileID: 21300000, guid: 46321380169cdb14090b1e26f64dae2f, type: 3}
+  sprite7: {fileID: 21300000, guid: 6ca5998e3692ea24db42264caa340925, type: 3}
+  sprite8: {fileID: 21300000, guid: e610e08fe108e534bbe246a59a9e8f62, type: 3}
+  sprite9: {fileID: 21300000, guid: c1ba3024e1d6db3469f5459382916152, type: 3}
+  sprite10: {fileID: 21300000, guid: 487ab86ab1ad63447a5ffe762db067f3, type: 3}
+  sprite11: {fileID: 21300000, guid: 86563d795aaaeb64f85b3f278211b9ef, type: 3}
+  sprite12: {fileID: 21300000, guid: fdf8a6a6b1d8f5e4682026193402b802, type: 3}
+  sprite13: {fileID: 21300000, guid: 283f28fc62d99d645b1ea3e33ddf46cc, type: 3}
+  sprite14: {fileID: 21300000, guid: ddb619b7fc863374c9ae47e0bb5683af, type: 3}
+  sprite15: {fileID: 21300000, guid: 6a4f58156436a1e4fa4a13181f8de2a8, type: 3}
+  sprite16: {fileID: 21300000, guid: 5499eec9feb8ab7459861457ef0800c5, type: 3}
+  sprite17: {fileID: 21300000, guid: 0b86c0a3d8dfd6b43915d7b82d69951f, type: 3}
+  sprite18: {fileID: 21300000, guid: 1b47d8ebe4603094c92054cc57f488ba, type: 3}
+  sprite19: {fileID: 21300000, guid: 9d2d2ede7e9840d4ab01e3a64e47b670, type: 3}
+  sprite20: {fileID: 21300000, guid: feee914ee4704094cb1aa328650272f7, type: 3}
+  sprite21: {fileID: 21300000, guid: cd47b27f75d0d164a91e59e646a558e3, type: 3}
+  sprite22: {fileID: 21300000, guid: e58c42d9196582945b99fe1a564431a9, type: 3}
+  sprite23: {fileID: 21300000, guid: 392f00eb463846a4c8fe8fb8e46bec09, type: 3}
 --- !u!212 &593573281
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -215,7 +231,7 @@ Transform:
   m_GameObject: {fileID: 593573279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1

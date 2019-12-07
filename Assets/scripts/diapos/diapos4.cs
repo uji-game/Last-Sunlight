@@ -14,6 +14,22 @@ public class diapos4 : MonoBehaviour
     public Sprite sprite5;
     public Sprite sprite6;
     public Sprite sprite7;
+    public Sprite sprite8;
+    public Sprite sprite9;
+    public Sprite sprite10;
+    public Sprite sprite11;
+    public Sprite sprite12;
+    public Sprite sprite13;
+    public Sprite sprite14;
+    public Sprite sprite15;
+    public Sprite sprite16;
+    public Sprite sprite17;
+    public Sprite sprite18;
+    public Sprite sprite19;
+    public Sprite sprite20;
+    public Sprite sprite21;
+    public Sprite sprite22;
+    public Sprite sprite23;
 
     private int cont;
 
@@ -31,7 +47,7 @@ public class diapos4 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (cont == 7)
+            if (cont == 24)
                 SceneManager.LoadScene("Scenes/Nivel 2");
             else
             {

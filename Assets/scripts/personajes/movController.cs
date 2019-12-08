@@ -40,7 +40,13 @@ public class movController : MonoBehaviour
     private bool platJump = true;
     //string cargar;
 
-    AudioSource audioWalk;
+    //Sounds
+    private bool falling, jumping = false;
+
+    AudioSource audio;
+    public AudioClip audioWalk;
+    public AudioClip audioJump;
+    public AudioClip audioFall;
 
 // Start is called before the first frame update
     void Start()
@@ -58,13 +64,16 @@ public class movController : MonoBehaviour
         scShieldM = FindObjectOfType<shieldManage>();
 
 
-        audioWalk = GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
+        //audioJump = GetComponent<AudioSource>();
+        //audioFall = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (onGround()) { platJump = true; topClimb = false; }
+        else { falling = true; }//Uno de los cambios audiosC
 
         if(!scBarraVida.dead && !scPause.gamePaused && !scRecoger.recoger) Move();
         if(scBarraVida.dead) rb2d.velocity = new Vector2(0, 0);
@@ -72,23 +81,37 @@ public class movController : MonoBehaviour
         if (activateTimer) cooldown();
         animScript();
         //Debug.Log("yepa "+empujaIdle);
+        //Todo esto es para audiosC
+        if (jumping && !audio.isPlaying)
+        {
+            audio.PlayOneShot(audioJump);
+            jumping = false;
+        }
 
         if (moving || push || pull)
         {
             if (onGround() == true)
             {
-                if (!audioWalk.isPlaying)
-                    audioWalk.Play();
+                if (!audio.isPlaying)
+                    audio.Play();
             }
-            if (onGround() == false)
+            if (onGround() == false && falling && !audio.isPlaying)
             {
-                audioWalk.Stop();
+                audio.Stop();
             }
         }
         else
         {
-            audioWalk.Stop();
+            audio.Stop();
         }
+
+        if (falling && platJump)
+        {
+            falling = false;
+            audio.PlayOneShot(audioFall);
+        }
+
+
         //Debug.Log("trig: "+trig);
     }
     
@@ -172,6 +195,11 @@ public class movController : MonoBehaviour
             {
                 rb2d.velocity = Vector2.up * jumpVel;
                 platJump = false;
+                
+                //Modificación para audiosC
+                audio.Stop();
+                jumping = true;
+                
             }
         }
     }

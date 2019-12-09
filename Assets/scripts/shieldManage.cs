@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class shieldManage : MonoBehaviour
 {
@@ -26,10 +27,13 @@ public class shieldManage : MonoBehaviour
 
     private float tRem;
 
+    Scene scene;
+
     // Start is called before the first frame update
 
     void Start()
     {
+
         shieldUP = false;
         scMController = FindObjectOfType<movController>();
 
@@ -53,6 +57,7 @@ public class shieldManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        scene = SceneManager.GetActiveScene();
         useShield();
         followSaddaj();
         //Debug.Log(shieldUP);
@@ -108,28 +113,32 @@ public class shieldManage : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D lux)
     {
-        Debug.Log(lux.transform.position.y);
-        if (lux.CompareTag("luz") && scMController.onGround() && shieldUP)
+        if (scene.name == "level2")
         {
-            rLightRender.enabled = true;
+            if (lux.CompareTag("luz") && scMController.onGround() && shieldUP)
+            {
+                rLightRender.enabled = true;
 
 
-            float shieldCenter = shieldCollider2d.transform.position.y;
-            float luxMidTopY = lux.bounds.size.y / 2;
-            float shieldTopY = luxMidTopY + shieldCenter;
+                float shieldCenter = shieldCollider2d.transform.position.y;
+                float luxMidTopY = lux.bounds.size.y / 2;
+                float shieldTopY = luxMidTopY + shieldCenter;
 
-            Debug.Log(lux.transform.position.y);
+                //Debug.Log(lux.transform.position.y);
 
-            lux.transform.position = new Vector2(lux.transform.position.x, shieldTopY);
-            
+                lux.transform.position = new Vector2(lux.transform.position.x, shieldTopY);
 
+
+            }
+            else if (lux.CompareTag("luz") && scMController.onGround() && !shieldUP) { lux.transform.position = luxPosIni; }
+
+            else rLightRender.enabled = false;
         }
-        else rLightRender.enabled = false; 
     }
 
     private void OnTriggerExit2D(Collider2D lux)
     {
-        if (lux.CompareTag("luz") && shieldUP) lux.transform.position = luxPosIni;
+        if (lux.CompareTag("luz") && scene.name == "level2") lux.transform.position = luxPosIni;
     }
 
     void usingShieldTime()

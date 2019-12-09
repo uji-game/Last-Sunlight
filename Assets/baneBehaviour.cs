@@ -18,9 +18,12 @@ public class baneBehaviour : MonoBehaviour
     private Rigidbody2D baneRB;
     private movController scMov;
 
+    public Rigidbody2D saddajRB;
+
     private float velPatrulla;
-    private bool patrullando, pDir, facingRight=false; //false derecha, true izq
-    public float posBane, posMax, posMin, posIni;
+    private bool patrullando, pDir, facingRight=false, cazando; //false derecha, true izq
+    public float posBane, posMax, posMin;
+    private float posIni;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +32,11 @@ public class baneBehaviour : MonoBehaviour
 
         baneRB = GetComponent<Rigidbody2D>();
 
-        baneRB.transform.position = new Vector2(-35f, 4f); 
+        posIni = Mathf.Floor(baneRB.transform.position.x);
+        //posIni = (baneRB.transform.position.x);
 
-        posIni = baneRB.transform.position.x;
+        baneRB.transform.position = new Vector2(posIni, baneRB.transform.position.y); 
+
         posMax = posIni + 7f;
         posMin = posIni - 7f;
         flip();
@@ -45,7 +50,10 @@ public class baneBehaviour : MonoBehaviour
     {
         posBane = Mathf.Floor(baneRB.transform.position.x);
         movimiento();
-        //if (baneRB.transform.position.x >= patrulla) { baneRB.transform.position += new Vector3(-2f,0f,0f); }
+        if (Mathf.Abs(baneRB.position.x - saddajRB.position.x) < 15f) { inRange(); patrullando = false; /*cazando = true;*/ }
+        else { patrullando = true;  /*cazando = false;*/  }
+        
+        //rint("Cazando: "+ cazando+"\nPatrullando: "+patrullando+"\npDir: "+pDir);
     }
 
 
@@ -53,22 +61,23 @@ public class baneBehaviour : MonoBehaviour
     {
         if (patrullando)
         {
-            //flip();
-            if ((posBane <= posMax) && !pDir)
+            print("Patrusho");
+
+            if ((posBane <= posMax) && !pDir)   //patrulla hacia la derecha
             {
-                //Debug.Log(posBane + " " + posMax);
 
                 baneRB.transform.position += new Vector3(0.025f, 0f, 0f);
 
                 if (posBane == posMax)
                 {
-                    //Debug.Log("hago pocas cosas");
 
                     pDir = true;
                     flip();
                 }
             }
-            else if ((posBane >= posMin) && pDir)
+
+
+            else if ((posBane >= posMin) && pDir)   //patrulla hacia la izquierda
             {
                 //Debug.Log("hago muchas cosas");
 
@@ -80,6 +89,13 @@ public class baneBehaviour : MonoBehaviour
                     flip();
                 }
             }
+        }
+
+        else 
+        {
+            if ((posBane >= posMin) && !pDir && ((Mathf.Abs(saddajRB.position.x - baneRB.position.x) > 3f)/* && !cazando*/)) { pDir = true; flip(); }
+            else if ((posBane <= posMax) && pDir && ((Mathf.Abs(saddajRB.position.x - baneRB.position.x)>3f)/* && !cazando*/)) { pDir = false; flip(); }
+
         }
     }
 
@@ -95,6 +111,34 @@ public class baneBehaviour : MonoBehaviour
     {
         if (!facingRight) { flipSprite(); }
         else if (facingRight) { flipSprite(); }
+    }
+
+    private void inRange()
+    {
+        //if (baneRB.position.x < saddajRB.position.x)
+        if ((baneRB.position.x - saddajRB.position.x) < -1.5f)
+        {
+            baneRB.transform.position += new Vector3(0.05f, 0f);
+            if (pDir) { pDir = false; flip(); }
+            print("Te pillo por la izq");
+        }
+
+
+        else if ((baneRB.position.x - saddajRB.position.x) > 1.5f)
+        {
+            baneRB.transform.position += new Vector3(-0.05f, 0f);
+            if (!pDir) { pDir = true; flip(); }
+
+            print("Te pillo por la dcha");
+
+        }
+
+
+    }
+
+    void OnTriggerStay2D(Collider2D entity)
+    {
+        if (entity.CompareTag("luzRef")) { Debug.Log("Bane se hace pupa"); }
     }
 
 }

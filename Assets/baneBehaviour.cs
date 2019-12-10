@@ -166,7 +166,7 @@ public class baneBehaviour : MonoBehaviour
             baneHP -= 10;
             if ((baneHP) <= 0) 
             { 
-                //Destroy(baneRB); 
+                //Destroy(this.gameObject); 
                 alive = false; 
                 
             }

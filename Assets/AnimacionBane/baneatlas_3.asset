@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!43 &-5795601463115485135
+Mesh:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: baneatlas_3
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 27
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 11
+    localAABB:
+      m_Center: {x: 0.009610653, y: 0.014062405, z: 0}
+      m_Extent: {x: 3.3496094, y: 3.1640625, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 0200010000000100030000000300040000000000040006000500040003000400070006000700080006000600080009000a0009000800
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 11
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 1
+      offset: 0
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 2
+      offset: 0
+      format: 0
+      dimension: 4
+    - stream: 2
+      offset: 16
+      format: 10
+      dimension: 4
+    m_DataSize: 896
+    _typelessdata: ec7ad93f66664b40000000000000000000000000000080bf0000803f4de987b300000000000080bf76fd56409a99733f000000000000000000000000000080bf0000803f097c19b400000000000080bf76fd5640cd4cea3f000000000000000000000000000080bf0000803fcd339a3300000000000080bf1405f0bf9a592ac0000000000000000000000000000080bf0000803feff00d3600000000000080bf8ac214c09a9949c0000000000000000000000000000080bf0000803f0636a03300000000000080bf8a0207c09a9949c0000000000000000000000000000080bf0000803f0000000000000000000080bf8ac219c066664b40000000000000000000000000000080bf0000803f1dddcfb300000000000080bf8a022fc09a993ac0000000000000000000000000000080bf0000803fadcd37b500000000000080bf8ac237c08f5925c0000000000000000000000000000080bf0000803fe983d4b600000000000080bf8ac255c066661440000000000000000000000000000080bf0000803f6b5a8fb500000000000080bf8ac255c033b3a0bf000000000000000000000000000080bf0000803f8988883400000000000080bf00000000000000002adccf3ec976743f2a1ce53ec976613f2a1ce53ec9f6683f291ca23e73a1423f295c9c3ec9763e3f291c9f3ec9763e3f295c9b3ec976743f291c973ec976403f295c953e1f4c433f295c8f3e73216d3f295c8f3e73a14e3f000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.009610653, y: 0.014062405, z: 0}
+    m_Extent: {x: 3.3496094, y: 3.1640625, z: 0}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    offset: 0
+    size: 0
+    path: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10c0be6d28fe4d539c4a39822fe301c, type: 3}
+  m_Name: baneatlas_3
+  m_EditorClassIdentifier: 
+  m_ApiVersion: 4
+  m_Sprite: {fileID: -8272578353021958309, guid: 899bfa7693df5a24b99a333e010a860d,
+    type: 3}
+  m_SharedMesh: {fileID: -5795601463115485135}
+  m_SharedMaterials: []
+--- !u!114 &7134105769844706683
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e715ea371f114f4a8d2584ad476634d, type: 3}
+  m_Name: baneatlas_3_Data
+  m_EditorClassIdentifier: 
+  m_PivotPoint: {x: 1453.9999, y: 2547}
+  m_Vertices:
+  - {x: 1623.9062, y: 2864.8125}
+  - {x: 1789.9219, y: 2642.1562}
+  - {x: 1789.9219, y: 2730.0469}
+  - {x: 1266.4844, y: 2280.8281}
+  - {x: 1221.5625, y: 2232}
+  - {x: 1243.0469, y: 2232}
+  - {x: 1213.75, y: 2864.8125}
+  - {x: 1180.5469, y: 2255.4375}
+  - {x: 1166.875, y: 2288.6409}
+  - {x: 1120, y: 2778.875}
+  - {x: 1120, y: 2421.4531}
+  m_BoneWeights: []
+  m_Edges:
+  - index1: 10
+    index2: 9
+  - index1: 6
+    index2: 9
+  - index1: 10
+    index2: 8
+  - index1: 0
+    index2: 6
+  - index1: 7
+    index2: 8
+  - index1: 4
+    index2: 7
+  - index1: 2
+    index2: 0
+  - index1: 5
+    index2: 3
+  - index1: 5
+    index2: 4
+  - index1: 1
+    index2: 3
+  - index1: 2
+    index2: 1
+  m_Holes: []
+  m_Indices: 0a0000000900000008000000060000000800000009000000070000000800000006000000040000000700000006000000000000000400000006000000030000000400000000000000050000000400000003000000010000000300000000000000020000000100000000000000
+  m_BindPoses: []
+  m_Blendshapes: []

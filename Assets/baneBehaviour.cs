@@ -20,6 +20,7 @@ public class baneBehaviour : MonoBehaviour
 
 
     private movController scMov;
+    private BarraDeVida scBarraVida;
     //private shieldManage scShield;
 
     public SpriteRenderer rLight;
@@ -34,7 +35,7 @@ public class baneBehaviour : MonoBehaviour
     //VidaBane
     private int baneHP;
     private Animator baneAnim;
-    private bool alive;
+    private bool alive, bAttack;
 
 
 
@@ -43,8 +44,12 @@ public class baneBehaviour : MonoBehaviour
     {
         // BaneConstructor bane = new BaneConstructor(100f, 100f, -13f, -3f, baneRB);
         //scMov = FindObjectOfType<movController>();
-        // scShield = FindObjectOfType<shieldManage>();
+        //scShield = FindObjectOfType<shieldManage>();
+        scBarraVida = FindObjectOfType<BarraDeVida>();
+
         alive = true;
+        bAttack = false;
+
         baneRB = GetComponent<Rigidbody2D>();
         baneBX = GetComponent<BoxCollider2D>();
         baneAnim = GetComponent<Animator>();
@@ -77,7 +82,8 @@ public class baneBehaviour : MonoBehaviour
         if (rLight.enabled) lxON = true;
         else { lxON = false; }
         baneAnim.SetBool("aliveBane", alive); 
-        print(baneHP);
+        baneAnim.SetBool("attack", bAttack); 
+        //print(baneHP);
     }
 
 
@@ -85,6 +91,7 @@ public class baneBehaviour : MonoBehaviour
     {
         if (patrullando)
         {
+            bAttack = false;
             //print("Patrusho");
 
             if ((posBane <= posMax) && !pDir)   //patrulla hacia la derecha
@@ -142,6 +149,8 @@ public class baneBehaviour : MonoBehaviour
         //if (baneRB.position.x < saddajRB.position.x)
         if ((baneRB.position.x - saddajRB.position.x) < -1.5f)
         {
+            bAttack = false;
+
             baneRB.transform.position += new Vector3(0.05f, 0f);
             if (pDir) { pDir = false; flip(); }
             //print("Te pillo por la izq");
@@ -150,11 +159,19 @@ public class baneBehaviour : MonoBehaviour
 
         else if ((baneRB.position.x - saddajRB.position.x) > 1.5f)
         {
+            bAttack = false;
+
             baneRB.transform.position += new Vector3(-0.05f, 0f);
             if (!pDir) { pDir = true; flip(); }
 
             //print("Te pillo por la dcha");
 
+        }
+
+        else 
+        {
+            if (!scBarraVida.dead) bAttack = true;
+            else bAttack = false;   //no te cebes hdp
         }
 
 
@@ -163,15 +180,40 @@ public class baneBehaviour : MonoBehaviour
     {
         if (obj.CompareTag("luzRef") && lxON) 
         {
-            baneHP -= 10;
+            baneHP -= 5;
             if ((baneHP) <= 0) 
-            { 
+            {
                 //Destroy(this.gameObject); 
+                baneHP = 100;
                 alive = false; 
                 
             }
 
         }
+    }
+    void fSaddaj() 
+    {
+        float misMuertos = baneRB.position.x - saddajRB.position.x;
+       
+        if (pDir)   //atacando por la izquierda
+        {
+            
+            if (misMuertos >= 0 && misMuertos <= 1.5f) 
+            { 
+                print("saddaj es apuñalado desde la dcha");
+                scBarraVida.dead = true;
+            }
+        }
+        else        //atacando por la derecha
+        {
+            if (misMuertos <= 0 && misMuertos >= -1.5f) 
+            {
+                print("saddaj es apuñalado desde la izq");
+                scBarraVida.dead = true;
+
+            }
+        }
+
     }
 
 }

@@ -1,0 +1,439 @@
+fileFormatVersion: 2
+guid: 899bfa7693df5a24b99a333e010a860d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4310319971998712783
+    second: baneatlas_0
+  - first:
+      213: 4914866144263933290
+    second: baneatlas_1
+  - first:
+      213: -2705983710425945837
+    second: baneatlas_2
+  - first:
+      213: -8272578353021958309
+    second: baneatlas_3
+  - first:
+      213: -8669364670335460886
+    second: baneatlas_4
+  - first:
+      213: -1769255622709709987
+    second: baneatlas_5
+  - first:
+      213: 7921637218788105343
+    second: baneatlas_6
+  - first:
+      213: -5241381989547070711
+    second: baneatlas_7
+  - first:
+      213: 7394057203152672431
+    second: baneatlas_8
+  - first:
+      213: -3479096301985781936
+    second: baneatlas_9
+  - first:
+      213: 288543558587920818
+    second: baneatlas_10
+  - first:
+      213: -5976348738110418152
+    second: baneatlas_11
+  - first:
+      213: -619256736285226380
+    second: baneatlas_12
+  - first:
+      213: -6698605505370704783
+    second: baneatlas_13
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: baneatlas_0
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 2892
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32dc23a05cf3b3945917ae7acc370708
+      internalID: -4310319971998712783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_1
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 2617
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0af2c7848964ec84a9f2a49d4aacd38b
+      internalID: 4914866144263933290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_2
+      rect:
+        serializedVersion: 2
+        x: 299.35944
+        y: 2240.8364
+        width: 254.14062
+        height: 601.7969
+      alignment: 9
+      pivot: {x: 0.502244, y: 0.49711722}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fef023dd57bcdd469b72d9760a37aea
+      internalID: -2705983710425945837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_3
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 2227
+        width: 679.9219
+        height: 642.8125
+      alignment: 9
+      pivot: {x: 0.4985865, y: 0.49781233}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb3f6689155179e428bbf5d112e64c21
+      internalID: -8272578353021958309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_4
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 2534
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f823b055882f06f46a3a238f7793a286
+      internalID: -8669364670335460886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_5
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 2213
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5815afb7c7d5345bb1ac626ef15964
+      internalID: -1769255622709709987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_6
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 2122
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad1c125e1e9ea2e469a18b9b082783b9
+      internalID: 7921637218788105343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_7
+      rect:
+        serializedVersion: 2
+        x: 182.70312
+        y: 1542.9456
+        width: 443.59375
+        height: 328.35938
+      alignment: 9
+      pivot: {x: 0.49571106, y: 0.49657312}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e27ae5e4d2dd42742aacfcc6ac3924ce
+      internalID: -5241381989547070711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_8
+      rect:
+        serializedVersion: 2
+        x: 1137.0001
+        y: 1484.0001
+        width: 621.3281
+        height: 582.2655
+      alignment: 9
+      pivot: {x: 0.4981265, y: 0.4989133}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 670cafa003936434ca1dec511a259df3
+      internalID: 7394057203152672431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_9
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 1341
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0ca2d1e703252a458d3a9fc2519fd86
+      internalID: -3479096301985781936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_10
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 1259
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a2b79c3f0520184a9e938c8a42716e0
+      internalID: 288543558587920818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_11
+      rect:
+        serializedVersion: 2
+        x: 69.999985
+        y: 31.000015
+        width: 1392.8125
+        height: 1291.25
+      alignment: 9
+      pivot: {x: 0.49934933, y: 0.49912876}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64af038d822a70d43a47e8a172d0ecff
+      internalID: -5976348738110418152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_12
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 619
+        width: 517
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cb05a6fe83f8f4439c079c22c00b5c5
+      internalID: -619256736285226380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baneatlas_13
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 9
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf63b2bd3e70d654082106ebf10ca5dc
+      internalID: -6698605505370704783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 637114188500010748
+  assetBundleName: 
+  assetBundleVariant: 

@@ -43,7 +43,7 @@ public class movController : MonoBehaviour
     //Sounds
     private bool falling, jumping = false;
 
-    AudioSource audio;
+    new AudioSource audio;
     public AudioClip audioWalk;
     public AudioClip audioJump;
     public AudioClip audioFall;
@@ -73,7 +73,7 @@ public class movController : MonoBehaviour
     void Update()
     {
         if (onGround()) { platJump = true; topClimb = false; }
-        else { falling = true; }//Uno de los cambios audiosC
+        else { falling = true; platJump = false; }//Uno de los cambios audiosC
 
         if(!scBarraVida.dead && !scPause.gamePaused && !scRecoger.recoger) Move();
         if(scBarraVida.dead) rb2d.velocity = new Vector2(0, 0);
@@ -82,10 +82,12 @@ public class movController : MonoBehaviour
         animScript();
         //Debug.Log("yepa "+empujaIdle);
         //Todo esto es para audiosC
-        if (jumping && !audio.isPlaying)
+
+
+        if (falling && platJump)
         {
-            audio.PlayOneShot(audioJump);
-            jumping = false;
+            falling = false;
+            audio.PlayOneShot(audioFall);
         }
 
         if (moving || push || pull)
@@ -93,22 +95,25 @@ public class movController : MonoBehaviour
             if (onGround() == true)
             {
                 if (!audio.isPlaying)
-                    audio.Play();
+                    audio.PlayOneShot(audioWalk);
             }
-            if (onGround() == false && falling && !audio.isPlaying)
+            else if (onGround() == false && falling && !audio.isPlaying)
             {
                 audio.Stop();
+                Debug.Log("cayendo");
             }
         }
-        else
+        else if(falling)
         {
             audio.Stop();
+            Debug.Log("falling");
         }
 
-        if (falling && platJump)
+        if (jumping)
         {
-            falling = false;
-            audio.PlayOneShot(audioFall);
+            audio.Stop();
+            audio.PlayOneShot(audioJump);
+            jumping = false;
         }
 
 

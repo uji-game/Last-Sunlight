@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject PauseMenuUI;
     private BarraDeVida scBarraVida;
 
+    Scene x;
+
     void Start()
     {
         scBarraVida = FindObjectOfType<BarraDeVida>();
@@ -19,10 +21,10 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        x = SceneManager.GetActiveScene();
         if (Input.GetKeyDown(KeyCode.Escape) && !scBarraVida.dead) {
             if (gamePaused) { Resume(); }
-            else { Pause(); }
-        }
+            else { Pause(); }        }
 
 
     }
@@ -30,6 +32,8 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gamePaused = true;
+        if (x.name == "level2") { print("Si no funciono soy gay"); }
+
     }
     public void Resume() {
 

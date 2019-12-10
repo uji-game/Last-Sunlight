@@ -8942,7 +8942,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1380895187}
         m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
@@ -26629,6 +26629,7 @@ GameObject:
   - component: {fileID: 1380895179}
   - component: {fileID: 1380895186}
   - component: {fileID: 1380895185}
+  - component: {fileID: 1380895187}
   m_Layer: 0
   m_Name: saddaj
   m_TagString: Player
@@ -27116,6 +27117,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1380895187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380895173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb33530832de71f4491abbcfffda9f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1383995613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 703815177911938505, guid: ae43058b2ce0b5343a54cc4233c13ccc,

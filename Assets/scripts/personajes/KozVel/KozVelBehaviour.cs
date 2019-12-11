@@ -5,7 +5,6 @@ using UnityEngine;
 public class KozVelBehaviour : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Animator kvAnim;
 
     private Rigidbody2D kvRB;
     public Rigidbody2D saddajRB;
@@ -17,18 +16,22 @@ public class KozVelBehaviour : MonoBehaviour
 
     //
     private float kvIni, kvMax, kvMin, kvPosX;
-    private bool guard, patrolD, kvAlive;
-    private Vector3 kvPos;
+    private bool guard, patrolD;
+    public bool kvActive;
+    public Vector3 kvPos;
 
     //anim
+    private Animator kvAnim;
     private bool charge, shoot;
 
 
     void Start()
     {
         charge = false;
-        kvAlive = true;
+        kvActive = true;
         guard = true;
+        kvActive = true;
+
         kvAnim = GetComponent<Animator>();
         kvAnim.applyRootMotion = true;
         kvRB = GetComponent<Rigidbody2D>();
@@ -52,11 +55,11 @@ public class KozVelBehaviour : MonoBehaviour
     {
         kvPos.x = Mathf.Floor(kvRB.transform.position.x);
         kvPos.y = Mathf.Floor(kvRB.transform.position.y);
-
+        print("kvactive: "+kvActive);
 
         kvPosX = Mathf.Floor(kvRB.transform.position.x);
-        movimiento();
-        if (kvAlive && Mathf.Abs(kvRB.position.x - saddajRB.position.x) < 10f)//dentro de rango de disparo?
+        if(kvActive) movimiento();
+        if (kvActive && Mathf.Abs(kvRB.position.x - saddajRB.position.x) < 10f)//dentro de rango de disparo?
         {
             charge = true; //inKVRange();
             guard = false;
@@ -70,6 +73,8 @@ public class KozVelBehaviour : MonoBehaviour
 
         kvAnim.SetBool("charging", charge);
         kvAnim.SetBool("shooting", shoot);
+        kvAnim.SetBool("active", kvActive);
+        if (!kvActive) { blastSR.enabled = false; }
 
         if (blastSR.enabled && shoot)
         {
@@ -211,8 +216,9 @@ public class KozVelBehaviour : MonoBehaviour
 
         shoot = false;
         blastSR.enabled = false;
-
         blastSR.color = new Color(1f, 1f, 1f, 1f);
+        blast.transform.position = kvPos;
+
 
     }
 
@@ -221,24 +227,37 @@ public class KozVelBehaviour : MonoBehaviour
         //blastRB.velocity = new Vector2(-1, 0);
 
         Vector3 dir = blastRB.position - sadPos;
-
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        // Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        //blast.transform.rotation = Quaternion.RotateTowards(blast.transform.rotation, rot,  1);
-        //blast.transform.rotation.Set(0,0,1,0); //+= Quaternion.Euler(0,0,1f);
         blast.transform.eulerAngles += Vector3.forward * 50f;
 
-        Vector2 prueba = new Vector2(2,2);
-        //prueba.y = sadPos.y - blastRB.position.y;
-        //prueba.x = sadPos.x - blastRB.position.x;//Vector2.Scale(sadPos,prueba)
+        Vector3 x = dir *2;
+        //Vector3 velocity=
+        if (blastRB.transform.position != x) blastRB.velocity = -(dir*2);
+        //if(blastRB.transform.position!=x) blastRB.transform.position -= dir/15;
+        //blastRB.transform.position -= x / 30;
+        if (blastRB.transform.position == x) print("pos he llegao");
 
-        blastRB.transform.position = Vector2.MoveTowards(blastRB.transform.position, sadPos, 0.2f);
+        //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        // Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        //blastRB.transform.position = Vector2.m
-        //blastSR.color = new Color(1f, 1f, 1f, blastSR.color.a - 0.01f);
+            //blast.transform.rotation = Quaternion.RotateTowards(blast.transform.rotation, rot,  1);
+            //blast.transform.rotation.Set(0,0,1,0); //+= Quaternion.Euler(0,0,1f);
 
 
+            //Vector2 prueba = new Vector2(2,2);
+            //prueba.y = sadPos.y - blastRB.position.y;
+            //prueba.x = sadPos.x - blastRB.position.x;//Vector2.Scale(sadPos,prueba)
+
+            //blastRB.transform.position = Vector2.m
+            //blastSR.color = new Color(1f, 1f, 1f, blastSR.color.a - 0.01f);
+
+
+            //blastRB.transform.position = Vector2.MoveTowards(blastRB.transform.position, sadPos, 0.2f);
+            //blastRB.transform.position = Vector2.MoveTowards(new Vector2(blastRB.transform.position.x, blastRB.transform.position.y), x, 0.3f * Time.deltaTime);
     }
+
+    void reActivate() 
+    {
+        kvActive = true;
+    }
+    
 }

@@ -72,7 +72,6 @@ public class recogerObjeto : MonoBehaviour
                 activate = true;
                 //recogido = true;
                 //casa.SetActive(true);
-                shieldRender.enabled = true;
             }
         }
     }

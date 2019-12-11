@@ -15,6 +15,7 @@ TagManager:
   - shield
   - enemy
   - takeShield
+  - blast
   layers:
   - Default
   - TransparentFX

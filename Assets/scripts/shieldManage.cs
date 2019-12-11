@@ -8,6 +8,7 @@ public class shieldManage : MonoBehaviour
     private movController scMController;
     private BarraDeVida scBarraVida;
     private PauseMenu scPause;
+    private KozVelBehaviour scKV;
 
     private Rigidbody2D shieldRB;
     
@@ -22,6 +23,12 @@ public class shieldManage : MonoBehaviour
     public GameObject rLight;
     private Rigidbody2D rLightRB;
     private SpriteRenderer rLightRender;
+
+    public GameObject counterBlast;
+    private SpriteRenderer cBlastSR;
+    private Rigidbody2D cBlastRB;
+
+
 
     private Vector3 luxPosIni;
 
@@ -41,6 +48,7 @@ public class shieldManage : MonoBehaviour
         scMController = FindObjectOfType<movController>();
         scBarraVida = FindObjectOfType<BarraDeVida>();
         scPause = FindObjectOfType<PauseMenu>();
+        scKV = FindObjectOfType<KozVelBehaviour>();
 
         saddajRB = transform.GetComponent<Rigidbody2D>();
         shieldRender = Shield.GetComponent<SpriteRenderer>();
@@ -49,6 +57,10 @@ public class shieldManage : MonoBehaviour
 
         rLightRB = rLight.GetComponent<Rigidbody2D>();
         rLightRender = rLight.GetComponent<SpriteRenderer>();
+
+
+        cBlastRB = counterBlast.transform.GetComponent<Rigidbody2D>();
+        cBlastSR = counterBlast.GetComponent<SpriteRenderer>();
 
 
         rLightRB.transform.position = new Vector2(Shield.transform.position.x + 5.5f, Shield.transform.position.y);
@@ -70,6 +82,29 @@ public class shieldManage : MonoBehaviour
         if (actUsingTimer) { usingShieldTime(); }
         if(actCdShield) {shieldCD();}
 
+        if (!cBlastSR.enabled) { cBlastRB.transform.position = Shield.transform.position; }
+        else 
+        {
+            if (cBlastSR.enabled && comprueba())
+            { 
+                print("holo"); 
+                cBlastSR.enabled = false; 
+                scKV.kvActive = false; 
+            }
+            
+        }
+
+
+
+    }
+
+    bool comprueba() 
+    {
+        float difX = Mathf.Abs(cBlastRB.position.x - scKV.kvPos.x);
+        float difY = Mathf.Abs(cBlastRB.position.y - scKV.kvPos.y);
+
+        if (difX < 1f && difY < 1f) return true;
+        else return false;
 
     }
 
@@ -115,9 +150,33 @@ public class shieldManage : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter2D(Collider2D lux)
+    private void OnTriggerEnter2D(Collider2D obj)
     {
-        if (lux.CompareTag("luz")) { luxPosIni = lux.transform.position; }
+        if (obj.CompareTag("luz")) { luxPosIni = obj.transform.position; }
+        if (obj.CompareTag("blast"))
+        {
+            if (shieldUP)
+            {
+                print("rebota");
+                cBlastSR.enabled = true;
+                //cBlastRB.MovePosition(scKV.kvPos);
+                //cBlastRB.position += (Vector2)scKV.kvPos;
+
+                Vector3 dir = cBlastRB.position - (Vector2)scKV.kvPos;
+                counterBlast.transform.eulerAngles += Vector3.forward * 50f;
+                Vector3 x = dir * 2;
+                if (cBlastRB.transform.position != x) cBlastRB.velocity = -(dir);
+                //scKV.kvActive = false;
+
+                //if (cBlastRB.transform.position == scKV.kvPos) cBlastSR.enabled = false; ;
+
+            }
+            else 
+            {
+                print("la paraste de pecho colorao");
+            }
+             
+        }
     }
 
     private void OnTriggerStay2D(Collider2D lux)
@@ -176,5 +235,10 @@ public class shieldManage : MonoBehaviour
             canUse = true;
             tRem = 2f;
         }
+    }
+
+    void mismuertos() 
+    {                
+        if (scene.name == "Nivel 2") { shieldRender.enabled = true; print("xd"); }
     }
 }

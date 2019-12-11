@@ -21,6 +21,7 @@ public class baneBehaviour : MonoBehaviour
 
     private movController scMov;
     private BarraDeVida scBarraVida;
+    private PauseMenu scPause;
     //private shieldManage scShield;
 
     public SpriteRenderer rLight;
@@ -46,6 +47,8 @@ public class baneBehaviour : MonoBehaviour
         //scMov = FindObjectOfType<movController>();
         //scShield = FindObjectOfType<shieldManage>();
         scBarraVida = FindObjectOfType<BarraDeVida>();
+        scPause = FindObjectOfType<PauseMenu>();
+
 
         alive = true;
         bAttack = false;
@@ -75,8 +78,8 @@ public class baneBehaviour : MonoBehaviour
     void Update()
     {
         posBane = Mathf.Floor(baneRB.transform.position.x);
-        if(alive) movimiento();
-        if (alive && Mathf.Abs(baneRB.position.x - saddajRB.position.x) < 15f && Mathf.Abs(baneRB.position.y - saddajRB.position.y) < 3.5f) { inRange(); patrullando = false; /*cazando = true;*/ }
+        if(alive && !scPause.gamePaused) movimiento();
+        if (alive && !scPause.gamePaused && Mathf.Abs(baneRB.position.x - saddajRB.position.x) < 15f && Mathf.Abs(baneRB.position.y - saddajRB.position.y) < 3.5f) { inRange(); patrullando = false; /*cazando = true;*/ }
         else { patrullando = true;  /*cazando = false;*/  }
         
         if (rLight.enabled) lxON = true;
@@ -193,21 +196,25 @@ public class baneBehaviour : MonoBehaviour
     }
     void fSaddaj() 
     {
-        float misMuertos = baneRB.position.x - saddajRB.position.x;
+        float difPos = baneRB.position.x - saddajRB.position.x;
        
         if (pDir)   //atacando por la izquierda
         {
             
-            if (misMuertos >= 0 && misMuertos <= 1.5f) 
+            if (difPos >= 0 && difPos <= 1.5f) 
             { 
                 print("saddaj es apuñalado desde la dcha");
+                scBarraVida.vida = 0f;
+                scBarraVida.recibirDaño(0f);
                 scBarraVida.dead = true;
             }
         }
         else        //atacando por la derecha
         {
-            if (misMuertos <= 0 && misMuertos >= -1.5f) 
+            if (difPos <= 0 && difPos >= -1.5f) 
             {
+                scBarraVida.vida = 0f;
+                scBarraVida.recibirDaño(0f);
                 print("saddaj es apuñalado desde la izq");
                 scBarraVida.dead = true;
 

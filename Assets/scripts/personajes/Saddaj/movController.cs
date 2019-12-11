@@ -222,6 +222,21 @@ public class movController : MonoBehaviour
         transform.localScale = Scaler;
     }
 
+    private void OnTriggerEnter2D(Collider2D obj)
+    {
+        if (obj.CompareTag("blast")  ) 
+        {
+            if (!scShieldM.shieldUP) 
+            {
+                scBarraVida.vida = 0f;
+                scBarraVida.recibirDaño(0f);
+                if (scBarraVida.vida <= 0f) { scBarraVida.dead = true; }
+                print("pupita"); 
+            }
+        }
+    }
+
+
     private void OnTriggerStay2D(Collider2D obj)
     {
         //Trepar//
@@ -296,6 +311,39 @@ public class movController : MonoBehaviour
         }
 
     }
+    private void OnTriggerExit2D(Collider2D obj)
+    {
+
+        if (obj.CompareTag("empujable"))
+        {
+            empujaIdle = false;
+            empujaMov = false;
+            push = false;
+            pull = false;
+            obj.attachedRigidbody.velocity = new Vector2(0f, obj.attachedRigidbody.velocity.y);
+            trig = false;
+
+        }
+        if (obj.CompareTag("trepable"))
+        {
+            trig = false;
+
+        }
+    }
+
+    //Muerte fuera del mapa
+    private void OnCollisionEnter2D(Collision2D outMap)
+    {
+
+        if (outMap.collider.CompareTag("fueraMapa"))
+        {
+            scBarraVida.dead = true;
+            tLeft = 3f;
+            scBarraVida.setHP(0f);
+            scBarraVida.recibirDaño(0f);
+            activateTimer = true;
+        }
+    }
 
     //Empujar/tirar
     private void OnCollisionStay2D(Collision2D obj)
@@ -351,89 +399,6 @@ public class movController : MonoBehaviour
 
     }
 
-
-    private void OnTriggerExit2D(Collider2D obj)
-    {
-       
-        if (obj.CompareTag("empujable"))
-        {
-            empujaIdle = false;
-            empujaMov = false;
-            push = false;
-            pull = false;
-            obj.attachedRigidbody.velocity = new Vector2(0f, obj.attachedRigidbody.velocity.y);
-            trig = false;
-
-        }
-        if (obj.CompareTag("trepable"))
-        {
-            trig = false;
-
-        }
-    }
-
-
-    //Muerte fuera del mapa
-    private void OnCollisionEnter2D(Collision2D outMap)
-    {
-
-        if (outMap.collider.CompareTag("fueraMapa"))
-        {
-            scBarraVida.dead = true;
-            tLeft = 3f;
-            scBarraVida.setHP(0f);
-            scBarraVida.recibirDaño(0f);
-            activateTimer = true;
-        }
-    }
-
-
-
-   /*private void OnCollisionStay2D(Collision2D obj)
-            {
-                if (obj.collider.CompareTag("empujable") && Input.GetKey(KeyCode.F))//
-                {
-
-                    empujaIdle = true;
-
-                    chooseSide(obj);
-
-                    if (Input.GetKey(KeyCode.D)) { 
-                        obj.rigidbody.velocity = new Vector2(speed / 2, obj.rigidbody.velocity.y);
-
-                    }
-                    else if (Input.GetKey(KeyCode.A)) {
-                        obj.rigidbody.velocity = new Vector2(-speed / 2, obj.rigidbody.velocity.y); 
-                    }
-                    else {
-                        obj.rigidbody.inertia = 0f;
-                        float lx = obj.rigidbody.position.x;
-                        obj.rigidbody.position=new Vector2(lx, obj.rigidbody.position.y);
-
-                        obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);
-                    }
-                }
-
-                else //if (Input.GetKeyUp(KeyCode.F))
-                {
-                    empujaMov = false;
-                    obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y); 
-                    float lx = obj.rigidbody.position.x;
-                    obj.rigidbody.position = new Vector2(lx, obj.rigidbody.position.y);
-                    empujaIdle = false;
-                }
-    }
-
-    private void OnCollisionExit2D(Collision2D obj) {
-        if (obj.collider.CompareTag("empujable") )//
-        {
-            empujaMov = false;
-            obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);
-            float lx = obj.rigidbody.position.x;
-            obj.rigidbody.position = new Vector2(lx, obj.rigidbody.position.y);
-            empujaIdle = false;
-        }
-    }*/
     
  //Ver desde que lado se empuja/tira
    void chooseSide(Collision2D p) {
@@ -469,82 +434,7 @@ public class movController : MonoBehaviour
 
 
 
-    /*void OnCollisionEnter2D(Collision2D collision)
-    {
-        Collider2D col = collision.collider;
-        float pScaleY = col.transform.localScale.y / 1.99f;
-        float scaleSadajY = (transform.localScale.y) - 0.1f;
-
-        float res = pScaleY + scaleSadajY;
-
-        if (col.CompareTag ("wall"))
-        {
-            Vector3 contactPoint = collision.contacts[0].point;
-            Vector3 center = col.bounds.center;
-
-            bool left = contactPoint.x < center.x;
-            bool right = contactPoint.x > center.x;
-            bool top = contactPoint.y > (center.y);
-            bool bottom = contactPoint.y < (center.y);
-            Debug.Log(center.y);
-            if (top)
-            {
-                if (left)
-                {
-                    control = false;
-
-                    Vector3 pos = transform.localPosition;
-                    float pX = pos.x - desp;
-                    pos.x -= desp;
-                    transform.localPosition = pos;
-
-                    if (pX == transform.localPosition.x)
-                    {activateTimer = true;}
-                }
-                else if(right){
-                    control = false;
-
-                    Vector3 pos = transform.localPosition;
-                    float pX = pos.x + desp;
-                    pos.x += desp;
-                    transform.localPosition = pos;
-
-                    if (pX == transform.localPosition.x)
-                    {activateTimer = true; }
-
-                }
-            }
-            else if(bottom)
-            {
-                if (left)
-                {
-                    control = false;
-
-                    Vector3 pos = transform.localPosition;
-                    float pX = pos.x - desp;
-                    pos.x -= desp;
-                    transform.localPosition = pos;
-
-                    if (pX == transform.localPosition.x)
-                    { activateTimer = true; }
-                }
-                else if (right)
-                {
-                    control = false;
-
-                    Vector3 pos = transform.localPosition;
-                    float pX = pos.x + desp;
-                    pos.x += desp;
-                    transform.localPosition = pos;
-
-                    if (pX == transform.localPosition.x)
-                    { activateTimer = true; }
-
-                }
-            }
-        }
-    }
-    */
+   
     void cooldown() {
   
         tLeft -= Time.deltaTime;

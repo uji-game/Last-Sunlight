@@ -157,7 +157,7 @@ public class shieldManage : MonoBehaviour
         {
             if (shieldUP)
             {
-                print("rebota");
+                scKV.blastSR.enabled = false;
                 cBlastSR.enabled = true;
                 //cBlastRB.MovePosition(scKV.kvPos);
                 //cBlastRB.position += (Vector2)scKV.kvPos;

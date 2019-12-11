@@ -76,7 +76,11 @@ public class movController : MonoBehaviour
         else { falling = true; platJump = false; }//Uno de los cambios audiosC
 
         if(!scBarraVida.dead && !scPause.gamePaused && !scRecoger.recoger) Move();
-        if(scBarraVida.dead) rb2d.velocity = new Vector2(0, 0);
+        if (scBarraVida.dead) 
+        { 
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+            //if (!onGround()) { rb2d.position += new Vector2(0, -0.2f); }
+        }
 
         if (activateTimer) cooldown();
         animScript();

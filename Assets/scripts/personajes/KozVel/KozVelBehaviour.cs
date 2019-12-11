@@ -12,7 +12,7 @@ public class KozVelBehaviour : MonoBehaviour
     public GameObject blast;
     private Rigidbody2D blastRB;
 
-    private SpriteRenderer blastSR;
+    public SpriteRenderer blastSR;
 
     //
     private float kvIni, kvMax, kvMin, kvPosX;
@@ -59,7 +59,7 @@ public class KozVelBehaviour : MonoBehaviour
 
         kvPosX = Mathf.Floor(kvRB.transform.position.x);
         if(kvActive) movimiento();
-        if (kvActive && Mathf.Abs(kvRB.position.x - saddajRB.position.x) < 10f)//dentro de rango de disparo?
+        if (kvActive && Mathf.Abs(kvRB.position.x - saddajRB.position.x) < 10f && Mathf.Abs(kvRB.position.y - saddajRB.position.y) < 10f)//dentro de rango de disparo?
         {
             charge = true; //inKVRange();
             guard = false;

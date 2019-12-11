@@ -223,9 +223,11 @@ public class KozVelBehaviour : MonoBehaviour
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
+        // Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        blast.transform.rotation = Quaternion.RotateTowards(blast.transform.rotation, rot,  1);
+        //blast.transform.rotation = Quaternion.RotateTowards(blast.transform.rotation, rot,  1);
+        //blast.transform.rotation.Set(0,0,1,0); //+= Quaternion.Euler(0,0,1f);
+        blast.transform.eulerAngles += Vector3.forward * 10f;
 
         blastRB.transform.position = Vector2.MoveTowards(blastRB.transform.position,sadPos, 0.2f);
         blastSR.color = new Color(1f,1f,1f, blastSR.color.a-0.025f);

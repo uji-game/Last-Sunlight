@@ -51,7 +51,7 @@ public class shieldManage : MonoBehaviour
         rLightRender = rLight.GetComponent<SpriteRenderer>();
 
 
-        rLightRB.transform.position = new Vector2(Shield.transform.position.x + 3.5f, Shield.transform.position.y);
+        rLightRB.transform.position = new Vector2(Shield.transform.position.x + 5.5f, Shield.transform.position.y);
 
         rLightRender.enabled = false;
 
@@ -81,7 +81,9 @@ public class shieldManage : MonoBehaviour
         {
             shieldRender.sortingOrder = -1;
             Shield.transform.rotation = Quaternion.Euler(0f, 0f, 30f);
-            rLightRB.transform.position = new Vector2(Shield.transform.position.x - 3.5f, Shield.transform.position.y);
+
+            rLightRB.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
+            rLightRB.transform.position = new Vector2(Shield.transform.position.x - 6f, Shield.transform.position.y);
 
         }
 
@@ -89,7 +91,9 @@ public class shieldManage : MonoBehaviour
         {
             shieldRender.sortingOrder = 10;
             Shield.transform.rotation = Quaternion.Euler(0f, 0f, -30f);
-            rLightRB.transform.position = new Vector2(Shield.transform.position.x + 3.5f, Shield.transform.position.y);
+
+            rLightRB.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+            rLightRB.transform.position = new Vector2(Shield.transform.position.x + 6f, Shield.transform.position.y);
         }
 
 
@@ -128,6 +132,7 @@ public class shieldManage : MonoBehaviour
                 float shieldCenter = shieldCollider2d.transform.position.y;
                 float luxMidTopY = lux.bounds.size.y / 2;
                 float shieldTopY = luxMidTopY + shieldCenter;
+                
 
                 //Debug.Log(lux.transform.position.y);
 

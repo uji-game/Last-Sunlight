@@ -76,7 +76,7 @@ public class baneBehaviour : MonoBehaviour
     {
         posBane = Mathf.Floor(baneRB.transform.position.x);
         if(alive) movimiento();
-        if (alive && Mathf.Abs(baneRB.position.x - saddajRB.position.x) < 15f) { inRange(); patrullando = false; /*cazando = true;*/ }
+        if (alive && Mathf.Abs(baneRB.position.x - saddajRB.position.x) < 15f && Mathf.Abs(baneRB.position.y - saddajRB.position.y) < 3.5f) { inRange(); patrullando = false; /*cazando = true;*/ }
         else { patrullando = true;  /*cazando = false;*/  }
         
         if (rLight.enabled) lxON = true;

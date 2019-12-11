@@ -208,6 +208,7 @@ public class KozVelBehaviour : MonoBehaviour
     }
     void vkReload() //antiguo pene2
     {
+
         shoot = false;
         blastSR.enabled = false;
 
@@ -227,10 +228,17 @@ public class KozVelBehaviour : MonoBehaviour
 
         //blast.transform.rotation = Quaternion.RotateTowards(blast.transform.rotation, rot,  1);
         //blast.transform.rotation.Set(0,0,1,0); //+= Quaternion.Euler(0,0,1f);
-        blast.transform.eulerAngles += Vector3.forward * 10f;
+        blast.transform.eulerAngles += Vector3.forward * 50f;
 
-        blastRB.transform.position = Vector2.MoveTowards(blastRB.transform.position,sadPos, 0.2f);
-        blastSR.color = new Color(1f,1f,1f, blastSR.color.a-0.025f);
-        
+        Vector2 prueba = new Vector2(2,2);
+        //prueba.y = sadPos.y - blastRB.position.y;
+        //prueba.x = sadPos.x - blastRB.position.x;//Vector2.Scale(sadPos,prueba)
+
+        blastRB.transform.position = Vector2.MoveTowards(blastRB.transform.position, sadPos, 0.2f);
+
+        //blastRB.transform.position = Vector2.m
+        //blastSR.color = new Color(1f, 1f, 1f, blastSR.color.a - 0.01f);
+
+
     }
 }

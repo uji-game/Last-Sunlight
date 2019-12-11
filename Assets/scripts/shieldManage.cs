@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 public class shieldManage : MonoBehaviour
 {
     private movController scMController;
+    private BarraDeVida scBarraVida;
+    private PauseMenu scPause;
 
     private Rigidbody2D shieldRB;
+    
 
     private Rigidbody2D saddajRB;
 
@@ -36,6 +39,8 @@ public class shieldManage : MonoBehaviour
 
         shieldUP = false;
         scMController = FindObjectOfType<movController>();
+        scBarraVida = FindObjectOfType<BarraDeVida>();
+        scPause = FindObjectOfType<PauseMenu>();
 
         saddajRB = transform.GetComponent<Rigidbody2D>();
         shieldRender = Shield.GetComponent<SpriteRenderer>();
@@ -58,7 +63,7 @@ public class shieldManage : MonoBehaviour
     void Update()
     {
         scene = SceneManager.GetActiveScene();
-        useShield();
+        if(shieldRender.enabled) useShield();
         followSaddaj();
         //Debug.Log(shieldUP);
 
@@ -72,7 +77,7 @@ public class shieldManage : MonoBehaviour
 
         Shield.transform.position = new Vector2(saddajRB.position.x - 0.2f, saddajRB.position.y - 0.45f);
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && !scBarraVida.dead && !scPause.gamePaused)
         {
             shieldRender.sortingOrder = -1;
             Shield.transform.rotation = Quaternion.Euler(0f, 0f, 30f);
@@ -80,7 +85,7 @@ public class shieldManage : MonoBehaviour
 
         }
 
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) && !scBarraVida.dead && !scPause.gamePaused)
         {
             shieldRender.sortingOrder = 10;
             Shield.transform.rotation = Quaternion.Euler(0f, 0f, -30f);

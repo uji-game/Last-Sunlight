@@ -18,6 +18,8 @@ public class recogerObjeto : MonoBehaviour
     public bool recogido = false;
 
     public GameObject casa;
+    private Scene currentLvl;
+    public SpriteRenderer shieldRender;
 
     //public movController player;
 
@@ -33,7 +35,7 @@ public class recogerObjeto : MonoBehaviour
         // Update is called once per frame
     void Update()
     {
-
+        currentLvl = SceneManager.GetActiveScene();
         //Debug.Log(sad.transform.position.x);
         anim.SetBool("Recoger", recoger);
         if (activate) cd();
@@ -45,7 +47,7 @@ public class recogerObjeto : MonoBehaviour
     {
         if (pickea.tag == "pickeable") {
             //Debug.Log("holap");
-            myText.text = "Pulsa R para recoger el objeto";
+            myText.text = "Pulsa R para recoger el aguita";
 
 
             if (Input.GetKey(KeyCode.R)) { 
@@ -54,17 +56,30 @@ public class recogerObjeto : MonoBehaviour
                 activate = true; 
                 recogido = true;
                 casa.SetActive(true);
+            }           
+        }
+
+        if (pickea.tag == "takeShield")
+        {
+            //Debug.Log("holap");
+            myText.text = "Pulsa R para recoger el escudo";
+
+
+            if (Input.GetKey(KeyCode.R))
+            {
+                pickea.attachedRigidbody.gameObject.SetActive(false);
+                recoger = true;
+                activate = true;
+                //recogido = true;
+                //casa.SetActive(true);
+                shieldRender.enabled = true;
             }
-           
-
-            if (Input.GetKey(KeyCode.R)) {  pickea.attachedRigidbody.gameObject.SetActive(false) ; }
-
         }
     }
     private void OnTriggerExit2D(Collider2D pj)
     {
        
-        if (pj.tag == "pickeable")
+        if (pj.tag == "pickeable" || pj.tag == "takeShield")
         {
             myText.text = "";
         }
@@ -86,8 +101,11 @@ public class recogerObjeto : MonoBehaviour
 
     void finNivel()
     {
-        if (TestRange(sad.transform.position.x, 31, 33))
-            SceneManager.LoadScene("Scenes/diapos2");
+        if (currentLvl.name == "Nivel 1")
+        {
+            if (TestRange(sad.transform.position.x, 31, 33))
+                SceneManager.LoadScene("Scenes/diapos2");
+        }
     }
 
     bool TestRange(float numberToCheck, int bottom, int top)

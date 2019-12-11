@@ -14,6 +14,7 @@ TagManager:
   - goHome
   - shield
   - enemy
+  - takeShield
   layers:
   - Default
   - TransparentFX

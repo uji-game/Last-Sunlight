@@ -55,11 +55,11 @@ public class recogerObjeto : MonoBehaviour
                 recoger = true; 
                 activate = true; 
                 recogido = true;
-                casa.SetActive(true);
+                //casa.SetActive(true);
             }           
         }
 
-        if (pickea.tag == "takeShield")
+        else if (pickea.tag == "takeShield")
         {
             //Debug.Log("holap");
             myText.text = "Pulsa R para recoger el escudo";

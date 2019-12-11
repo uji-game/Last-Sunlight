@@ -19377,6 +19377,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &820092366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7863274226497022404, guid: d9d0b089867874c4599bf8f3e252a571,
+    type: 3}
+  m_PrefabInstance: {fileID: 1492153888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &824457630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1305938796604805342, guid: 30f978f6de424534a96c6fb99eddc885,
@@ -30665,7 +30677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d0fdc40ae3f2e439313caaeefa6ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myText: {fileID: 1046506647}
+  myText: {fileID: 820092366}
   anim: {fileID: 1380895177}
   recoger: 0
   recogido: 0
@@ -30720,6 +30732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Shield: {fileID: 0}
   rLight: {fileID: 0}
+  counterBlast: {fileID: 0}
   shieldUP: 0
   canUse: 0
   actUsingTimer: 0

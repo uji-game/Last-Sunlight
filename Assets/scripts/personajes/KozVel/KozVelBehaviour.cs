@@ -58,7 +58,9 @@ public class KozVelBehaviour : MonoBehaviour
         print("kvactive: "+kvActive);
 
         kvPosX = Mathf.Floor(kvRB.transform.position.x);
-        if(kvActive) movimiento();
+
+        if (!blastSR.enabled) blast.transform.position = kvPos;
+        if (kvActive) movimiento();
         if (kvActive && Mathf.Abs(kvRB.position.x - saddajRB.position.x) < 10f && Mathf.Abs(kvRB.position.y - saddajRB.position.y) < 10f)//dentro de rango de disparo?
         {
             charge = true; //inKVRange();

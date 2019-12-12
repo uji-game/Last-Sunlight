@@ -260,7 +260,7 @@ public class movController : MonoBehaviour
         BoxCollider2D trpaBX= trepa.GetComponent<BoxCollider2D>();
         float trepaCenter = trpaBX.bounds.center.x;
 
-        print("sCenter "+sadajCenter+"\nTrepaC: "+trepaCenter);
+        //print("sCenter "+sadajCenter+"\nTrepaC: "+trepaCenter);
         if (sadajCenter < trepaCenter) { return true; }
         else { return false; }
 

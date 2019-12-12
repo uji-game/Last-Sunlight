@@ -253,7 +253,18 @@ public class movController : MonoBehaviour
         }
     }
 
+    private bool porLaizq(BoxCollider2D sc , Collider2D trepa )
+    {
+        float sadajCenter = sc.bounds.center.x;
 
+        BoxCollider2D trpaBX= trepa.GetComponent<BoxCollider2D>();
+        float trepaCenter = trpaBX.bounds.center.x;
+
+        print("sCenter "+sadajCenter+"\nTrepaC: "+trepaCenter);
+        if (sadajCenter < trepaCenter) { return true; }
+        else { return false; }
+
+    }
     private void OnTriggerStay2D(Collider2D obj)
     {
         if (obj.CompareTag("finLvl2") && lvl.name=="Nivel 2") { SceneManager.LoadScene("Scenes/finBeta"); }
@@ -266,13 +277,14 @@ public class movController : MonoBehaviour
 
         float pies = sadajCenter - sadajHigh;
 
-        if (obj.CompareTag("trepable") && Input.GetKey(KeyCode.W) && control ) //&& !(sadajCenter > platformTop)
+        if (obj.CompareTag("trepable") && Input.GetKey(KeyCode.W) && control && porLaizq(boxCollider2d, obj) && facingRight ) //&& !(sadajCenter > platformTop)
         {
             
             
 
             //Debug.Log("sadajjCenter: "+sadajCenter+"// trepY: "+trepYMax);
-            Debug.Log("platformTop: "+ platformTop+ "\ntrepY: " + trepYMax + "\ntrepY/1.9: " + (trepYMax/1.05f));
+            //Debug.Log("platformTop: "+ platformTop+ "\ntrepY: " + trepYMax + "\ntrepY/1.9: " + (trepYMax/1.05f));
+            print("trig: "+trig);
 
             trig = false;
             
@@ -310,7 +322,7 @@ public class movController : MonoBehaviour
         if (pies > trepYMax) { platJump = false; }
 
 
-        if ((Input.GetKeyDown(KeyCode.Space) && platJump && /*onGround() &&*/ !empujaIdle && !trig && !scShieldM.shieldUP) )//|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
+        if ((Input.GetKeyDown(KeyCode.Space) && platJump && !trig && !empujaIdle  && !scShieldM.shieldUP))//&& !trig|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
         {
             climbing = false;
             topClimb = false;

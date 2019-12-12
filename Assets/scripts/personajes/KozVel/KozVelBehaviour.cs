@@ -55,7 +55,7 @@ public class KozVelBehaviour : MonoBehaviour
     {
         kvPos.x = Mathf.Floor(kvRB.transform.position.x);
         kvPos.y = Mathf.Floor(kvRB.transform.position.y);
-        print("kvactive: "+kvActive);
+        //print("kvactive: "+kvActive);
 
         kvPosX = Mathf.Floor(kvRB.transform.position.x);
 

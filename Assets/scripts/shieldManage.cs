@@ -87,14 +87,20 @@ public class shieldManage : MonoBehaviour
         {
             if (cBlastSR.enabled && comprueba())
             { 
-                print("holo"); 
+                //print("holo"); 
                 cBlastSR.enabled = false; 
                 scKV.kvActive = false; 
             }
-            
+            else if (cBlastSR.enabled && !comprueba()) 
+            { 
+                counterBlast.transform.eulerAngles += Vector3.forward * 50f;
+            }
+
+
         }
 
-
+        if (shieldRender.enabled && !canUse) { print("onCD"); shieldRender.color = Color.red; }
+        else { shieldRender.color = new Color(255, 255, 255, 255); }
 
     }
 
@@ -163,7 +169,6 @@ public class shieldManage : MonoBehaviour
                 //cBlastRB.position += (Vector2)scKV.kvPos;
 
                 Vector3 dir = cBlastRB.position - (Vector2)scKV.kvPos;
-                counterBlast.transform.eulerAngles += Vector3.forward * 50f;
                 Vector3 x = dir * 2;
                 if (cBlastRB.transform.position != x) cBlastRB.velocity = -(dir);
                 //scKV.kvActive = false;
@@ -181,7 +186,7 @@ public class shieldManage : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D lux)
     {
-        if (scene.name == "level2")
+        if (scene.name == "Nivel 2")
         {
             if (lux.CompareTag("luz") && scMController.onGround() && shieldUP)
             {
@@ -207,7 +212,7 @@ public class shieldManage : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D lux)
     {
-        if (lux.CompareTag("luz") && scene.name == "level2") lux.transform.position = luxPosIni;
+        if (lux.CompareTag("luz") && scene.name == "Nivel 2") lux.transform.position = luxPosIni;
     }
 
     void usingShieldTime()

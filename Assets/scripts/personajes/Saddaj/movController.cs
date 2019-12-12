@@ -48,6 +48,9 @@ public class movController : MonoBehaviour
     public AudioClip audioPushPull;
     //public AudioClip audioFall;
 
+    //scene
+    Scene lvl;
+
 // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +75,8 @@ public class movController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lvl = SceneManager.GetActiveScene();
+
         if (onGround()) { platJump = true; topClimb = false; }
         else { falling = true; platJump = false; }//Uno de los cambios audiosC
 
@@ -251,6 +256,8 @@ public class movController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D obj)
     {
+        if (obj.CompareTag("finLvl2") && lvl.name=="Nivel 2") { SceneManager.LoadScene("Scenes/finBeta"); }
+
         //Trepar//
         float sadajCenter = boxCollider2d.transform.position.y;
         float sadajHigh = boxCollider2d.size.y / 2;

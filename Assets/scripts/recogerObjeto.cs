@@ -29,7 +29,6 @@ public class recogerObjeto : MonoBehaviour
         tRem = 0.8f;
         anim = GetComponent<Animator>();
         sad = GetComponent<Transform>();
-        //casa = GameObject.FindGameObjectWithTag("goHome");
 
     }
         // Update is called once per frame
@@ -55,7 +54,7 @@ public class recogerObjeto : MonoBehaviour
                 recoger = true; 
                 activate = true; 
                 recogido = true;
-                //casa.SetActive(true);
+                casa.SetActive(true);
             }           
         }
 

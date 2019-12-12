@@ -16,7 +16,7 @@ public class goHome : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myText.text = "Deberia de volver a casa";
+        myText.text = "Debería volver a casa...";
         coolDowntimer = coolDown;
     }
 

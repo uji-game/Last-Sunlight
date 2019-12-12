@@ -15,6 +15,7 @@ using UnityEngine;
 
 public class baneBehaviour : MonoBehaviour
 {
+    public GameObject baneObj;
     private Rigidbody2D baneRB;
     private BoxCollider2D baneBX;
 
@@ -36,7 +37,7 @@ public class baneBehaviour : MonoBehaviour
     //VidaBane
     private int baneHP;
     private Animator baneAnim;
-    private bool alive, bAttack;
+    private bool alive, bAttack, fading,fadeComplete;
 
 
 
@@ -52,7 +53,10 @@ public class baneBehaviour : MonoBehaviour
 
         alive = true;
         bAttack = false;
+        fading = false;
+        fadeComplete = false;
 
+        //baneObj = GetComponent<GameObject>();
         baneRB = GetComponent<Rigidbody2D>();
         baneBX = GetComponent<BoxCollider2D>();
         baneAnim = GetComponent<Animator>();
@@ -85,7 +89,15 @@ public class baneBehaviour : MonoBehaviour
         if (rLight.enabled) lxON = true;
         else { lxON = false; }
         baneAnim.SetBool("aliveBane", alive); 
-        baneAnim.SetBool("attack", bAttack); 
+        baneAnim.SetBool("attack", bAttack);
+
+        if (fading)
+        {
+            /*if (baneBX.transform.localScale.x >= 0) { baneBX.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f); }
+            else { fadeComplete = true; }*/
+            print("xd");
+        }
+        if (fadeComplete) { Destroy(this); }
         //print(baneHP);
     }
 
@@ -221,6 +233,12 @@ public class baneBehaviour : MonoBehaviour
             }
         }
 
+    }
+
+    void fBane() 
+    {
+        Destroy(baneObj);
+        fading = true;
     }
 
 }

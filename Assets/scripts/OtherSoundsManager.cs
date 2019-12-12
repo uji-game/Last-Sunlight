@@ -14,7 +14,8 @@ public class OtherSoundsManager : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
 
-        //audioJump = ./Assets.Universal Sound FX/ THUDS_THUMPS
+        audioJump = Resources.Load<AudioClip>("WHOOSH_Air_Very_Fast_RR1_mono");
+        //audioFall = Resources.Load<AudioClip>("//Assets/Universal Sound FX/WHOOSHES/Air/WHOOSH_Air_Very_Fast_RR1_mono.wav");
     }
 
     // Update is called once per frame
@@ -23,12 +24,12 @@ public class OtherSoundsManager : MonoBehaviour
         
     }
 
-    public void PlaySound(string clip)
+    public static void PlaySound(string clip)
     {
         switch (clip)
         {
             case "jump":
-                audio.PlayOneShot(audioJump);
+                audio.Play();
                 break;
             case "fall":
                 audio.PlayOneShot(audioFall);

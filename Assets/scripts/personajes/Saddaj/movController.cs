@@ -45,8 +45,8 @@ public class movController : MonoBehaviour
 
     new AudioSource audio;
     public AudioClip audioWalk;
-    public AudioClip audioJump;
-    public AudioClip audioFall;
+    public AudioClip audioPushPull;
+    //public AudioClip audioFall;
 
 // Start is called before the first frame update
     void Start()
@@ -91,7 +91,7 @@ public class movController : MonoBehaviour
         if (falling && platJump)
         {
             falling = false;
-            audio.PlayOneShot(audioFall);
+            SonidoCaida.PlaySound();
         }
 
         if (moving || push || pull)
@@ -101,13 +101,20 @@ public class movController : MonoBehaviour
                 if (!audio.isPlaying)
                     audio.PlayOneShot(audioWalk);
             }
-            else if (onGround() == false && falling && !audio.isPlaying)
+
+            else //if (onGround() == false && falling && !audio.isPlaying)
             {
                 audio.Stop();
                 Debug.Log("cayendo");
             }
+
+
+            if (push || pull)
+            {
+                SonidoArrastrar.PlaySound();
+            }
         }
-        else if(falling)
+        else //if(falling)
         {
             audio.Stop();
             Debug.Log("falling");
@@ -116,7 +123,8 @@ public class movController : MonoBehaviour
         if (jumping)
         {
             audio.Stop();
-            audio.PlayOneShot(audioJump);
+            //audio.PlayOneShot(audioJump);
+            SonidoSalto.PlaySound();
             jumping = false;
         }
 

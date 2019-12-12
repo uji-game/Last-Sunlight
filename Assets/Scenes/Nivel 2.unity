@@ -1578,7 +1578,6 @@ GameObject:
   m_Component:
   - component: {fileID: 47720612}
   - component: {fileID: 47720611}
-  - component: {fileID: 47720613}
   m_Layer: 0
   m_Name: Musica_fondo
   m_TagString: Untagged
@@ -1595,10 +1594,11 @@ AudioSource:
   m_GameObject: {fileID: 47720610}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 185233401516770273, guid: 4207708d51f13c74aa3e27d41fbff276,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 89028814b10ce4899a383978503d3269, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1696,18 +1696,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &47720613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 47720610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb33530832de71f4491abbcfffda9f3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &50370018
 GameObject:
   m_ObjectHideFlags: 0
@@ -32308,7 +32296,8 @@ AudioSource:
   m_GameObject: {fileID: 1380895173}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7941496203570139344, guid: a86513fca037cbe4783ffd8478ee5468,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: d68a2b5d31258aa42a39b033f051fc25, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -41975,7 +41964,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 47720613}
+      - m_Target: {fileID: 0}
         m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:

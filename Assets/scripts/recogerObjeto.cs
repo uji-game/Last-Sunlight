@@ -101,7 +101,7 @@ public class recogerObjeto : MonoBehaviour
     {
         if (currentLvl.name == "Nivel 1")
         {
-            if (TestRange(sad.transform.position.x, 31, 33))
+            if (TestRange(sad.transform.position.x, 95, 98))
                 SceneManager.LoadScene("Scenes/diapos2");
         }
     }

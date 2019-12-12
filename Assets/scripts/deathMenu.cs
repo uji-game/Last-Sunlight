@@ -46,6 +46,10 @@ public class deathMenu : MonoBehaviour
     public void LoadMenu()
     {
         Debug.Log("Loading menu...");
+        gamePaused = false;
+        Time.timeScale = 1f;
+
+
         SceneManager.LoadScene("MenuIncio");
     }
     public void ExitGame()

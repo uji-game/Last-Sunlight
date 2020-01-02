@@ -249,7 +249,6 @@ public class movController : MonoBehaviour
                 scBarraVida.vida = 0f;
                 scBarraVida.recibirDaño(0f);
                 if (scBarraVida.vida <= 0f) { scBarraVida.dead = true; }
-                print("pupita"); 
             }
         }
     }

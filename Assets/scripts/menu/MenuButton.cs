@@ -20,13 +20,19 @@ public class MenuButton : MonoBehaviour
 		{
 
             animator.SetBool ("selected", true);
+
 			if(Input.GetAxis ("Submit") == 1){
+
 				animator.SetBool ("pressed", true);
-			}else if (animator.GetBool ("pressed")){
+			}
+            
+            else if (animator.GetBool ("pressed")){
+
 				animator.SetBool ("pressed", false);
 				animatorFunctions.disableOnce = true;
                 Scene pantalla = SceneManager.GetActiveScene();
                 string cargar = "controles";
+
                 if (pantalla.name == "MenuIncio")
                 {
                     cargar = "diapos1";

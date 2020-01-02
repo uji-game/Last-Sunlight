@@ -17,6 +17,9 @@ TagManager:
   - takeShield
   - blast
   - finLvl2
+  - cartelLuz
+  - cartelMinas
+  - cartelEmpuja
   layers:
   - Default
   - TransparentFX

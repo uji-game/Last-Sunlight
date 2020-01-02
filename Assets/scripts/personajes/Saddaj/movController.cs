@@ -156,6 +156,7 @@ public class movController : MonoBehaviour
             boxCollider2d.offset = new Vector2(1.75f, -1.8f);
             agachado = true;
         }
+
         else
         {
             boxCollider2d.size = new Vector2(4, 9);
@@ -166,7 +167,7 @@ public class movController : MonoBehaviour
             {
                 if (empujaIdle) {
                     //empujaMov = true;
-                    rb2d.velocity = new Vector2(-pushSpeed+0.35f, rb2d.velocity.y);
+                    rb2d.velocity = new Vector2(-(pushSpeed-0.35f), rb2d.velocity.y);
                 }
                 else {
                     //empujaMov = false; 
@@ -197,7 +198,7 @@ public class movController : MonoBehaviour
                 moving = false;
                 //empujaMov = false;
             }
-            if (!scShieldM.shieldUP) { Jump();  }
+            if (!scShieldM.shieldUP ) { Jump();  }
 
         }
 
@@ -291,17 +292,21 @@ public class movController : MonoBehaviour
             platJump = true;
             
             
-            if (sadajCenter < trepYMax / 1.05f) { 
+            if (sadajCenter < trepYMax / 1.05f) {           //Sin lelgar hasta arriba
                 rb2d.velocity = new Vector2(0f, cSpeed); 
                 climbing = true; 
-                topClimb = false; 
+                topClimb = false;
+                print("Bug1");
             }
 
                 
-            else if(sadajCenter >= trepYMax) {
-                rb2d.gravityScale = 0f;
+            else if(sadajCenter >= trepYMax) {              //Cuando estas por encima del trepable
+                //rb2d.gravityScale = 0f;
                 rb2d.velocity = new Vector2(0f, 0f);
-                boxCollider2d.transform.position = new Vector2(obj.transform.position.x, trepYMax);//  + sadajHigh / 2f
+                boxCollider2d.transform.position = new Vector2(boxCollider2d.transform.position.x, trepYMax);//  + sadajHigh / 2f
+                print("Bug2");
+                //climbing = false;
+
                 topClimb = true;
             }
             
@@ -311,6 +316,7 @@ public class movController : MonoBehaviour
                 topClimb = true;
                 
                 rb2d.velocity = Vector2.up * 0;
+                print("Bug3");
                 rb2d.gravityScale = 0f;
             }
 
@@ -321,8 +327,7 @@ public class movController : MonoBehaviour
         else climbing = false; //topClimb = false;
         if (pies > trepYMax) { platJump = false; }
 
-
-        if ((Input.GetKeyDown(KeyCode.Space) && platJump && !trig && !empujaIdle  && !scShieldM.shieldUP))//&& !trig|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
+        if ((Input.GetKeyDown(KeyCode.Space) /*&& platJump*/ && !trig && !empujaIdle  && !scShieldM.shieldUP))//&& !trig|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
         {
             climbing = false;
             topClimb = false;
@@ -347,6 +352,8 @@ public class movController : MonoBehaviour
 
         if (obj.CompareTag("empujable"))
         {
+            print("me piro");
+            obj.attachedRigidbody.velocity = new Vector2(0f, obj.attachedRigidbody.velocity.y);
             empujaIdle = false;
             empujaMov = false;
             push = false;
@@ -430,9 +437,21 @@ public class movController : MonoBehaviour
 
     }
 
-    
- //Ver desde que lado se empuja/tira
-   void chooseSide(Collision2D p) {
+    private void OnCollisionExit2D(Collision2D obj)
+    {
+        if (obj.collider.CompareTag("empujable"))
+        {
+            print("me piro");
+            if (push && facingRight) { obj.collider.attachedRigidbody.velocity = new Vector2(pushSpeed/2, obj.collider.attachedRigidbody.velocity.y); }
+            if (push && !facingRight) { obj.collider.attachedRigidbody.velocity = new Vector2(-pushSpeed/2, obj.collider.attachedRigidbody.velocity.y); }
+            
+
+        }
+    }
+
+
+    //Ver desde que lado se empuja/tira
+    void chooseSide(Collision2D p) {
 
         float sadajHigh = boxCollider2d.size.y / 2;
         float sadajCenterY = boxCollider2d.transform.position.y;

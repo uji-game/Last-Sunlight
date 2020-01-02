@@ -40,7 +40,7 @@ public class luzInteract : MonoBehaviour
         scene = SceneManager.GetActiveScene();
 
         //if (scShieldM.shieldUP) damage = false;
-        Debug.Log("posIni: "+luxPosIni+"pos luz: "+ boxCollider2d.transform.position);
+        //Debug.Log("posIni: "+luxPosIni+"pos luz: "+ boxCollider2d.transform.position);
         //anim.SetBool("Muerte", morision);
     }
     /*private void OnCollisionEnter2D(Collision2D obj)

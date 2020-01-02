@@ -33,7 +33,7 @@ public class shieldManage : MonoBehaviour
     private Vector3 luxPosIni;
 
     public bool shieldUP;
-    public bool canUse, actUsingTimer, actCdShield;
+    public bool canUse, actUsingTimer, actCdShield, touchingLux;
 
     private float tRem;
 
@@ -44,6 +44,7 @@ public class shieldManage : MonoBehaviour
     void Start()
     {
 
+        touchingLux = false;
         shieldUP = false;
         scMController = FindObjectOfType<movController>();
         scBarraVida = FindObjectOfType<BarraDeVida>();
@@ -74,6 +75,10 @@ public class shieldManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(scMController.onGround());
+        print(shieldUP);
+
+
         scene = SceneManager.GetActiveScene();
         if(shieldRender.enabled) useShield();
         followSaddaj();
@@ -142,7 +147,7 @@ public class shieldManage : MonoBehaviour
 
     void useShield()
     {
-        if (Input.GetKey(KeyCode.E) && scMController.onGround() && canUse)
+        if (Input.GetKey(KeyCode.E) && scMController.onGround() && canUse && touchingLux)
         {
 
             shieldUP = true;
@@ -158,7 +163,8 @@ public class shieldManage : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D obj)
     {
-        if (obj.CompareTag("luz")) { luxPosIni = obj.transform.position; }
+        if (obj.CompareTag("luz")) { luxPosIni = obj.transform.position; touchingLux = true; }
+
         if (obj.CompareTag("blast"))
         {
             if (shieldUP)
@@ -176,11 +182,11 @@ public class shieldManage : MonoBehaviour
                 //if (cBlastRB.transform.position == scKV.kvPos) cBlastSR.enabled = false; ;
 
             }
-            else 
+            else
             {
                 print("la paraste de pecho colorao");
             }
-             
+
         }
     }
 
@@ -212,7 +218,8 @@ public class shieldManage : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D lux)
     {
-        if (lux.CompareTag("luz") && scene.name == "Nivel 2") lux.transform.position = luxPosIni;
+        if (lux.CompareTag("luz") && scene.name == "Nivel 2") { lux.transform.position = luxPosIni; touchingLux = false; }
+        if (lux.CompareTag("blast")) { touchingLux = false; }
     }
 
     void usingShieldTime()

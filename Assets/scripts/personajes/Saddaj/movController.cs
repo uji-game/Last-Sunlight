@@ -277,13 +277,12 @@ public class movController : MonoBehaviour
 
         float pies = sadajCenter - sadajHigh;
 
-        if (obj.CompareTag("trepable") && Input.GetKey(KeyCode.W) && control && porLaizq(boxCollider2d, obj) && facingRight ) //&& !(sadajCenter > platformTop)
+        if (obj.CompareTag("trepable")  && Input.GetKey(KeyCode.W) && control && porLaizq(boxCollider2d, obj) && facingRight ) //&& !(sadajCenter > platformTop)
         {
-            
-            
-
             //Debug.Log("sadajjCenter: "+sadajCenter+"// trepY: "+trepYMax);
             //Debug.Log("platformTop: "+ platformTop+ "\ntrepY: " + trepYMax + "\ntrepY/1.9: " + (trepYMax/1.05f));
+
+            if(lvl.name == "Level1")
             print("trig: "+trig);
 
             trig = false;
@@ -322,22 +321,57 @@ public class movController : MonoBehaviour
 
             if (pies > trepYMax) { platJump = false; }
 
-        }                
+        }
+       
         else climbing = false; //topClimb = false;
+
+
         if (pies > trepYMax) { platJump = false; }
 
-        if ((Input.GetKeyDown(KeyCode.Space) /*&& platJump*/ && !trig && !empujaIdle  && !scShieldM.shieldUP))//&& !trig|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
+        if ((Input.GetKeyDown(KeyCode.Space) /*&& platJump*/ && !trig && !empujaIdle  && !scShieldM.shieldUP ))//&& !trig|| ((sadajCenter >= platformTop) && platJump)) //&& !(sadajCenter>trepYMax))
         {
-            climbing = false;
-            topClimb = false;
+            /*if (lvl.name == "Nivel 1")
+            {
+                climbing = false;
+                topClimb = false;
 
-            rb2d.gravityScale = 1f;
+                rb2d.gravityScale = 1f;
 
-            rb2d.velocity = Vector2.up * jumpVel;
-            platJump = false;
-            tLeft = 0.5f;
-            activateTimer = true;
-            control = false;
+                rb2d.velocity = Vector2.up * jumpVel;
+                platJump = false;
+                tLeft = 0.5f;
+                activateTimer = true;
+                control = false;
+            }
+
+            if (lvl.name == "Nivel 2" && (topClimb || climbing))
+            {
+                print("hey");
+                climbing = false;
+                topClimb = false;
+
+                rb2d.gravityScale = 1f;
+
+                rb2d.velocity = Vector2.up * jumpVel;
+                platJump = false;
+                tLeft = 0.5f;
+                activateTimer = true;
+                control = false;
+            }*/
+
+            if ((topClimb || climbing))
+            {
+                climbing = false;
+                topClimb = false;
+
+                rb2d.gravityScale = 1f;
+
+                rb2d.velocity = Vector2.up * jumpVel;
+                platJump = false;
+                tLeft = 0.5f;
+                activateTimer = true;
+                control = false;
+            }
         }
 
         if (obj.CompareTag("empujable"))

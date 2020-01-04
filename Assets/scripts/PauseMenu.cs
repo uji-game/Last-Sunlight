@@ -12,11 +12,13 @@ public class PauseMenu : MonoBehaviour
     public  bool gamePaused = false;
     public GameObject PauseMenuUI;
     public GameObject ControlMenuUI;
+    public GameObject AudioMenuUI;
+
     private BarraDeVida scBarraVida;
 
     public GameObject ResumeButton;
     public GameObject retPauseButton;
-    public EventSystem EvS;
+    public GameObject retPauseButton2;
 
     Scene x;
     void Start()
@@ -56,9 +58,19 @@ public class PauseMenu : MonoBehaviour
 
         PauseMenuUI.SetActive(true);
         ControlMenuUI.SetActive(false);
+        AudioMenuUI.SetActive(false);
 
         EventSystem.current.SetSelectedGameObject(ResumeButton);
         ResumeButton = EventSystem.current.currentSelectedGameObject;
+    }
+
+    public void AudioMenu()
+    {
+        PauseMenuUI.SetActive(false);
+        AudioMenuUI.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(retPauseButton2);
+        retPauseButton2 = EventSystem.current.currentSelectedGameObject;
     }
 
     public void Pause() {

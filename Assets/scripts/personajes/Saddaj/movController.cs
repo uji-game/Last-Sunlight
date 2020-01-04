@@ -8,8 +8,10 @@ public class movController : MonoBehaviour
     public float jumpVel = 5f;
     public float cSpeed = 3f;
     [SerializeField] private LayerMask platformsLayerMask;
+
     private BarraDeVida scBarraVida;
     private PauseMenu scPause;
+    private deathMenu scDeath;
     private shieldManage scShieldM;
     private recogerObjeto scRecoger;
 
@@ -65,6 +67,9 @@ public class movController : MonoBehaviour
         scPause = FindObjectOfType<PauseMenu>();
         scRecoger = FindObjectOfType<recogerObjeto>();
         scShieldM = FindObjectOfType<shieldManage>();
+
+        scDeath = FindObjectOfType<deathMenu>();
+        
 
 
         audio = GetComponent<AudioSource>();
@@ -530,7 +535,10 @@ public class movController : MonoBehaviour
 
     }
 
-    
+    public void dead() 
+    {
+        scDeath.loadDeathMenu();
+    }
 
     void animScript() { 
         //math.abs return a '+¡ number

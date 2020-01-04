@@ -55457,6 +55457,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2870697741723760274, guid: c11134271590dee49a58fe701ccb5c15,
+        type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 1380895183}
+    - target: {fileID: 2870697740673695935, guid: c11134271590dee49a58fe701ccb5c15,
+        type: 3}
+      propertyPath: orthographic size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870697740673695935, guid: c11134271590dee49a58fe701ccb5c15,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870697740673695935, guid: c11134271590dee49a58fe701ccb5c15,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.62352943
+      objectReference: {fileID: 0}
     - target: {fileID: 2870697740841573499, guid: c11134271590dee49a58fe701ccb5c15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -55515,38 +55535,18 @@ PrefabInstance:
     - target: {fileID: 2870697740673695932, guid: c11134271590dee49a58fe701ccb5c15,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.105646
+      value: -13.8343525
       objectReference: {fileID: 0}
     - target: {fileID: 2870697740673695932, guid: c11134271590dee49a58fe701ccb5c15,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.045631
+      value: -11.785631
       objectReference: {fileID: 0}
     - target: {fileID: 2870697740673695932, guid: c11134271590dee49a58fe701ccb5c15,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 89.05469
+      value: 79.05469
       objectReference: {fileID: 0}
-    - target: {fileID: 2870697740673695935, guid: c11134271590dee49a58fe701ccb5c15,
-        type: 3}
-      propertyPath: orthographic size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870697740673695935, guid: c11134271590dee49a58fe701ccb5c15,
-        type: 3}
-      propertyPath: m_BackGroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870697740673695935, guid: c11134271590dee49a58fe701ccb5c15,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.62352943
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870697741723760274, guid: c11134271590dee49a58fe701ccb5c15,
-        type: 3}
-      propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 1380895183}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c11134271590dee49a58fe701ccb5c15, type: 3}
 --- !u!1001 &3014141609228906808
@@ -56801,9 +56801,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 7863274226786012375}
+    m_SelectOnDown: {fileID: 7863274225989695332}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -57485,6 +57485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathMenuUI: {fileID: 7863274225230839922}
+  restButton: {fileID: 7863274225989695334}
   tAnim: 3
 --- !u!224 &7863274225781851815
 RectTransform:
@@ -57792,9 +57793,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 7863274225510902725}
+    m_SelectOnDown: {fileID: 7863274226786012375}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -59201,9 +59202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 7863274225989695332}
+    m_SelectOnDown: {fileID: 7863274225510902725}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1

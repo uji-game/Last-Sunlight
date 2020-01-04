@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class deathMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     public static bool gamePaused = false;
     public GameObject deathMenuUI;
+
+    public GameObject restButton;
 
     private BarraDeVida script;
     private movController scMov;
@@ -24,11 +28,22 @@ public class deathMenu : MonoBehaviour
     {
         if (script.dead)
         {
-            timeForAnim();
+            //timeForAnim();
             
             
         }
     }
+
+    public void loadDeathMenu() 
+    {
+        deathMenuUI.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(restButton);
+        restButton = EventSystem.current.currentSelectedGameObject;
+
+        gamePaused = true;
+    }
+
     public void Restart()
     {
         
@@ -49,7 +64,6 @@ public class deathMenu : MonoBehaviour
         gamePaused = false;
         Time.timeScale = 1f;
 
-
         SceneManager.LoadScene("MenuIncio");
     }
     public void ExitGame()
@@ -65,6 +79,10 @@ public class deathMenu : MonoBehaviour
         if (tAnim <= 0)
         {
             deathMenuUI.SetActive(true);
+
+            /*EventSystem.current.SetSelectedGameObject(restButton);
+            restButton = EventSystem.current.currentSelectedGameObject;*/
+
             Time.timeScale = 0f;
             gamePaused = true;
 

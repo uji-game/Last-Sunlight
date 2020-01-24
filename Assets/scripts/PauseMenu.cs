@@ -32,6 +32,7 @@ public class PauseMenu : MonoBehaviour
        /* Cursor.visible = false;
         Cursor.lockState= CursorLockMode.Locked;*/
         x = SceneManager.GetActiveScene();
+
         if (Input.GetKeyDown(KeyCode.Escape) && !scBarraVida.dead) {
             if (gamePaused) 
             {
@@ -76,12 +77,13 @@ public class PauseMenu : MonoBehaviour
     public void Pause() {
         PauseMenuUI.SetActive(true);
 
-        EventSystem.current.SetSelectedGameObject(ResumeButton);
-        ResumeButton = EventSystem.current.currentSelectedGameObject;
 
         Time.timeScale = 0f;
         gamePaused = true;
-        if (x.name == "level2") { print("Si no funciono soy bien pendejo"); }
+        if (x.name == "Nivel 2") { print("Si no funciono soy bien pendejo"); }
+
+        EventSystem.current.SetSelectedGameObject(ResumeButton);
+        ResumeButton = EventSystem.current.currentSelectedGameObject;
 
     }
     public void Resume() {

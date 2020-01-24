@@ -31253,7 +31253,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18.39, y: 1.4337043}
+  m_Size: {x: 18.69, y: 1.4337043}
   m_EdgeRadius: 0
 --- !u!61 &1184508158
 BoxCollider2D:
@@ -34161,7 +34161,7 @@ PrefabInstance:
     - target: {fileID: 2870697740673695935, guid: c11134271590dee49a58fe701ccb5c15,
         type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2870697740841573499, guid: c11134271590dee49a58fe701ccb5c15,
         type: 3}
@@ -34221,17 +34221,17 @@ PrefabInstance:
     - target: {fileID: 2870697740673695932, guid: c11134271590dee49a58fe701ccb5c15,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 49.5
+      value: -13.481277
       objectReference: {fileID: 0}
     - target: {fileID: 2870697740673695932, guid: c11134271590dee49a58fe701ccb5c15,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.1
+      value: -8.30842
       objectReference: {fileID: 0}
     - target: {fileID: 2870697740673695932, guid: c11134271590dee49a58fe701ccb5c15,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 99.05469
+      value: 89.05469
       objectReference: {fileID: 0}
     - target: {fileID: 2870697741723760275, guid: c11134271590dee49a58fe701ccb5c15,
         type: 3}

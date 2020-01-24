@@ -210,7 +210,7 @@ public class shieldManage : MonoBehaviour
 
 
             }
-            else if (lux.CompareTag("luz") && scMController.onGround() && !shieldUP) { lux.transform.position = luxPosIni; }
+            else if (lux.CompareTag("luz") && scMController.onGround() && !shieldUP) { lux.transform.position =  new Vector3(lux.attachedRigidbody.transform.position.x, 15, lux.attachedRigidbody.transform.position.z); }
 
             else rLightRender.enabled = false;
         }
@@ -218,7 +218,7 @@ public class shieldManage : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D lux)
     {
-        if (lux.CompareTag("luz") && scene.name == "Nivel 2") { lux.transform.position = luxPosIni; touchingLux = false; }
+        if (lux.CompareTag("luz") && scene.name == "Nivel 2") { lux.transform.position = new Vector3(lux.attachedRigidbody.transform.position.x, 15, lux.attachedRigidbody.transform.position.z);  touchingLux = false; }
         if (lux.CompareTag("blast")) { touchingLux = false; }
     }
 

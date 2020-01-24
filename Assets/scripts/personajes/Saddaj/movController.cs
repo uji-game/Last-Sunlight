@@ -482,7 +482,8 @@ public class movController : MonoBehaviour
             print("me piro");
             if (push && facingRight) { obj.collider.attachedRigidbody.velocity = new Vector2(pushSpeed/2, obj.collider.attachedRigidbody.velocity.y); }
             if (push && !facingRight) { obj.collider.attachedRigidbody.velocity = new Vector2(-pushSpeed/2, obj.collider.attachedRigidbody.velocity.y); }
-            
+            push = false;
+            pull = false;
 
         }
     }

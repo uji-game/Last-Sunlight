@@ -7,6 +7,7 @@ public class BarraDeVida : MonoBehaviour
 {
     // Start is called before the first frame update
     public Scrollbar barraDeVida;
+    public Image enrojecido;
     private shieldManage scShieldM;
     public bool dead;
 
@@ -18,6 +19,7 @@ public class BarraDeVida : MonoBehaviour
     void Start()
     {
         scShieldM = FindObjectOfType<shieldManage>();
+        enrojecido.canvasRenderer.SetAlpha(0.0f);
 
         vida = vidaMax;
         vidaRecuperable = vidaMax;
@@ -74,8 +76,9 @@ public class BarraDeVida : MonoBehaviour
             }
         }
         else {  Debug.Log("Muerto wey"); }
-        
-       
+
+        enrojecido.CrossFadeAlpha(1 - vida/100, 0, false);
+
     }
 
     void outWorld() 

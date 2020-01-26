@@ -8,10 +8,16 @@ public class SonidoArrastrar : MonoBehaviour
     void Start()
     {
         audioArrastrar = GetComponent<AudioSource>();
+        //audioArrastrar.Play();
     }
 
     public static void PlaySound()
     {
-        audioArrastrar.Play();
+        audioArrastrar.mute = false;
+    }
+
+    public static void StopSound()
+    {
+        audioArrastrar.mute = true;
     }
 }

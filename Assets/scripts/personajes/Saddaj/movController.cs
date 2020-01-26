@@ -73,6 +73,7 @@ public class movController : MonoBehaviour
 
 
         audio = GetComponent<AudioSource>();
+        SonidoArrastrar.StopSound();
         //audioJump = GetComponent<AudioSource>();
         //audioFall = GetComponent<AudioSource>();
     }
@@ -122,6 +123,10 @@ public class movController : MonoBehaviour
             if (push || pull)
             {
                 SonidoArrastrar.PlaySound();
+            }
+            else
+            {
+                SonidoArrastrar.StopSound();
             }
         }
         else //if(falling)

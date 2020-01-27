@@ -25,7 +25,7 @@ public class BarraDeVida : MonoBehaviour
         vidaRecuperable = vidaMax;
         dead = false;
 
-        SonidoDaño.StopSound();
+        //SonidoDaño.StopSound();
     }
 
     public void recibirDaño(float daño)
@@ -35,7 +35,8 @@ public class BarraDeVida : MonoBehaviour
             dañado = true;
             vida = Mathf.Clamp(vida - daño, 0f, vidaRecuperable);
             barraDeVida.size = vida / vidaMax;
-            SonidoDaño.PlaySound();
+
+            //SonidoDaño.PlaySound();
         }
         else
         {
@@ -66,7 +67,8 @@ public class BarraDeVida : MonoBehaviour
             }
             else
             {
-                SonidoDaño.StopSound();
+                //SonidoDaño.StopSound();
+
                 tiempoParaRegeneracion = Mathf.Clamp(tiempoParaRegeneracion - Time.deltaTime, 0f, tiempoEsperaParaRegeneracion);
 
                 if (tiempoParaRegeneracion <= 0)

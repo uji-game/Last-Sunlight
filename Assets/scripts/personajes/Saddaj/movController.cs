@@ -120,14 +120,14 @@ public class movController : MonoBehaviour
             }
 
 
-            if (push || pull)
+            /*if ((push && empujaMov) || (pull && empujaMov))
             {
                 SonidoArrastrar.PlaySound();
             }
             else
             {
                 SonidoArrastrar.StopSound();
-            }
+            }*/
         }
         else //if(falling)
         {
@@ -454,6 +454,7 @@ public class movController : MonoBehaviour
                 //Empujar//
                 if (Input.GetKey(KeyCode.D) && empujaIdle)
                 {
+                    SonidoArrastrar.PlaySound();
                     empujaMov = true;
 
                     obj.rigidbody.velocity = new Vector2(pushSpeed, obj.rigidbody.velocity.y);
@@ -462,17 +463,24 @@ public class movController : MonoBehaviour
                 //Tirar//
                 else if (Input.GetKey(KeyCode.A) && empujaIdle)
                 {
+                    SonidoArrastrar.PlaySound();
+
                     empujaMov = true;
 
                     obj.rigidbody.velocity = new Vector2(-pushSpeed, obj.rigidbody.velocity.y);
                     //push = true;
                 }
                 //Ninguna de las dos
-                else { obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y); empujaMov = false; }
+                else {
+                    obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y); 
+                    empujaMov = false;
+                    SonidoArrastrar.StopSound();
+                }
             }
             else //Frenar objeto en X al separarte de el
             {
                 obj.rigidbody.velocity = new Vector2(0f, obj.rigidbody.velocity.y);// obj.rigidbody.inertia = 0f;
+                SonidoArrastrar.StopSound();
             }
         }
 

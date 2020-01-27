@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6a7fd5a50fb8e2145ae39d9866c5eb5c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DHF Semangat 2012 Shadow Demo
+  fontNames:
+  - DHF Semangat 2012 Shadow Demo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

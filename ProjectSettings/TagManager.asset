@@ -20,6 +20,7 @@ TagManager:
   - cartelLuz
   - cartelMinas
   - cartelEmpuja
+  - muerteRocas
   layers:
   - Default
   - TransparentFX

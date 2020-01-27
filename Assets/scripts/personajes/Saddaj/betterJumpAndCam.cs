@@ -4,15 +4,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
+
 
 public class betterJumpAndCam : MonoBehaviour
 {    
     public float fallMult = 2.5f;
     public float lowJumpMult = 2f;
     public float maxZoom = 10f;
-    public float minZoom = 5f;
+    public float minZoom;//= 5f;
 
     public CinemachineVirtualCamera vcam;
+    Scene currentScene;
     /*var camera = Camera.main;
     var brain = (camera == null) ? null : camera.GetComponent<CinemachineBrain>();
     var vcam = (brain == null) ? null : brain.AciveVirtualCamera as CinemachineVirtualCamera;*/
@@ -21,6 +24,9 @@ public class betterJumpAndCam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name =="Nivel 3") { minZoom = 8f; }
+        else { minZoom = 5f; }
+
         rb = GetComponent<Rigidbody2D>();
     }
 

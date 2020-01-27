@@ -97,8 +97,9 @@ public class luzInteract : MonoBehaviour
 
             if (empujableTopY > luzAbajoY)
             {
-                if (scene.name == "Nivel 1") { boxCol.transform.position = new Vector2(boxCol.transform.position.x, empujableTopY + luzMidBotY - 0.4f); }// boxCol.transform.position = new Vector2(boxCol.transform.position.x, empujableTopY+luzMidBotY+0.2f);
-                else if(scene.name == "Nivel 2")boxCol.transform.position = new Vector2(boxCol.transform.position.x, empujableTopY+luzMidBotY-0.4f);
+                //if (scene.name == "Nivel 1") { boxCol.transform.position = new Vector2(boxCol.transform.position.x, empujableTopY + luzMidBotY - 0.4f); }// boxCol.transform.position = new Vector2(boxCol.transform.position.x, empujableTopY+luzMidBotY+0.2f);
+                //else if(scene.name == "Nivel 2")boxCol.transform.position = new Vector2(boxCol.transform.position.x, empujableTopY+luzMidBotY-0.4f);
+                boxCol.transform.position = new Vector2(boxCol.transform.position.x, empujableTopY + luzMidBotY - 0.4f);
             }
         }
 
@@ -111,7 +112,7 @@ public class luzInteract : MonoBehaviour
     private void OnTriggerExit2D(Collider2D p) {
 
         if (p.CompareTag("Player")) { damage = false; anim.SetBool("Damaged", damage); }
-        else if (p.CompareTag("empujable") && (scene.name == "Nivel 2" || scene.name == "Nivel 1")) { boxCol.attachedRigidbody.transform.position = luxPosIni; luxPosIni =new Vector3(boxCol.attachedRigidbody.transform.position.x, 15, boxCol.attachedRigidbody.transform.position.z); }
+        else if (p.CompareTag("empujable") /*&& (scene.name == "Nivel 2" || scene.name == "Nivel 1")*/) { boxCol.attachedRigidbody.transform.position = luxPosIni; luxPosIni =new Vector3(boxCol.attachedRigidbody.transform.position.x, 15, boxCol.attachedRigidbody.transform.position.z); }
 
 
 

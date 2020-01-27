@@ -37,12 +37,13 @@ public class shieldManage : MonoBehaviour
 
     private float tRem;
 
-    Scene scene;
+    Scene currentScene;
 
     // Start is called before the first frame update
 
     void Start()
     {
+        //currentScene = SceneManager.GetActiveScene();
 
         touchingLux = false;
         shieldUP = false;
@@ -60,8 +61,11 @@ public class shieldManage : MonoBehaviour
         rLightRender = rLight.GetComponent<SpriteRenderer>();
 
 
-        cBlastRB = counterBlast.transform.GetComponent<Rigidbody2D>();
-        cBlastSR = counterBlast.GetComponent<SpriteRenderer>();
+        /*if (SceneManager.GetActiveScene().name != "Nivel 3")
+        {*/
+            cBlastRB = counterBlast.transform.GetComponent<Rigidbody2D>();
+            cBlastSR = counterBlast.GetComponent<SpriteRenderer>();
+        //}
 
 
         rLightRB.transform.position = new Vector2(Shield.transform.position.x + 5.5f, Shield.transform.position.y);
@@ -79,7 +83,7 @@ public class shieldManage : MonoBehaviour
         print(shieldUP);
 
 
-        scene = SceneManager.GetActiveScene();
+        currentScene = SceneManager.GetActiveScene();
         if(shieldRender.enabled) useShield();
         followSaddaj();
         //Debug.Log(shieldUP);
@@ -192,7 +196,7 @@ public class shieldManage : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D lux)
     {
-        if (scene.name == "Nivel 2")
+        if (currentScene.name == "Nivel 2")
         {
             if (lux.CompareTag("luz") && scMController.onGround() && shieldUP)
             {
@@ -218,7 +222,7 @@ public class shieldManage : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D lux)
     {
-        if (lux.CompareTag("luz") && scene.name == "Nivel 2") { lux.transform.position = new Vector3(lux.attachedRigidbody.transform.position.x, 15, lux.attachedRigidbody.transform.position.z);  touchingLux = false; }
+        if (lux.CompareTag("luz") && currentScene.name == "Nivel 2") { lux.transform.position = new Vector3(lux.attachedRigidbody.transform.position.x, 15, lux.attachedRigidbody.transform.position.z);  touchingLux = false; }
         if (lux.CompareTag("blast")) { touchingLux = false; }
     }
 
@@ -251,6 +255,6 @@ public class shieldManage : MonoBehaviour
 
     void mismuertos() 
     {                
-        if (scene.name == "Nivel 2") { shieldRender.enabled = true; print("xd"); }
+        if (currentScene.name == "Nivel 2") { shieldRender.enabled = true; print("xd"); }
     }
 }

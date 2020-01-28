@@ -196,7 +196,7 @@ public class shieldManage : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D lux)
     {
-        if (currentScene.name == "Nivel 2")
+        if (currentScene.name == "Nivel 2" || currentScene.name == "Nivel 3")
         {
             if (lux.CompareTag("luz") && scMController.onGround() && shieldUP)
             {

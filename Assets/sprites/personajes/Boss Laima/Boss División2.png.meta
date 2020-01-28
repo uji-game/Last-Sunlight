@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 105a4a739cd7f0849a47cc5103309d0e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2866787794153395156
+    second: "Boss Divisi\xF3n2_0"
+  - first:
+      213: -1255429707214231371
+    second: "Boss Divisi\xF3n2_1"
+  - first:
+      213: -8001427186397648505
+    second: "Boss Divisi\xF3n2_2"
+  - first:
+      213: -6798167099207122862
+    second: "Boss Divisi\xF3n2_3"
+  - first:
+      213: -6809194927995402542
+    second: "Boss Divisi\xF3n2_4"
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Boss Divisi\xF3n2_0"
+      rect:
+        serializedVersion: 2
+        x: 186.21774
+        y: 1082.7438
+        width: 1443.2441
+        height: 730.14343
+      alignment: 9
+      pivot: {x: 0.49941808, y: 0.499923}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0198f6ca6f1c26545aaf7a8c265c1852
+      internalID: -2866787794153395156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Boss Divisi\xF3n2_1"
+      rect:
+        serializedVersion: 2
+        x: 2055.1287
+        y: 1030.2815
+        width: 1550.8713
+        height: 784.7185
+      alignment: 9
+      pivot: {x: 0.5009257, y: 0.5039691}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f15b036e65de3469d9d9c5e885af8c
+      internalID: -1255429707214231371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Boss Divisi\xF3n2_2"
+      rect:
+        serializedVersion: 2
+        x: 3.3586893
+        y: 0
+        width: 2293.6829
+        height: 1018.26544
+      alignment: 9
+      pivot: {x: 0.49904075, y: 0.49897695}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f564173b4a331c24d8ffbf2c25da05df
+      internalID: -8001427186397648505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Boss Divisi\xF3n2_3"
+      rect:
+        serializedVersion: 2
+        x: 2447.9272
+        y: 0
+        width: 1156.2432
+        height: 881.06824
+      alignment: 9
+      pivot: {x: 0.49866048, y: 0.4994832}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0d1de75ca202a449f9642bd249032e
+      internalID: -6798167099207122862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Boss Divisi\xF3n2_4"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 3606
+        height: 1815
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19ce5c700e4cc4240a58cc70d2cbd24d
+      internalID: -6809194927995402542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 637086112251468393
+  assetBundleName: 
+  assetBundleVariant: 

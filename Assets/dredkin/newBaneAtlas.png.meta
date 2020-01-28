@@ -1,0 +1,247 @@
+fileFormatVersion: 2
+guid: fe29c1dd4f620de4685c6a3fe012539c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1981661492176340492
+    second: newBaneAtlas_0
+  - first:
+      213: 4030367093906437567
+    second: newBaneAtlas_1
+  - first:
+      213: -7617929063033825735
+    second: newBaneAtlas_2
+  - first:
+      213: 2260347570443308327
+    second: newBaneAtlas_3
+  - first:
+      213: 7097866640083348934
+    second: newBaneAtlas_4
+  - first:
+      213: -4387397967889030679
+    second: newBaneAtlas_5
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: newBaneAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 620.8293
+        y: 1450.5756
+        width: 428.62103
+        height: 642.5602
+      alignment: 9
+      pivot: {x: 0.49850732, y: 0.49851316}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e0033dbd71d3884991b5e77c3e3414e
+      internalID: 1981661492176340492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newBaneAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 55.943893
+        y: 742.2357
+        width: 424.50684
+        height: 653.874
+      alignment: 9
+      pivot: {x: 0.49953514, y: 0.49934042}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f42c5cffe8294a44fb146ef54329c7f4
+      internalID: 4030367093906437567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newBaneAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 515.2093
+        y: 548.48785
+        width: 598.33234
+        height: 803.0142
+      alignment: 9
+      pivot: {x: 0.5160856, y: 0.4984055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6542357d8d5ded48a3dbff4b64cc57c
+      internalID: -7617929063033825735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newBaneAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 1171.964
+        y: 706.2187
+        width: 323.70862
+        height: 667.2452
+      alignment: 9
+      pivot: {x: 0.4990167, y: 0.49944332}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b50384779c34aa42bd06b359c409f22
+      internalID: 2260347570443308327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newBaneAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 462.12262
+        y: 51.110798
+        width: 115.94092
+        height: 358.67944
+      alignment: 9
+      pivot: {x: 0.49919719, y: 0.49749464}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af94104f8d8a294ba39ee3d05f54673
+      internalID: 7097866640083348934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newBaneAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 1086.362
+        y: 50.082245
+        width: 94.34131
+        height: 353.53668
+      alignment: 9
+      pivot: {x: 0.5102531, y: 0.49915323}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0f3be9eba8397746a72759a0b228b6b
+      internalID: -4387397967889030679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 637155769795159258
+  assetBundleName: 
+  assetBundleVariant: 

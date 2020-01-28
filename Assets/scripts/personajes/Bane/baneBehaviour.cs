@@ -37,7 +37,7 @@ public class baneBehaviour : MonoBehaviour
     //VidaBane
     private int baneHP;
     private Animator baneAnim;
-    private bool alive, bAttack, fading,fadeComplete;
+    private bool alive, bAttack, chasing, fading,fadeComplete;
 
 
 
@@ -53,6 +53,8 @@ public class baneBehaviour : MonoBehaviour
 
         alive = true;
         bAttack = false;
+        chasing = false;
+
         fading = false;
         fadeComplete = false;
 
@@ -89,7 +91,8 @@ public class baneBehaviour : MonoBehaviour
         if (rLight.enabled) lxON = true;
         else { lxON = false; }
         baneAnim.SetBool("aliveBane", alive); 
-        baneAnim.SetBool("attack", bAttack);
+        baneAnim.SetBool("attackBane", bAttack);
+        baneAnim.SetBool("huntingBane", chasing);
 
         if (fading)
         {
@@ -106,6 +109,7 @@ public class baneBehaviour : MonoBehaviour
     {
         if (patrullando)
         {
+            chasing = false;
             bAttack = false;
             //print("Patrusho");
 
@@ -164,6 +168,8 @@ public class baneBehaviour : MonoBehaviour
         //if (baneRB.position.x < saddajRB.position.x)
         if ((baneRB.position.x - saddajRB.position.x) < -1.5f)
         {
+            chasing = true;
+
             bAttack = false;
 
             baneRB.transform.position += new Vector3(0.05f, 0f);
@@ -174,6 +180,8 @@ public class baneBehaviour : MonoBehaviour
 
         else if ((baneRB.position.x - saddajRB.position.x) > 1.5f)
         {
+            chasing = true;
+
             bAttack = false;
 
             baneRB.transform.position += new Vector3(-0.05f, 0f);
@@ -185,6 +193,8 @@ public class baneBehaviour : MonoBehaviour
 
         else 
         {
+            
+
             if (!scBarraVida.dead) bAttack = true;
             else bAttack = false;   //no te cebes hdp
         }

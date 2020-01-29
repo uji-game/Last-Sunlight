@@ -175,7 +175,7 @@ public class baneBehaviour : MonoBehaviour
 
             bAttack = false;
 
-            baneRB.transform.position += new Vector3(0.05f, 0f);
+            baneRB.transform.position += new Vector3(0.03f, 0f);
             if (pDir) { pDir = false; flip(); }
             //print("Te pillo por la izq");
         }
@@ -187,7 +187,7 @@ public class baneBehaviour : MonoBehaviour
 
             bAttack = false;
 
-            baneRB.transform.position += new Vector3(-0.05f, 0f);
+            baneRB.transform.position += new Vector3(-0.03f, 0f);
             if (!pDir) { pDir = true; flip(); }
 
             //print("Te pillo por la dcha");

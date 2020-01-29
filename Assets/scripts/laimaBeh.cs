@@ -81,11 +81,13 @@ public class laimaBeh : MonoBehaviour
         float dist = Mathf.Abs(laimaRB.position.x - saddajRB.position.x);         
      
 
-        if (dist > 15f)
+        if (dist > 15f) //Saddaj se sale del rango //Modificar la distancia (acortarla)
         {
+            //elegir entre ir a por saddaj 
             moveAnim = true;           
+            //o atacar a distancia
         }
-        else 
+        else            //Saddaj dentro de rango, le ataca a melee
         { 
             moveAnim = false;
             movement = false;

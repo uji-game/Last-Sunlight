@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class laimaBeh : MonoBehaviour
 {
     private bool movement, luzRefON;
     public float LaimaHP;
     private bool moveAnim, eqAnim, meleeAnim, laimaAlive, blink;  //Animaciones
+    public int numGolpes;
 
     public GameObject saddajGO;
     private Rigidbody2D saddajRB;
@@ -35,6 +38,7 @@ public class laimaBeh : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        numGolpes = 0;
         laimaAlive = true;
         LaimaHP = 200;
 
@@ -69,12 +73,12 @@ public class laimaBeh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Keypad0)) { blink=true; }
-        print("Laima Alive UPDATE: " + laimaAlive);
+        //if (Input.GetKey(KeyCode.Keypad0)) { blink=true; }
+        //print("Laima Alive UPDATE: " + laimaAlive);
 
         if (scBarraVida.vida <= 0f) { scBarraVida.dead = true; }
 
-        if (LaimaHP <= 0) 
+        /*if (LaimaHP <= 0) 
         { 
             //print("Laima Alive UP IF: " + laimaAlive); 
             laimaAlive = false; 
@@ -82,6 +86,12 @@ public class laimaBeh : MonoBehaviour
             eqAnim = false;
 
             
+        }*/
+        if(numGolpes==3)
+        {
+            laimaAlive = false;
+            meleeAnim = false;
+            eqAnim = false;
         }
         
         if (!scPause.gamePaused && !scBarraVida.dead && laimaAlive)
@@ -169,7 +179,12 @@ public class laimaBeh : MonoBehaviour
     }
 
     //Llamadas desde las animaciones//
+    void endBlink()
+    {
+        blink = false;
+        numGolpes += 1;
 
+    }
 
     void earthquake() 
     {
@@ -255,24 +270,26 @@ public class laimaBeh : MonoBehaviour
         if (!facingLeft) { flipSprite(); }
         else if (facingLeft) { flipSprite(); }
     }
+    void nextStage() 
+    {
+        //aqui el código para pasar a la siguiente pantalla
+        SceneManager.LoadScene("diapos5");
+    }
 
     //Triggers
     private void OnTriggerStay2D(Collider2D obj)
     {
         if (obj.CompareTag("luzRef") && luzRefON)
         {
-            print("Dañando a Laima");
-            LaimaHP -= 5f;
-            if ((LaimaHP) <= 0)
-            {
-                
-                //Destroy(this.gameObject); 
-                LaimaHP = 0;
-                laimaAlive = false;
-
-
-            }
-
+            print("Le diste a la arañita");
+            /* print("Dañando a Laima");
+             LaimaHP -= 5f;
+             if ((LaimaHP) <= 0)
+             {              
+                 LaimaHP = 0;
+                 laimaAlive = false;
+             }*/
+            blink = true;
         }
     }
 }

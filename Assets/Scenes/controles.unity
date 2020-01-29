@@ -1040,16 +1040,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6421078499184565150, guid: 9afc99627a3404e40b3431a4c234b3d1,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2405771003398405333, guid: 9afc99627a3404e40b3431a4c234b3d1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3913440119916722629, guid: 9afc99627a3404e40b3431a4c234b3d1,
         type: 3}
       propertyPath: m_AnchoredPosition.x

@@ -277,7 +277,7 @@ public class movController : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D obj)
     {
-        if (obj.CompareTag("finLvl2") && lvl.name=="Nivel 2") { SceneManager.LoadScene("Scenes/finBeta"); }
+        if (obj.CompareTag("finLvl2") && lvl.name=="Nivel 2") { SceneManager.LoadScene("Scenes/diapos5"); }
 
         //Trepar//
         float sadajCenter = boxCollider2d.transform.position.y;

@@ -273,7 +273,7 @@ public class laimaBeh : MonoBehaviour
     void nextStage() 
     {
         //aqui el código para pasar a la siguiente pantalla
-        SceneManager.LoadScene("diapos5");
+        SceneManager.LoadScene("diapos6");
     }
 
     //Triggers

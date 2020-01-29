@@ -21,6 +21,8 @@ TagManager:
   - cartelMinas
   - cartelEmpuja
   - muerteRocas
+  - cartelEscudo
+  - cartelOjo
   layers:
   - Default
   - TransparentFX

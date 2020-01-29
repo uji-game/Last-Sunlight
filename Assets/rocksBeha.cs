@@ -11,7 +11,7 @@ public class rocksBeha : MonoBehaviour
     private Rigidbody2D luzRB;
     private Transform luzTr;
 
-    private laimaBeh scLaima;
+   // private laimaBeh scLaima;
 
     public bool caerRoca, hayLuz;
 
@@ -22,7 +22,7 @@ public class rocksBeha : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scLaima=FindObjectOfType<laimaBeh>();
+        //scLaima=FindObjectOfType<laimaBeh>();
 
         caerRoca = false;
         hayLuz = false;

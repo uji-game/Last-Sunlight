@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class laimaBeh : MonoBehaviour
 {
-    private bool movement, LaimaAlive;
+    private bool movement, laimaAlive, luzRefON;
+    public float LaimaHP;
     private bool moveAnim, eqAnim, meleeAnim;  //Animaciones
 
     public GameObject saddajGO;
@@ -14,6 +15,11 @@ public class laimaBeh : MonoBehaviour
     private Rigidbody2D laimaRB;
     private BoxCollider2D laimaBX;
     private bool facingLeft = true;
+
+    //Luz    
+    public GameObject refGO;
+    private Rigidbody2D refRB;
+    public SpriteRenderer refSR;
 
     private Animator laimaAnim;
 
@@ -28,14 +34,18 @@ public class laimaBeh : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LaimaAlive = true;
+        laimaAlive = true;
+        LaimaHP = 200;
+
         laimaAnim = GetComponent<Animator>();
         laimaRB = GetComponent<Rigidbody2D>();
         laimaBX = GetComponent<BoxCollider2D>();
 
         saddajRB= saddajGO.GetComponent<Rigidbody2D>();
         saddajBX = saddajGO.GetComponent<BoxCollider2D>();
-
+        //Luz     
+        refRB = refGO.GetComponent<Rigidbody2D>();
+        //
         scMov = FindObjectOfType<movController>();
         scBarraVida = FindObjectOfType<BarraDeVida>();
         scPause= FindObjectOfType<PauseMenu>();
@@ -56,14 +66,27 @@ public class laimaBeh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print("Laima Alive UPDATE: " + laimaAlive);
+
         if (scBarraVida.vida <= 0f) { scBarraVida.dead = true; }
 
-        if (!scPause.gamePaused && !scBarraVida.dead && LaimaAlive)
-        {
+        if (LaimaHP <= 0) 
+        { 
+            print("Laima Alive UP IF: " + laimaAlive); 
+            laimaAlive = false; 
+            meleeAnim = false;
+            eqAnim = false;
 
             
+        }
+        
+        if (!scPause.gamePaused && !scBarraVida.dead && laimaAlive)
+        {
+            if (refSR.enabled) luzRefON = true;
+            else { luzRefON = false; }
+
             getClose();
-            print("EQ restantes: " + availableEQ);
+            
 
             if (movement)
             {
@@ -86,6 +109,7 @@ public class laimaBeh : MonoBehaviour
             laimaAnim.SetBool("LaimaMoving", moveAnim);
             laimaAnim.SetBool("RangedAttack", eqAnim);
             laimaAnim.SetBool("MeleeAttack", meleeAnim);
+            laimaAnim.SetBool("LaimaLife", laimaAlive);
         }
     }
 
@@ -118,7 +142,7 @@ public class laimaBeh : MonoBehaviour
             //o atacar a distancia
 
         }
-        else            //Saddaj dentro de rango, le ataca a melee
+        else            //Saddaj dentro de rango, le ataca a melee SI ESTA A LA ALTURA CORRECTA, SINO, EL RANGO
         { 
             moveAnim = false;
             movement = false;
@@ -224,5 +248,25 @@ public class laimaBeh : MonoBehaviour
     {
         if (!facingLeft) { flipSprite(); }
         else if (facingLeft) { flipSprite(); }
+    }
+
+    //Triggers
+    private void OnTriggerStay2D(Collider2D obj)
+    {
+        if (obj.CompareTag("luzRef") && luzRefON)
+        {
+            print("Dañando a Laima");
+            LaimaHP -= 5f;
+            if ((LaimaHP) <= 0)
+            {
+                
+                //Destroy(this.gameObject); 
+                LaimaHP = 0;
+                laimaAlive = false;
+
+
+            }
+
+        }
     }
 }

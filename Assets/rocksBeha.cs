@@ -81,7 +81,7 @@ public class rocksBeha : MonoBehaviour
         float scaleX = luz.transform.localScale.x;
         if (scaleX>0.001 && rocaRB.bodyType ==RigidbodyType2D.Static)
         {
-            luz.transform.localScale -= new Vector3(0.0001f, 0, 0);
+            luz.transform.localScale -= new Vector3(0.0002f, 0, 0);//0.0001
         }
         else 
         {

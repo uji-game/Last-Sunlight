@@ -147,7 +147,7 @@ public class laimaBeh : MonoBehaviour
 
         if (availableEQ > 0) 
         { 
-            scRocks.caerRoca = true; 
+            if(!scRocks.hayLuz)scRocks.caerRoca = true; 
             availableEQ--; 
         }
        // print("terremoto");
@@ -155,7 +155,8 @@ public class laimaBeh : MonoBehaviour
         if (scMov.onGround()) 
         {
             print("Saddaj esta tocando el suelo");
-            //Hacer daño a Saddaj y el shake e la camara
+            //Hacer daño a Saddaj 
+            scBarraVida.recibirDaño(45f);
         }
         //
     }

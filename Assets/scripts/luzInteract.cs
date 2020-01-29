@@ -38,7 +38,7 @@ public class luzInteract : MonoBehaviour
     void Update()
     {
         scene = SceneManager.GetActiveScene();
-        print(luxPosIni);
+        //print(luxPosIni);
 
         //if (scShieldM.shieldUP) damage = false;
         //Debug.Log("posIni: "+luxPosIni+"pos luz: "+ boxCollider2d.transform.position);

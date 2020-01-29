@@ -22,7 +22,7 @@ public class nivel3 : MonoBehaviour
         { 
             print("xxxx");
             //shake(0.1f, 2f);
-            vcam.m_Lens.Dutch++;//1
+           /* vcam.m_Lens.Dutch++;//1
             vcam.m_Lens.Dutch--;//0
             vcam.m_Lens.Dutch--;//-1
             vcam.m_Lens.Dutch++;//0
@@ -32,7 +32,7 @@ public class nivel3 : MonoBehaviour
             vcam.m_Lens.Dutch--;//-1
             vcam.m_Lens.Dutch++;//0
 
-            vcam.m_Lens.Dutch = 0;
+            vcam.m_Lens.Dutch = 0;*/
 
         }
     }

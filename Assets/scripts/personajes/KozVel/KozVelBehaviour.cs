@@ -156,6 +156,7 @@ public class KozVelBehaviour : MonoBehaviour
     void vkShoot() //antiguo pene
     {
         //print("pum");
+        KozvelAttack.PlaySound();
         blast.transform.position = kvPos;
         blastSR.enabled = true;
         sadPos = saddajRB.position;

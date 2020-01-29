@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//No sé donde ponder el sonido de ataque
+//BaneAttack.PlaySound();
 /*public class BaneConstructor : ClaseEnemigo {
     private Rigidbody2D rb;
     
@@ -93,6 +94,8 @@ public class baneBehaviour : MonoBehaviour
         baneAnim.SetBool("aliveBane", alive); 
         baneAnim.SetBool("attackBane", bAttack);
         baneAnim.SetBool("huntingBane", chasing);
+
+
 
         if (fading)
         {

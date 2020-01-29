@@ -55,15 +55,15 @@ MonoBehaviour:
     m_SolverPoses:
     - m_BoneTransform: {fileID: 9118639414952024812}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: -0.95546144, w: 0.29511604}
+      solverRotation: {x: 0, y: 0, z: -0.98438036, w: 0.17605484}
       defaultLocalRotation: {x: 0, y: 0, z: -0.9908219, w: 0.135174}
     - m_BoneTransform: {fileID: 9118639415785383685}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: -0.18827358, w: 0.98211664}
+      solverRotation: {x: 0, y: 0, z: 0, w: 1}
       defaultLocalRotation: {x: 0, y: 0, z: 0.053417835, w: 0.9985723}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: 2.7724218, y: -3.0842967, z: 0}
+    targetPosition: {x: 2.59, y: -3.4, z: 0}
     flip: 1
 --- !u!1 &9118639414068015222
 GameObject:
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.2375445
+  m_Length: 2.2375457
   m_ChildTransform: {fileID: 9118639414760487356}
   m_AttachedIK: {fileID: 9118639414570268282}
 --- !u!1 &9118639414420045409
@@ -526,15 +526,15 @@ MonoBehaviour:
     m_SolverPoses:
     - m_BoneTransform: {fileID: 9118639415312033119}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.9643561, w: 0.26460767}
+      solverRotation: {x: 0, y: 0, z: 0.97063667, w: 0.2405503}
       defaultLocalRotation: {x: 0, y: 0, z: 0.9790758, w: 0.20349619}
     - m_BoneTransform: {fileID: 9118639414301889724}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: -0.506373, w: 0.8623146}
+      solverRotation: {x: 0, y: 0, z: 0, w: 1}
       defaultLocalRotation: {x: 0, y: 0, z: -0.099245235, w: 0.995063}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: -4.21875, y: -1.2232816, z: 0}
+    targetPosition: {x: -2.81, y: -3.07, z: 0}
     flip: 1
 --- !u!1 &9118639414617109626
 GameObject:
@@ -649,7 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 1.3161181
+  m_Length: 1.3161184
   m_ChildTransform: {fileID: 9118639414068015223}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &9118639414760487347
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.7124884
+  m_Length: 2.7124858
   m_ChildTransform: {fileID: 9118639414522260195}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &9118639414856899342
@@ -944,7 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 1.051103
+  m_Length: 1.0511031
   m_ChildTransform: {fileID: 9118639415926767708}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &9118639414952024803
@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.2153804
+  m_Length: 2.2153797
   m_ChildTransform: {fileID: 9118639415785383685}
   m_AttachedIK: {fileID: 9118639414031856774}
 --- !u!1 &9118639415022780076
@@ -1552,7 +1552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.5796466
+  m_Length: 2.5796454
   m_ChildTransform: {fileID: 9118639415229151174}
   m_AttachedIK: {fileID: 9118639414031856774}
 --- !u!1 &9118639415856707644
@@ -1600,7 +1600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.677649
+  m_Length: 2.6776476
   m_ChildTransform: {fileID: 9118639415884259905}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &9118639415884259904
@@ -1661,6 +1661,7 @@ GameObject:
   - component: {fileID: 9118639415884406232}
   - component: {fileID: 9118639415884406234}
   - component: {fileID: 9118639415884406233}
+  - component: {fileID: 586481451436559761}
   m_Layer: 0
   m_Name: dredkin
   m_TagString: Untagged
@@ -1723,6 +1724,103 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &586481451436559761
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9118639415884406239}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 959233764280083556, guid: 4207708d51f13c74aa3e27d41fbff276,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: b8cf3c07fe751ad4289ee2397d94ae0b, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 20
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &9118639415926767699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,6 +1866,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.5539328
+  m_Length: 0.55393285
   m_ChildTransform: {fileID: 9118639415166260558}
   m_AttachedIK: {fileID: 0}

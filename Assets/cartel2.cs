@@ -6,6 +6,7 @@ public class cartel2 : MonoBehaviour
 {
     public GameObject wEscudo;
     public GameObject wOjo;
+    public GameObject wAtaque;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,11 @@ public class cartel2 : MonoBehaviour
         {
             wOjo.SetActive(true);
         }
+
+        else if (obj.CompareTag("cartelAtaque"))
+        {
+            wAtaque.SetActive(true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D obj)
@@ -41,6 +47,11 @@ public class cartel2 : MonoBehaviour
         else if (obj.CompareTag("cartelOjo"))
         {
             wOjo.SetActive(false);
+        }
+
+        else if (obj.CompareTag("cartelAtaque"))
+        {
+            wAtaque.SetActive(false);
         }
     }
 }

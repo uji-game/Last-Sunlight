@@ -23,6 +23,7 @@ TagManager:
   - muerteRocas
   - cartelEscudo
   - cartelOjo
+  - cartelAtaque
   layers:
   - Default
   - TransparentFX

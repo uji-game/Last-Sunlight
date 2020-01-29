@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/diapos4.unity
     guid: 847a5b845cc5229459564b501c08024a
   - enabled: 1
+    path: Assets/Scenes/diapos5.unity
+    guid: 2bd5cd1542effa24989f0c14aaf8e003
+  - enabled: 1
+    path: Assets/Scenes/diapos6.unity
+    guid: b135a6dd0601ddb439ac01449c991445
+  - enabled: 1
     path: Assets/Scenes/Nivel 1.unity
     guid: c9418fb425660ad479572f8a56bb3aee
   - enabled: 1
@@ -38,10 +44,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel 3.unity
     guid: 9eb5c81207e008042900de432f75945d
-  - enabled: 1
-    path: Assets/Scenes/diapos5.unity
-    guid: 2bd5cd1542effa24989f0c14aaf8e003
-  - enabled: 1
-    path: Assets/Scenes/diapos6.unity
-    guid: b135a6dd0601ddb439ac01449c991445
   m_configObjects: {}

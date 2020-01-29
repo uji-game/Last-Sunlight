@@ -116,7 +116,7 @@ public class movController : MonoBehaviour
             else //if (onGround() == false && falling && !audio.isPlaying)
             {
                 audio.Stop();
-                Debug.Log("cayendo");
+                //Debug.Log("cayendo");
             }
 
 
@@ -132,7 +132,7 @@ public class movController : MonoBehaviour
         else //if(falling)
         {
             audio.Stop();
-            Debug.Log("falling");
+            //Debug.Log("falling");
         }
 
         if (jumping)

@@ -79,8 +79,8 @@ public class shieldManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(scMController.onGround());
-        print(shieldUP);
+        //print(scMController.onGround());
+        //print(shieldUP);
 
 
         currentScene = SceneManager.GetActiveScene();

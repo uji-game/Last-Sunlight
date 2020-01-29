@@ -21,6 +21,9 @@ public class laimaBeh : MonoBehaviour
     private BarraDeVida scBarraVida;
     private PauseMenu scPause;
     private camShake scShakeCam;
+    private rocksBeha scRocks;
+
+    public int availableEQ, maxEQ;  //Nº de terremotos que puede lanzar
 
     // Start is called before the first frame update
     void Start()
@@ -37,12 +40,17 @@ public class laimaBeh : MonoBehaviour
         scBarraVida = FindObjectOfType<BarraDeVida>();
         scPause= FindObjectOfType<PauseMenu>();
         scShakeCam = FindObjectOfType<camShake>();
+        scRocks = FindObjectOfType<rocksBeha>();
 
         movement = false; 
         moveAnim = false;
         eqAnim = false;
         meleeAnim = false;
-        
+
+        maxEQ = 1;
+        availableEQ = maxEQ;
+
+
     }
 
     // Update is called once per frame
@@ -53,11 +61,9 @@ public class laimaBeh : MonoBehaviour
         if (!scPause.gamePaused && !scBarraVida.dead && LaimaAlive)
         {
 
-            //if (Input.GetKeyDown(KeyCode.Keypad0)) { eqAnim = !eqAnim;/* moveAnim = !moveAnim;*/ }//pruebas
+            
             getClose();
-            //print("movement: " + movement);
-            //if (facingLeft) print("Miro a la dcha");
-            //else print("Miro a la izq");
+            print("EQ restantes: " + availableEQ);
 
             if (movement)
             {
@@ -117,8 +123,13 @@ public class laimaBeh : MonoBehaviour
             moveAnim = false;
             movement = false;
 
-            if (Mathf.Abs(laimaRB.position.y - saddajRB.position.y) > 3f) { eqAnim = true; /*rangedAttack(); */}
-            else { meleeAnim = true; eqAnim = false; }
+            if (Mathf.Abs(laimaRB.position.y - saddajRB.position.y) > 3f) 
+            {
+                //eqAnim = true; /*rangedAttack(); */
+                if (availableEQ > 0) eqAnim = true;
+                else if (availableEQ <= 0) eqAnim = false;
+            }
+            else { meleeAnim = true; eqAnim = false; availableEQ = maxEQ; }
         }
     }
 
@@ -133,6 +144,12 @@ public class laimaBeh : MonoBehaviour
     void earthquake() 
     {
         scShakeCam.shakeON = true;
+
+        if (availableEQ > 0) 
+        { 
+            scRocks.caerRoca = true; 
+            availableEQ--; 
+        }
        // print("terremoto");
         //eqAnim = true;
         if (scMov.onGround()) 

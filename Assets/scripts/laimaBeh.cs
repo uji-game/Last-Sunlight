@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class laimaBeh : MonoBehaviour
 {
-    private bool movement, laimaAlive, luzRefON;
+    private bool movement, luzRefON;
     public float LaimaHP;
-    private bool moveAnim, eqAnim, meleeAnim;  //Animaciones
+    private bool moveAnim, eqAnim, meleeAnim, laimaAlive, blink;  //Animaciones
 
     public GameObject saddajGO;
     private Rigidbody2D saddajRB;
@@ -14,6 +14,7 @@ public class laimaBeh : MonoBehaviour
 
     private Rigidbody2D laimaRB;
     private BoxCollider2D laimaBX;
+    private SpriteRenderer laimaSR;
     private bool facingLeft = true;
 
     //Luz    
@@ -40,6 +41,7 @@ public class laimaBeh : MonoBehaviour
         laimaAnim = GetComponent<Animator>();
         laimaRB = GetComponent<Rigidbody2D>();
         laimaBX = GetComponent<BoxCollider2D>();
+        laimaSR = GetComponent<SpriteRenderer>();
 
         saddajRB= saddajGO.GetComponent<Rigidbody2D>();
         saddajBX = saddajGO.GetComponent<BoxCollider2D>();
@@ -56,6 +58,7 @@ public class laimaBeh : MonoBehaviour
         moveAnim = false;
         eqAnim = false;
         meleeAnim = false;
+        blink = false;
 
         maxEQ = 1;
         availableEQ = maxEQ;
@@ -66,13 +69,14 @@ public class laimaBeh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.Keypad0)) { blink=true; }
         print("Laima Alive UPDATE: " + laimaAlive);
 
         if (scBarraVida.vida <= 0f) { scBarraVida.dead = true; }
 
         if (LaimaHP <= 0) 
         { 
-            print("Laima Alive UP IF: " + laimaAlive); 
+            //print("Laima Alive UP IF: " + laimaAlive); 
             laimaAlive = false; 
             meleeAnim = false;
             eqAnim = false;
@@ -106,11 +110,13 @@ public class laimaBeh : MonoBehaviour
                 }
             }
 
-            laimaAnim.SetBool("LaimaMoving", moveAnim);
-            laimaAnim.SetBool("RangedAttack", eqAnim);
-            laimaAnim.SetBool("MeleeAttack", meleeAnim);
-            laimaAnim.SetBool("LaimaLife", laimaAlive);
+            
         }
+        laimaAnim.SetBool("LaimaMoving", moveAnim);
+        laimaAnim.SetBool("RangedAttack", eqAnim);
+        laimaAnim.SetBool("MeleeAttack", meleeAnim);
+        laimaAnim.SetBool("LaimaLife", laimaAlive);
+        laimaAnim.SetBool("LaimaBlink", blink);
     }
 
     private bool sadIsOnTheLeft() //true si Saddaj esta a la izq de Laima

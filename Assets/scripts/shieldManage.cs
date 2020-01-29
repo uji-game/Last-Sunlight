@@ -16,6 +16,7 @@ public class shieldManage : MonoBehaviour
     private Rigidbody2D saddajRB;
 
     public GameObject Shield;
+    public Rigidbody2D ShieldRB;
     private SpriteRenderer shieldRender;
     private BoxCollider2D shieldCollider2d;
 
@@ -33,7 +34,7 @@ public class shieldManage : MonoBehaviour
     private Vector3 luxPosIni;
 
     public bool shieldUP;
-    public bool canUse, actUsingTimer, actCdShield, touchingLux;
+    public bool canUse, actUsingTimer, actCdShield, touchingLux, touchingBlast;
 
     private float tRem;
 
@@ -46,13 +47,16 @@ public class shieldManage : MonoBehaviour
         //currentScene = SceneManager.GetActiveScene();
 
         touchingLux = false;
+        touchingBlast = false;
         shieldUP = false;
+
         scMController = FindObjectOfType<movController>();
         scBarraVida = FindObjectOfType<BarraDeVida>();
         scPause = FindObjectOfType<PauseMenu>();
         scKV = FindObjectOfType<KozVelBehaviour>();
 
         saddajRB = transform.GetComponent<Rigidbody2D>();
+        ShieldRB = Shield.transform.GetComponent<Rigidbody2D>();
         shieldRender = Shield.GetComponent<SpriteRenderer>();
         shieldCollider2d = Shield.GetComponent<BoxCollider2D>();
 
@@ -81,11 +85,14 @@ public class shieldManage : MonoBehaviour
     {
         //print(scMController.onGround());
         //print(shieldUP);
-
+        if (scBarraVida.dead) 
+        {
+            ShieldRB.bodyType = RigidbodyType2D.Dynamic;
+        }
 
         currentScene = SceneManager.GetActiveScene();
         if(shieldRender.enabled) useShield();
-        followSaddaj();
+        if (!scBarraVida.dead) { followSaddaj(); }
         //Debug.Log(shieldUP);
 
         if (actUsingTimer) { usingShieldTime(); }
@@ -151,7 +158,7 @@ public class shieldManage : MonoBehaviour
 
     void useShield()
     {
-        if (Input.GetKey(KeyCode.E) && scMController.onGround() && canUse && touchingLux)
+        if (Input.GetKey(KeyCode.E) && scMController.onGround() && canUse /*&& (touchingLux || touchingBlast)*/)
         {
 
             shieldUP = true;
@@ -171,6 +178,7 @@ public class shieldManage : MonoBehaviour
 
         if (obj.CompareTag("blast"))
         {
+            touchingBlast = true;
             if (shieldUP)
             {
                 scKV.blastSR.enabled = false;

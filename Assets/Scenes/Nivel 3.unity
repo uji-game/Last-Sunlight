@@ -3050,7 +3050,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422888435}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.6631575, y: 1, z: -10}
+  m_LocalPosition: {x: -4.693722, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1887371809}
@@ -6254,6 +6254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LaimaHP: 200
+  numGolpes: 0
   saddajGO: {fileID: 4848463432017806934}
   refGO: {fileID: 3817065134969598681}
   refSR: {fileID: 3817065134969598684}
@@ -13693,7 +13694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.8211926
+  m_Length: 0.8211923
   m_ChildTransform: {fileID: 4848463431665449326}
   m_AttachedIK: {fileID: 4848463431874757880}
 --- !u!4 &4848463431641792706
@@ -13936,7 +13937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.94000036
+  m_Length: 0.94000095
   m_ChildTransform: {fileID: 4848463432334364029}
   m_AttachedIK: {fileID: 4848463432357639850}
 --- !u!4 &4848463431901923059
@@ -14070,6 +14071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shield: {fileID: 8913725888427974370}
+  ShieldRB: {fileID: 0}
   rLight: {fileID: 3817065134969598681}
   counterBlast: {fileID: 3091041724241953500}
   shieldUP: 0
@@ -14402,7 +14404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.990001
+  m_Length: 0.99000025
   m_ChildTransform: {fileID: 4848463431641792706}
   m_AttachedIK: {fileID: 4848463431874757880}
 --- !u!4 &4848463432282263665
@@ -14500,7 +14502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.82207084
+  m_Length: 0.8220714
   m_ChildTransform: {fileID: 4848463431560028847}
   m_AttachedIK: {fileID: 4848463432357639850}
 --- !u!4 &4848463432334364029
@@ -14739,7 +14741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 1.1678784
+  m_Length: 1.1678767
   m_ChildTransform: {fileID: 4848463432520626694}
   m_AttachedIK: {fileID: 4848463431874531463}
 --- !u!4 &4848463432515750015
@@ -15050,7 +15052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 1.0000001
+  m_Length: 0.9999998
   m_ChildTransform: {fileID: 4848463432835516938}
   m_AttachedIK: {fileID: 4848463433183615894}
 --- !u!4 &4848463432971776373
@@ -15944,6 +15946,7 @@ GameObject:
   - component: {fileID: 8913725888427974380}
   - component: {fileID: 8913725888427974371}
   - component: {fileID: 8913725888427974381}
+  - component: {fileID: 8913725888427974372}
   m_Layer: 0
   m_Name: escudo
   m_TagString: shield
@@ -16000,6 +16003,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &8913725888427974372
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8913725888427974370}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!4 &8913725888427974380
 Transform:
   m_ObjectHideFlags: 0

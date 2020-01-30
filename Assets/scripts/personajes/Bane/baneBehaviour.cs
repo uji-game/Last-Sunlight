@@ -222,7 +222,8 @@ public class baneBehaviour : MonoBehaviour
     void fSaddaj() 
     {
         float difPos = baneRB.position.x - saddajRB.position.x;
-       
+        BaneAttack.PlaySound();
+
         if (pDir)   //atacando por la izquierda
         {
             

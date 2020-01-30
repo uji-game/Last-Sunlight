@@ -180,7 +180,8 @@ public class movController : MonoBehaviour
                     rb2d.velocity = new Vector2(-(pushSpeed-0.35f), rb2d.velocity.y);
                 }
                 else {
-                    //empujaMov = false; 
+                    //empujaMov = false;
+                    SonidoArrastrar.StopSound();
                     rb2d.velocity = new Vector2(-speed, rb2d.velocity.y);
                     moving = true;
                 }
@@ -195,7 +196,8 @@ public class movController : MonoBehaviour
                 }
                 else
                 {
-                //empujaMov = false;
+                    //empujaMov = false;
+                    SonidoArrastrar.StopSound();
                     rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
                     moving = true;
                 }

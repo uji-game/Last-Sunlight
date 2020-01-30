@@ -33,6 +33,8 @@ public class laimaBeh : MonoBehaviour
     private camShake scShakeCam;
     private rocksBeha scRocks;
 
+    new AudioSource audio;
+
     public int availableEQ, maxEQ;  //Nº de terremotos que puede lanzar
 
     // Start is called before the first frame update
@@ -57,6 +59,8 @@ public class laimaBeh : MonoBehaviour
         scPause= FindObjectOfType<PauseMenu>();
         scShakeCam = FindObjectOfType<camShake>();
         scRocks = FindObjectOfType<rocksBeha>();
+
+        audio = GetComponent<AudioSource>();
 
         movement = false; 
         moveAnim = false;
@@ -188,6 +192,7 @@ public class laimaBeh : MonoBehaviour
 
     void earthquake() 
     {
+        LaimaTerremotoSound.PlaySound();
         scShakeCam.shakeON = true;
 
         if (availableEQ > 0) 
@@ -213,6 +218,7 @@ public class laimaBeh : MonoBehaviour
 
     void meleeAtack() 
     {
+        LaimaMeleSound.PlaySound();
         float difPos = laimaRB.position.x - saddajRB.position.x;
 
         if (facingLeft)   //atacando por la izquierda
@@ -248,12 +254,13 @@ public class laimaBeh : MonoBehaviour
     void LaimaMove()
     {
         movement = true;
+        audio.Play();
     }
 
     void LaimaStop() 
     {
         movement = false;
-
+        audio.Stop();
     }
 
     void setMovToFalse() { moveAnim = false; }
